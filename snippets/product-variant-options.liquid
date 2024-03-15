@@ -105,6 +105,9 @@
         class="disabled"
       {% endif %}
     >
+    <script>
+      console.log({{ value | json }},"value")
+    </script>
     <label for="{{ input_id }}">
       {{ value -}}
       {{ label_unavailable }}
