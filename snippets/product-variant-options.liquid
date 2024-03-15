@@ -32,8 +32,9 @@
     {% assign varinatValue = variant.metafields.custom.color.value %}
     {% assign varinatValueHandle = varinatValue.name | handleize %}
     {% if varinatValueHandle == valueHandleize %}
+      {% assign variantColor = varinatValue.color %}
     <script>
-      console.log({{ varinatValueHandle | json }}, {{ valueHandleize | json }},"variant")
+      console.log({{ variantColor | json }}, {{ valueHandleize | json }},"variant ok")
     </script>
     {% endif %}
   {% endfor %}
