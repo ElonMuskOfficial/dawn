@@ -35,7 +35,7 @@
 
 {% for color in colorList %}
   <script>
-    console.log({{ color | json }},"colorList")
+    console.log({{ color.name | json }},"colorList")
   </script>
 {% endfor %}
 {%- for value in option.values -%}
