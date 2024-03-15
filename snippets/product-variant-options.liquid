@@ -26,7 +26,6 @@
 -%}
 
 {%- for value in option.values -%}
-  {% assign valueHandle = value | handleize %}
   {%- liquid
     assign option_disabled = true
 
@@ -68,7 +67,7 @@
       {{- 'products.product.variant_sold_out_or_unavailable' | t -}}
     </span>
   {%- endcapture -%}
-
+  {% assign valueHandle = value | handleize %}
   {%- if picker_type == 'swatch' -%}
     {% liquid
       assign checked = false
