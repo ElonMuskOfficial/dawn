@@ -110,7 +110,7 @@
       console.log({{ shop.metaobjects.color[valueHandle] | json }},{{ valueHandle | json }},"value")
     </script>
     <label for="{{ input_id }}">
-      {{ value -}}
+      {{ shop.metaobjects.color[valueHandle].name -}}
       {{ label_unavailable }}
     </label>
   {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}
