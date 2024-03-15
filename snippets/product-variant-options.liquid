@@ -29,8 +29,9 @@
   {% assign valueHandleize = value | handleize %}
   {% for variant in product.variants %}
     {% assign varinatValue = variant.metafields.custom.color.value %}
+    {% assign varinatValueHandle = varinatValue.name | handleize %}
     <script>
-      console.log({{ varinatValue | json }}, {{ valueHandleize | json }},"variant")
+      console.log({{ varinatValueHandle | json }}, {{ valueHandleize | json }},"variant")
     </script>
   {% endfor %}
   {%- liquid
