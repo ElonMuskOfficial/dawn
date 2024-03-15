@@ -34,7 +34,7 @@
     {% if varinatValueHandle == valueHandleize %}
       {% assign variantColor = varinatValue.color %}
     <script>
-      console.log({{ variantColor | json }}, {{ valueHandleize | json }},"variant ok")
+      console.log("{{ variantColor }}", {{ valueHandleize | json }},"variant ok")
     </script>
     {% endif %}
   {% endfor %}
