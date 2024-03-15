@@ -105,8 +105,9 @@
         class="disabled"
       {% endif %}
     >
+    {% assign valueHandle = value | handleize %}
     <script>
-      console.log({{ shop.metaobjects.color[value | handleize] | json }},"value")
+      console.log({{ shop.metaobjects.color[valueHandle] | json }},"value")
     </script>
     <label for="{{ input_id }}">
       {{ value -}}
