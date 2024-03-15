@@ -106,7 +106,7 @@
       {% endif %}
     >
     <script>
-      console.log({{ value | json }},"value")
+      console.log({{ value | handleize | json }},"value")
     </script>
     <label for="{{ input_id }}">
       {{ value -}}
