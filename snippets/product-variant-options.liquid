@@ -36,7 +36,7 @@
     {% assign varinatValueHandle = varinatValue.name | handleize %}
     {% if varinatValueHandle == valueHandleize %}
       {% assign variantColor = varinatValue.color %}
-      {% assign variantColor2 = varinatValue.color_2 | default: 'not awailable' %}
+      {% assign variantColor2 = varinatValue.color_2 | default: '' %}
       {% assign variantImage = varinatValue.image %}
     {% endif %}
     <script>
