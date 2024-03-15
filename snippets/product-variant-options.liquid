@@ -21,13 +21,12 @@
   assign variants_option1_arr = product.variants | map: 'option1'
   assign variants_option2_arr = product.variants | map: 'option2'
   assign variants_option3_arr = product.variants | map: 'option3'
-  assign variants_options = product.variants | map: 'metafields.custom.color'
 
   assign product_form_id = 'product-form-' | append: section.id
 -%}
 
 <script>
-  console.log({{ variants_options | json }},{{ variants_option1_arr | json }},"variants_available_arr")
+  console.log({{ product.variants | json }},{{ variants_option1_arr | json }},"variants_available_arr")
 </script>
 
 {%- for value in option.values -%}
