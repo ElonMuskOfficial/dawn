@@ -28,6 +28,7 @@
 {%- for value in option.values -%}
   {% assign valueHandleize = value | handleize %}
   {% assign variantColor = "" %}
+  {% assign variantColor2 = "" %}
   {% assign variantImage = "" %}
 
   {% for variant in product.variants %}
@@ -35,9 +36,14 @@
     {% assign varinatValueHandle = varinatValue.name | handleize %}
     {% if varinatValueHandle == valueHandleize %}
       {% assign variantColor = varinatValue.color %}
+      {% assign variantColor2 = varinatValue.color_2 %}
       {% assign variantImage = varinatValue.image %}
     {% endif %}
   {% endfor %}
+
+  <script>
+    console.log({{  }})
+  </script>
 
   {%- liquid
     assign option_disabled = true
