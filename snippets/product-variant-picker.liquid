@@ -21,7 +21,7 @@
     {{ block.shopify_attributes }}
   >
   <script>
-    console.log({{ product.selected_or_first_available_variant.metafields.custom.color.value | json }},"product.options_with_values")
+    console.log({{ product.selected_or_first_available_variant.metafields.custom.color | json }},"product.options_with_values")
   </script>
     {%- for option in product.options_with_values -%}
       {%- liquid
