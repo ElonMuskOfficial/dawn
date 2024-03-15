@@ -33,11 +33,11 @@
   </script>
 {% endfor %}
 
-{% comment %} {% for color in colorList %}
+{% for color in colorList %}
   <script>
-    console.log({{ color.name | json }},"colorList")
+    console.log({{ color | json }},"colorList")
   </script>
-{% endfor %} {% endcomment %}
+{% endfor %} 
 {%- for value in option.values -%}
   {%- liquid
     assign option_disabled = true
