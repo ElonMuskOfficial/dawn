@@ -52,7 +52,7 @@
       {%- elsif picker_type == 'button' -%}
         <fieldset class="js product-form__input product-form__input--pill">
           <script>
-            console.log({{ colorMetaobject[option.name | handleize] | json }},"product.options_with_values")
+            console.log({{ option.name | json }},"product.options_with_values")
           </script>
 
           <legend class="form__label">{{ option.name }}</legend>
