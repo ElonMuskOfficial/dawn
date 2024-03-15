@@ -28,6 +28,7 @@
 {%- for value in option.values -%}
   {% assign valueHandleize = value | handleize %}
   {% assign variantColor = "" %}
+  
   {% for variant in product.variants %}
     {% assign varinatValue = variant.metafields.custom.color.value %}
     {% assign varinatValueHandle = varinatValue.name | handleize %}
@@ -35,9 +36,7 @@
       {% assign variantColor = varinatValue.color %}
     {% endif %}
   {% endfor %}
-    <script>
-      console.log("{{ variantColor }}", {{ valueHandleize | json }},"variant")
-    </script>
+
   {%- liquid
     assign option_disabled = true
 
