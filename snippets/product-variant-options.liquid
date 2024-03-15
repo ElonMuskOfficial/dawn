@@ -25,9 +25,11 @@
   assign product_form_id = 'product-form-' | append: section.id
 -%}
 
-<script>
-  console.log({{ product.variants | json }},{{ variants_option1_arr | json }},"variants_available_arr")
-</script>
+{% for variant in product.variants %}
+  <script>
+    console.log({{ variant | json }},"variants_available_arr")
+  </script>
+{% endfor %}
 
 {%- for value in option.values -%}
   {%- liquid
