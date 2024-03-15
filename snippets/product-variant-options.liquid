@@ -40,12 +40,12 @@
       {% assign variantImage = varinatValue.image %}
     {% endif %}
     <script>
-    console.log({{ varinatValue | json }},"varinatValue")
-  </script>
+      console.log({{ varinatValue | json }},"varinatValue")
+    </script>
   {% endfor %}
 
   <script>
-    console.log({{  }})
+    console.log('{{ variantColor }}', '{{ variantColor2 }}', '{{ variantImage }}', 'varinatValue');
   </script>
 
   {%- liquid
