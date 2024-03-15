@@ -29,7 +29,7 @@
 {%- for value in option.values -%}
   {% for variant in product.variants %}
     <script>
-      console.log({{ variant.metafields.custom.color | json }},"variant")
+      console.log({{ variant.metafields.custom.color.value | json }},"variant")
     </script>
   {% endfor %}
   {%- liquid
