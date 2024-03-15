@@ -33,11 +33,11 @@
     {% assign varinatValueHandle = varinatValue.name | handleize %}
     {% if varinatValueHandle == valueHandleize %}
       {% assign variantColor = varinatValue.color %}
-    <script>
-      console.log("{{ variantColor }}", {{ valueHandleize | json }},"variant ok")
-    </script>
     {% endif %}
   {% endfor %}
+    <script>
+      console.log("{{ variantColor }}", {{ valueHandleize | json }},"variant")
+    </script>
   {%- liquid
     assign option_disabled = true
 
