@@ -27,16 +27,16 @@
 
 {%- for value in option.values -%}
   {% assign valueHandleize = value | handleize %}
-  {% assign variantColor = "" %}
-  {% assign variantColor2 = "" %}
-  {% assign variantImage = "" %}
+  {% assign variantColor = '' %}
+  {% assign variantColor2 = '' %}
+  {% assign variantImage = '' %}
 
   {% for variant in product.variants %}
     {% assign varinatValue = variant.metafields.custom.color.value %}
     {% assign varinatValueHandle = varinatValue.name | handleize %}
     {% if varinatValueHandle == valueHandleize %}
       {% assign variantColor = varinatValue.color %}
-      {% assign variantColor2 = varinatValue.color_2 %}
+      {% assign variantColor2 = varinatValue.color_2 | default: '' %}
       {% assign variantImage = varinatValue.image %}
     {% endif %}
   {% endfor %}
