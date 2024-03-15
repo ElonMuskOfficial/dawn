@@ -24,7 +24,7 @@
 
   assign product_form_id = 'product-form-' | append: section.id
 -%}
-{% assign colorList = '' %}
+{% assign colorList = '' | split: ',' %}
 
 {% for variant in product.variants %}
   <script>
@@ -35,7 +35,7 @@
 
 {}
 <script>
-  console.log("{{ colorList }}","colorList")
+  console.log({{ colorList }},"colorList")
 </script>
 {%- for value in option.values -%}
   {%- liquid
