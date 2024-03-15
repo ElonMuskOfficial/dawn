@@ -39,6 +39,9 @@
       {% assign variantColor2 = varinatValue.color_2 | default: 'not awailable' %}
       {% assign variantImage = varinatValue.image %}
     {% endif %}
+    <script>
+    console.log({{ varinatValue | json }},"varinatValue")
+  </script>
   {% endfor %}
 
   <script>
