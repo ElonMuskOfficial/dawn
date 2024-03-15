@@ -25,11 +25,11 @@
   assign product_form_id = 'product-form-' | append: section.id
 -%}
 
-
 {%- for value in option.values -%}
   {% for variant in product.variants %}
+    {% assign varinatValue = variant.metafields.custom.color.value %}
     <script>
-      console.log({{ variant.metafields.custom.color.value | json }},"variant")
+      console.log({{ varinatValue | json }},"variant")
     </script>
   {% endfor %}
   {%- liquid
