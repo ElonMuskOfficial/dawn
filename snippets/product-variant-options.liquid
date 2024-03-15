@@ -28,12 +28,14 @@
 {%- for value in option.values -%}
   {% assign valueHandleize = value | handleize %}
   {% assign variantColor = "" %}
-  
+  {% assign variantImage = "" %}
+
   {% for variant in product.variants %}
     {% assign varinatValue = variant.metafields.custom.color.value %}
     {% assign varinatValueHandle = varinatValue.name | handleize %}
     {% if varinatValueHandle == valueHandleize %}
       {% assign variantColor = varinatValue.color %}
+      {% assign variantImage = varinatValue.image %}
     {% endif %}
   {% endfor %}
 
