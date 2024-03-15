@@ -107,7 +107,7 @@
     >
     {% assign valueHandle = value | handleize %}
     <script>
-      console.log({{ shop.metaobjects.color[valueHandle] | json }},"value")
+      console.log({{ shop.metaobjects.color["sunkissed-nude"] | json }},{{ valueHandle | json }},"value")
     </script>
     <label for="{{ input_id }}">
       {{ value -}}
