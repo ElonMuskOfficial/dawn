@@ -20,10 +20,10 @@
     {% endif %}
     {{ block.shopify_attributes }}
   >
-  {% assign sunkissedNude = shop.metaobjects.color %}
-  <script>
+  {% assign colorMetaobject = shop.metaobjects.color %}
+  {% comment %} <script>
     console.log({{ sunkissedNude.name | handleize | json }},"product.options_with_values")
-  </script>
+  </script> {% endcomment %}
     {%- for option in product.options_with_values -%}
       {%- liquid
         assign swatch_count = option.values | map: 'swatch' | compact | size
@@ -40,7 +40,7 @@
       {%- if picker_type == 'swatch' -%}
         <fieldset class="js product-form__input product-form__input--swatch">
           <legend class="form__label">
-            {{ option.name }}:
+            {{ colorMetaobject[option.name | handleize] }}:
             <span data-selected-swatch-value="{{ option.name }}">
               {{- option.selected_value -}}
             </span>
