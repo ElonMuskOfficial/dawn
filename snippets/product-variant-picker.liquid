@@ -20,8 +20,9 @@
     {% endif %}
     {{ block.shopify_attributes }}
   >
+  {% assign sunkissedNude = shop.metaobjects.color['sunkissed-nude'] %}
   <script>
-    console.log({{ shop.metaobjects.color['sunkissed-nude'] | json }},"product.options_with_values")
+    console.log({{ sunkissedNude.name | handleize | json }},"product.options_with_values")
   </script>
     {%- for option in product.options_with_values -%}
       {%- liquid
