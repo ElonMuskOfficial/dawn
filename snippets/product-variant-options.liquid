@@ -26,7 +26,7 @@
 -%}
 
 <script>
-  console.log({{ variants_available_arr | json }},{{ variants_option1_arr | json }},"variants_available_arr")
+  console.log({{ product.variants | json }},{{ variants_option1_arr | json }},"variants_available_arr")
 </script>
 
 {%- for value in option.values -%}
