@@ -24,21 +24,14 @@
 
   assign product_form_id = 'product-form-' | append: section.id
 -%}
-{% assign colorList = '' %}
 
-{% for variant in product.variants %}
-  {% assign colorList = colorList | append: variant.metafields.custom.color.value | append:',' %}
-  <script>
-    console.log({{ variant.metafields.custom.color.value | json }},{{ product.options_with_values | json }},{{ colorList |  split: ',' | json }},"variants_available_arr")
-  </script>
-{% endfor %}
 
-{% for color in colorList %}
-  <script>
-    console.log({{ color | json }},"colorList")
-  </script>
-{% endfor %} 
 {%- for value in option.values -%}
+  {% for variant in product.variants %}
+    <script>
+      console.log({{ variant.metafields.custom.color | json }},"variant")
+    </script>
+  {% endfor %}
   {%- liquid
     assign option_disabled = true
 
