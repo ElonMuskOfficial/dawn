@@ -22,7 +22,7 @@
   >
   {% assign sunkissedNude = "Shop&the#ok # this % done &" %}
   <script>
-    console.log({{ sunkissedNude.name | handleize | json }},"product.options_with_values")
+    console.log({{ sunkissedNude | handleize | json }},"product.options_with_values")
   </script>
     {%- for option in product.options_with_values -%}
       {%- liquid
