@@ -26,6 +26,7 @@
 -%}
 
 {%- for value in option.values -%}
+  {% assign valueHandle = value | handleize %}
   {%- liquid
     assign option_disabled = true
 
@@ -105,7 +106,7 @@
         class="disabled"
       {% endif %}
     >
-    {% assign valueHandle = value | handleize %}
+    
     <label for="{{ input_id }}">
       {{ shop.metaobjects.color[valueHandle].name -}}
       {{ label_unavailable }}
