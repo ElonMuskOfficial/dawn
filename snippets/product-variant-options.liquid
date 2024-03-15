@@ -24,6 +24,7 @@
 
   assign product_form_id = 'product-form-' | append: section.id
 -%}
+{% assign colorList = "" split: "," %}
 
 {% for variant in product.variants %}
   <script>
