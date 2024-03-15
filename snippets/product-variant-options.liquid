@@ -27,7 +27,7 @@
 {% assign colorList = '' | split: ',' %}
 
 {% for variant in product.variants %}
-  {% assign colorList = colorList | append: variant.metafields.custom.color.value | append:',' %}
+  {% assign colorList = colorList | append: "ok" | append:',' %}
   <script>
     console.log({{ variant.metafields.custom.color.value | json }},{{ product.options_with_values | json }},{{ colorList | json }},"variants_available_arr")
   </script>
