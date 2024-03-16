@@ -20,7 +20,6 @@
     {% endif %}
     {{ block.shopify_attributes }}
   >
-
     {%- for option in product.options_with_values -%}
       {%- liquid
         assign swatch_count = option.values | map: 'swatch' | compact | size

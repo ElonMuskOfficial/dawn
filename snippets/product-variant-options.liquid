@@ -26,25 +26,6 @@
 -%}
 
 {%- for value in option.values -%}
-  {% assign valueHandleize = value | handleize %}
-  {% assign variantColor = '' %}
-  {% assign variantColor2 = '' %}
-  {% assign variantImage = '' %}
-
-  {% for variant in product.variants %}
-    {% assign varinatValue = variant.metafields.custom.color.value %}
-    {% assign varinatValueHandle = varinatValue.name | handleize %}
-    {% if varinatValueHandle == valueHandleize %}
-      {% assign variantColor = varinatValue.color %}
-      {% assign variantColor2 = varinatValue.color_2 | default: '' %}
-      {% assign variantImage = varinatValue.image %}
-    {% endif %}
-    <script>
-      console.log({{ varinatValue | json }},"varinatValue")
-    </script>
-  {% endfor %}
-
-
   {%- liquid
     assign option_disabled = true
 
@@ -111,7 +92,6 @@
       help_text: help_text
     %}
   {%- elsif picker_type == 'button' -%}
-    {% assign valueHandle = value | handleize %}
     <input
       type="radio"
       id="{{ input_id }}"
@@ -125,8 +105,8 @@
         class="disabled"
       {% endif %}
     >
-    <label for="{{ input_id }}" style="background-color: {{ shop.metaobjects.color[valueHandle].color }};">
-      {{ shop.metaobjects.color[valueHandle].name -}}
+    <label for="{{ input_id }}">
+      {{ value -}}
       {{ label_unavailable }}
     </label>
   {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}
