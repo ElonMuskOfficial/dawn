@@ -39,6 +39,12 @@
     <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
   {%- endif -%}
 
+  {% for variant in product.variants %}
+    <script>
+      console.log({{ variant | json }},"variant")
+    </script>
+  {% endfor %}
+
   {% if section.settings.image_zoom == 'hover' %}
     <script id="EnableZoomOnHover-main" src="{{ 'magnify.js' | asset_url }}" defer="defer"></script>
   {% endif %}
@@ -449,7 +455,7 @@
                   {{- block.settings.text -}}
                 </a>
               {%- when 'share' -%}
-                {% liquid 
+                {% liquid
                   assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin
                   render 'share-button', block: block, share_link: share_url
                 %}
