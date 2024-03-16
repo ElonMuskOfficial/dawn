@@ -45,8 +45,8 @@
     </script>
   {% endfor %}
 
-  <script type="application/json" data-productMedia>
-  {{ product.media | json }}
+  <script>
+    console.log({{ product.media | json }},"variant")
   </script>
 
   {% if section.settings.image_zoom == 'hover' %}
