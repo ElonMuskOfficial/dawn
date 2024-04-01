@@ -39,10 +39,10 @@
     <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
   {%- endif -%}
 
-  {% for variant in product.variants %}
     <script>
-      console.log({{ variant | json }},"variant")
+      console.log({{ product.variants | json }},"variants")
     </script>
+  {% for variant in product.variants %}
   {% endfor %}
 
   <script>
