@@ -88,7 +88,7 @@
           else 
             assign start_position = image_positions[i] | plus: 0
           endif 
-          assign end_index = i | plus: 1  
+          assign end_index = i | plus: 1
           assign end_position = image_positions[end_index] | default:9999 | plus: 0 
           if media.position >= start_position and media.position < end_position 
             assign data_group_arr = data_group_arr | append: group_values[i] | append: "," 
