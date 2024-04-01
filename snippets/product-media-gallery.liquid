@@ -42,8 +42,68 @@
     assign id_append = '-duplicate'
   endif
 -%}
-
+{%- liquid
+  if section.settings.enable_group_media
+    assign optionNames = section.settings.media_grouping_option | split:","
+    assign option_name_present = false 
+    assign image_positions = ""
+    assign group_values = ""
+    for option in optionNames
+      for product_option in product.options
+        if option == product_option
+            assign option_index = forloop.index0
+            assign option_name_present = true 
+            break
+        endif 
+      endfor
+    endfor
+    if option_name_present
+      for variant in product.variants
+        assign group_values_arr = group_values | split:","
+        assign value_already_present = false
+        for value in group_values_arr
+          if value == variant.options[option_index]
+              assign value_already_present = true  
+              break
+          endif
+        endfor
+        unless value_already_present 
+          assign group_values = group_values | append: variant.options[option_index] | append:"," 
+          assign image_positions = image_positions| append: variant.featured_media.position| append:"," 
+        endunless 
+      endfor
+      assign image_positions = image_positions | split: ','
+      assign group_values = group_values | split: ','
+      assign group_values_size = image_positions.size | minus : 1
+      assign data_group_arr = "" 
+      for media in product.media
+        for i in (0..group_values_size)
+          if i == 0 
+            assign start_position = 1 
+          else 
+            assign start_position = image_positions[i] | plus: 0
+          endif 
+          assign end_index = i | plus: 1  
+          assign end_position = image_positions[end_index] | default:9999 | plus: 0 
+          if media.position >= start_position and media.position < end_position 
+            assign data_group_arr = data_group_arr | append: group_values[i] | append: "," 
+          endif
+        endfor
+      endfor 
+      assign data_group_arr = data_group_arr | split:","
+    endif
+  endif
+-%}
+<style>
+  .hide-media{
+    display:none;
+    width:0
+  }
+</style>
 <media-gallery
+  {% if option_name_present %}
+ media-grouping-enabled
+{% endif %}
   id="MediaGallery-{{ section.id }}{{ id_append }}"
   role="region"
   {% if section.settings.enable_sticky_info %}
@@ -91,8 +151,9 @@
       {%- for media in product.media -%}
         {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
           <li
+            data-media-group="{{data_group_arr[forloop.index0]}}"
             id="Slide-{{ section.id }}-{{ media.id }}{{ id_append }}"
-            class="product__media-item grid__item slider__slide{% if single_media_visible %} product__media-item--single{% endif %}{% if product.selected_or_first_available_variant.featured_media == null and forloop.index == 1 %} is-active{% endif %}{% if media.media_type != 'image' %} product__media-item--full{% endif %}{% if section.settings.hide_variants and variant_images contains media.src %} product__media-item--variant{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+            class="{% if product.selected_or_first_available_variant.options[option_index] != data_group_arr[forloop.index0] and section.settings.enable_group_media %}hide-media {% endif %} product__media-item grid__item slider__slide{% if single_media_visible %} product__media-item--single{% endif %}{% if product.selected_or_first_available_variant.featured_media == null and forloop.index == 1 %} is-active{% endif %}{% if media.media_type != 'image' %} product__media-item--full{% endif %}{% if section.settings.hide_variants and variant_images contains media.src %} product__media-item--variant{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
             data-media-id="{{ section.id }}-{{ media.id }}"
           >
             {%- liquid
@@ -248,8 +309,9 @@
               assign media_index = media_index | plus: 1
             -%}
             <li
+            data-media-group="{{data_group_arr[forloop.index0]}}"
               id="Slide-Thumbnails-{{ section.id }}-{{ forloop.index }}{{ id_append }}"
-              class="thumbnail-list__item slider__slide{% if section.settings.hide_variants and variant_images contains media.src %} thumbnail-list_item--variant{% endif %}"
+              class="{% if product.selected_or_first_available_variant.options[option_index] != data_group_arr[forloop.index0] and section.settings.enable_group_media %}hide-media {% endif %} thumbnail-list__item slider__slide{% if section.settings.hide_variants and variant_images contains media.src %} thumbnail-list_item--variant{% endif %}"
               data-target="{{ section.id }}-{{ media.id }}"
               data-media-position="{{ media_index }}"
             >
