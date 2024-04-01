@@ -31,7 +31,10 @@
       }
     }
   {%- endstyle -%}
-
+  <script>
+    console.log({{ product | json }},"product")
+    console.log({{ product.variants | json }},"variants")
+  </script>
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
   {%- if product.quantity_price_breaks_configured? -%}
