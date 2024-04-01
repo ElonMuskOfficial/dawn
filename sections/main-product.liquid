@@ -32,18 +32,22 @@
     }
   {%- endstyle -%}
 
-  <script>
-    console.log({{ product | json }},"product")
-    console.log({{ product.variants | json }},"product.variants")
-    console.log({{ product.media | json }},"product.media")
-  </script>
-
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
   {%- if product.quantity_price_breaks_configured? -%}
     <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
   {%- endif -%}
+
+  {% for variant in product.variants %}
+    <script>
+      console.log({{ variant | json }},"variant")
+    </script>
+  {% endfor %}
+
+  <script>
+    console.log({{ product.media | json }},"variant")
+  </script>
 
   {% if section.settings.image_zoom == 'hover' %}
     <script id="EnableZoomOnHover-main" src="{{ 'magnify.js' | asset_url }}" defer="defer"></script>
