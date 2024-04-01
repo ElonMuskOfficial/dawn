@@ -42,6 +42,11 @@
     assign id_append = '-duplicate'
   endif
 -%}
+<script>
+  {% for variant in product.variants %}
+    console.log({{ variant.featured_image.position | json }},"variant")
+  {% endfor %}
+</script>
 {%- liquid
   if section.settings.enable_group_media
     assign optionNames = section.settings.media_grouping_option | split:","
