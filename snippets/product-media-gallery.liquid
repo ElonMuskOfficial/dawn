@@ -42,6 +42,9 @@
     assign id_append = '-duplicate'
   endif
 -%}
+<script>
+  console.log({{ product.options | json }},"product.options")
+</script>
 {%- liquid
   if section.settings.enable_group_media
     assign optionNames = section.settings.media_grouping_option | split:","
