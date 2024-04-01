@@ -1037,9 +1037,9 @@ class VariantSelects extends HTMLElement {
           .querySelectorAll(`[data-media-group="${value}"]`)
           .forEach((el) => el.classList.remove('hide-media'));
       });
-      // mediaGallery.querySelectorAll('slider-component').forEach((slider) => {
-      //   slider.initPages();
-      // });
+      mediaGallery.querySelectorAll('slider-component').forEach((slider) => {
+        slider.initPages();
+      });
     }
     // Group variants end
     if (!this.currentVariant) return;
