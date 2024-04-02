@@ -1040,13 +1040,13 @@ class VariantSelects extends HTMLElement {
       const variantValues = [currentVariant.value];
       const mediaGallery = document.querySelector(`[id^="MediaGallery-${this.dataset.section}"]`);
       // if (mediaGallery.hasAttribute('media-grouping-enabled')) {
-        mediaGallery.querySelectorAll('[data-media-group]').forEach((el) => (el.style.display = 'none'));
-        variantValues.forEach((value) => {
-          mediaGallery.querySelectorAll(`[data-media-group="${value}"]`).forEach((el) => (el.style.display = 'block'));
-        });
-        mediaGallery.querySelectorAll('slider-component').forEach((slider) => {
-          slider.initPages();
-        });
+      mediaGallery.querySelectorAll('[data-media-position]').forEach((el) => (el.style.display = 'none'));
+      variantValues.forEach((value) => {
+        mediaGallery.querySelectorAll(`[data-media-position="default"]`).forEach((el) => (el.style.display = 'block'));
+      });
+      mediaGallery.querySelectorAll('slider-component').forEach((slider) => {
+        slider.initPages();
+      });
       // }
       // Group variants end
 
