@@ -7,42 +7,45 @@ function getFocusableElements(container) {
 }
 
 /**
- * Retrieves the media items for a specific variant position.
+ * Retrieves the media items for a given variant position within the provided arrays of variants and media.
  *
- * @param {Array} variants - The array of variants.
- * @param {Array} media - The array of media items.
- * @param {number} position - The position of the variant.
- * @return {Array|null} - The array of media items for the specified variant position, or null if no variant is found.
+ * @param {Array} variants - The array of variant objects.
+ * @param {Array} media - The array of media objects.
+ * @param {number} position - The position of the variant for which media items are to be retrieved.
+ * @return {Array|null} The filtered array of media items for the given variant position, or null if no variant is found.
  */
 function getMediaForVariantPosition(variants, media, position) {
-  // Find the variant with the specified position
-  const variant = variants.find((variant) => variant.featured_image.position === position);
+  if (!Array.isArray(variants) || !Array.isArray(media)) {
+    throw new Error('Variants and media must be arrays.');
+  }
 
-  // If no variant is found, return null
+  if (!variants.length || !media.length || typeof position !== 'number' || position < 0) {
+    throw new Error('Invalid input data or position.');
+  }
+
+  const variant = variants.find((variant) => variant.featured_image.position === position);
   if (!variant) {
     return null;
   }
 
-  // Get the start position of the variant
-  const start = variant.featured_image.position;
+  const variantPosition = variant.featured_image.position;
+  const nextVariantIndex = variants.findIndex((variant) => variant.featured_image.position > position);
+  const endPosition =
+    nextVariantIndex !== -1 ? variants[nextVariantIndex].featured_image.position : media[media.length - 1].position + 1;
 
-  // Find the index of the next variant with a greater position
-  const nextVariantIndex = variants.findIndex((variant) => variant.featured_image.position === position);
-
-  // Calculate the end position of the media items
-  const end =
-    nextVariantIndex < variants.length - 1
-      ? variants[nextVariantIndex + 1].featured_image.position
-      : media[media.length - 1].position + 1;
-
-  const filteredMedia = media.filter((mediaItem) => mediaItem.position >= start && mediaItem.position < end);
-
-  const beforeFirstVariantImages = media.filter(
-    (mediaItem) => mediaItem.position < variants[0].featured_image.position
+  const filteredMedia = media.reduce(
+    (acc, mediaItem) => {
+      if (mediaItem.position >= variantPosition && mediaItem.position < endPosition) {
+        acc.filtered.push(mediaItem);
+      } else if (mediaItem.position < variants[0].featured_image.position) {
+        acc.beforeFirst.push(mediaItem);
+      }
+      return acc;
+    },
+    { filtered: [], beforeFirst: [] }
   );
 
-  // Filter the media items based on their position range
-  return [...filteredMedia, ...beforeFirstVariantImages];
+  return [...filteredMedia.filtered, ...filteredMedia.beforeFirst];
 }
 
 document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
