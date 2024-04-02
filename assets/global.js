@@ -964,7 +964,7 @@ class VariantSelects extends HTMLElement {
       variantValues.forEach((value) => {
         console.log(value);
         mediaGallery.querySelectorAll(`[data-media-group="${value}"]`).forEach((el) => {
-          if (el.hasAttribute('data-media-group')) {
+          if (el.hasAttribute('data-media-group') && el.hasAttribute('data-media-position')) {
             console.log(el, 'ellll');
           }
         });
