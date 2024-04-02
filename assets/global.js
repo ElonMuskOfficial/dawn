@@ -988,10 +988,12 @@ class VariantSelects extends HTMLElement {
     if (parentElement) {
       const productVariantsJSON = parentElement.querySelector('[id^="ProductVariantsJSON-"]');
       const productMediaJSON = parentElement.querySelector('[id^="ProductMediaJSON-"]');
+      const variantInputs = parentElement.querySelectorAll('input[type="radio"]');
+
       const productVariants = JSON.parse(productVariantsJSON.textContent);
       const productMedia = JSON.parse(productMediaJSON.textContent);
-      const variantInputs = parentElement.querySelectorAll('input[type="radio"]');
       const currentVariant = this.getCurrentVariant(variantInputs);
+
       if (Object.keys(currentVariant).length !== 0) {
         console.log(productVariants);
         console.log(productMedia);
