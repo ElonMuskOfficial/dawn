@@ -949,7 +949,7 @@ class VariantSelects extends HTMLElement {
   constructor() {
     super();
     this.addEventListener('change', this.onVariantChange);
-    this.onLoadRemoveImage();
+    // this.onLoadRemoveImage();
     console.log('Loaded.....');
   }
 
