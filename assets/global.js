@@ -974,6 +974,7 @@ class VariantSelects extends HTMLElement {
         currentVariant = input.value;
       }
     });
+    console.log({ currentVariant });
   }
 
   onVariantChange(event) {
