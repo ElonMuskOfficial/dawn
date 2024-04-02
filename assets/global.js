@@ -966,7 +966,7 @@ class VariantSelects extends HTMLElement {
   onLoadVariant() {
     let variantData = JSON.parse(this.querySelector('[type="application/json"]').textContent);
     let currentVariant;
-    const parentElement = document.querySelector('.variant-selects'); // Assuming 'variant-selects' is a class
+    const parentElement = document.querySelector('variant-selects'); // Assuming 'variant-selects' is a class
     const variantInputs = parentElement.querySelectorAll('input');
 
     variantInputs.forEach((input) => {
