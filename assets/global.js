@@ -962,9 +962,7 @@ class VariantSelects extends HTMLElement {
     if (mediaGallery.hasAttribute('media-grouping-enabled')) {
       mediaGallery.querySelectorAll('[data-media-group]').forEach((el) => el.classList.add('hide-media'));
       variantValues.forEach((value) => {
-        mediaGallery
-          .querySelectorAll(`[data-media-group="${value}"]`)
-          .forEach((el) => el.classList.remove('hide-media'));
+        mediaGallery.querySelectorAll(`[data-media-group="${value}"]`).forEach((el) => el.remove('hide-media'));
       });
       mediaGallery.querySelectorAll('slider-component').forEach((slider) => {
         slider.initPages();
