@@ -949,7 +949,7 @@ class VariantSelects extends HTMLElement {
   constructor() {
     super();
     this.addEventListener('change', this.onVariantChange);
-    // this.onLoadRemoveImage();
+    this.onLoadRemoveImage();
     console.log('Loaded.....');
   }
 
@@ -962,6 +962,7 @@ class VariantSelects extends HTMLElement {
     if (mediaGallery.hasAttribute('media-grouping-enabled')) {
       // mediaGallery.querySelectorAll('[data-media-group]').forEach((el) => el.classList.add('hide-media'));
       variantValues.forEach((value) => {
+        console.log(value);
         mediaGallery.querySelectorAll(`[data-media-group="${value}"]`).forEach((el) => {
           console.log(el, 'ellll');
         });
