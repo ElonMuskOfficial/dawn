@@ -361,8 +361,7 @@ class MenuDrawer extends HTMLElement {
     );
     this.querySelectorAll(
       'button:not(.localization-selector):not(.country-selector__close-button):not(.country-filter__reset-button)'
-    ).forEach((button) => button.addEventListener('click', this.onCloseButtonClick.bind(this))
-    );
+    ).forEach((button) => button.addEventListener('click', this.onCloseButtonClick.bind(this)));
   }
 
   onKeyUp(event) {
@@ -767,9 +766,7 @@ class SlideshowComponent extends SliderComponent {
       this.autoplayButtonIsSetToPlay = true;
       this.play();
     } else {
-      this.reducedMotion.matches || this.announcementBarArrowButtonWasClicked
-        ? this.pause()
-        : this.play();
+      this.reducedMotion.matches || this.announcementBarArrowButtonWasClicked ? this.pause() : this.play();
     }
   }
 
@@ -833,10 +830,7 @@ class SlideshowComponent extends SliderComponent {
         event.target === this.sliderAutoplayButton || this.sliderAutoplayButton.contains(event.target);
       if (!this.autoplayButtonIsSetToPlay || focusedOnAutoplayButton) return;
       this.play();
-    } else if (
-      !this.reducedMotion.matches &&
-      !this.announcementBarArrowButtonWasClicked
-    ) {
+    } else if (!this.reducedMotion.matches && !this.announcementBarArrowButtonWasClicked) {
       this.play();
     }
   }
@@ -878,9 +872,7 @@ class SlideshowComponent extends SliderComponent {
 
   autoRotateSlides() {
     const slideScrollPosition =
-      this.currentPage === this.sliderItems.length
-        ? 0
-        : this.slider.scrollLeft + this.sliderItemOffset;
+      this.currentPage === this.sliderItems.length ? 0 : this.slider.scrollLeft + this.sliderItemOffset;
 
     this.setSlidePosition(slideScrollPosition);
     this.applyAnimationToAnnouncementBar();
@@ -944,7 +936,7 @@ class SlideshowComponent extends SliderComponent {
     const slideScrollPosition =
       this.slider.scrollLeft +
       this.sliderFirstItemNode.clientWidth *
-      (this.sliderControlLinksArray.indexOf(event.currentTarget) + 1 - this.currentPage);
+        (this.sliderControlLinksArray.indexOf(event.currentTarget) + 1 - this.currentPage);
     this.slider.scrollTo({
       left: slideScrollPosition,
     });
@@ -957,7 +949,12 @@ class VariantSelects extends HTMLElement {
   constructor() {
     super();
     this.addEventListener('change', this.onVariantChange);
-    console.log("Loaded.....")
+    this.onLoadRemoveImage();
+    console.log('Loaded.....');
+  }
+
+  onLoadRemoveImage() {
+    console.log(this.dataset.section);
   }
 
   onVariantChange(event) {
@@ -1136,7 +1133,8 @@ class VariantSelects extends HTMLElement {
     const sectionId = this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section;
 
     fetch(
-      `${this.dataset.url}?variant=${requestedVariantId}&section_id=${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section
+      `${this.dataset.url}?variant=${requestedVariantId}&section_id=${
+        this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section
       }`
     )
       .then((response) => response.text())
@@ -1163,7 +1161,9 @@ class VariantSelects extends HTMLElement {
         );
 
         const pricePerItemDestination = document.getElementById(`Price-Per-Item-${this.dataset.section}`);
-        const pricePerItemSource = html.getElementById(`Price-Per-Item-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`);
+        const pricePerItemSource = html.getElementById(
+          `Price-Per-Item-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
+        );
 
         const volumePricingDestination = document.getElementById(`Volume-${this.dataset.section}`);
         const qtyRules = document.getElementById(`Quantity-Rules-${this.dataset.section}`);
@@ -1193,8 +1193,7 @@ class VariantSelects extends HTMLElement {
 
         if (price) price.classList.remove('hidden');
 
-        if (inventoryDestination)
-          inventoryDestination.classList.toggle('hidden', inventorySource.innerText === '');
+        if (inventoryDestination) inventoryDestination.classList.toggle('hidden', inventorySource.innerText === '');
 
         const addButtonUpdated = html.getElementById(`ProductSubmitButton-${sectionId}`);
         this.toggleAddButton(
