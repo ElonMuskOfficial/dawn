@@ -991,6 +991,7 @@ class VariantSelects extends HTMLElement {
       const currentVariant = this.getCurrentVariant(variantInputs);
       if (Object.keys(currentVariant).length !== 0) {
         console.log(currentVariant);
+        console.log(productMedia);
       }
     } else {
       console.error('Parent element with class "variant-selects" not found.');
