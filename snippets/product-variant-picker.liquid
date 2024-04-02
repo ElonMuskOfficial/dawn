@@ -92,5 +92,8 @@
     <script type="application/json">
       {{ product.variants | json }}
     </script>
+    <script type="application/json" id="ProductMediaJSON-{{ product.id }}">
+      {{ product.media | json }}
+    </script>
   </variant-selects>
 {%- endunless -%}
