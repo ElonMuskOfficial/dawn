@@ -968,7 +968,7 @@ class VariantSelects extends HTMLElement {
   onVariantChange(event) {
     this.updateOptions();
     this.updateMasterId();
-    this.updateSelectedSwatchValue(event);
+    // this.updateSelectedSwatchValue(event);
     this.toggleAddButton(true, '', false);
     this.updatePickupAvailability();
     this.removeErrorMessage();
@@ -1166,7 +1166,7 @@ class VariantSelects extends HTMLElement {
   }
 
   renderProductInfo() {
-    console.log("renderProductInfo")
+    console.log('renderProductInfo');
     const requestedVariantId = this.currentVariant.id;
     const sectionId = this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section;
 
