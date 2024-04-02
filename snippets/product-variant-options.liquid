@@ -98,6 +98,7 @@
       name="{{ option.name }}"
       value="{{ value | escape }}"
       form="{{ product_form_id }}"
+      data-postion="{{ option.postion }}"
       {% if option.selected_value == value %}
         checked
       {% endif %}
