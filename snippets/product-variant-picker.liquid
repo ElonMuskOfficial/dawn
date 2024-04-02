@@ -89,7 +89,7 @@
         </div>
       {%- endif -%}
     {%- endfor -%}
-    <script type="application/json">
+    <script type="application/json" id="ProductVariantsJSON-{{ product.id }}">
       {{ product.variants | json }}
     </script>
     <script type="application/json" id="ProductMediaJSON-{{ product.id }}">
