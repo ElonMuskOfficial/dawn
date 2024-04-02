@@ -973,9 +973,9 @@ class VariantSelects extends HTMLElement {
           }
         });
       });
-      mediaGallery.querySelectorAll('slider-component').forEach((slider) => {
-        slider.initPages();
-      });
+      // mediaGallery.querySelectorAll('slider-component').forEach((slider) => {
+      //   slider.initPages();
+      // });
     }
   }
 
