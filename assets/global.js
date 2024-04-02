@@ -963,6 +963,16 @@ class VariantSelects extends HTMLElement {
     this.addEventListener('change', this.onVariantChange);
     this.onLoadVariant();
   }
+
+  getInputAttributes(input) {
+    const attributes = {};
+    Array.from(input.attributes).forEach((attribute) => {
+      const { name, value } = attribute;
+      attributes[name] = value;
+    });
+    return attributes;
+  }
+
   onLoadVariant() {
     let variantData = JSON.parse(this.querySelector('[type="application/json"]').textContent);
     const parentElement = document.querySelector('variant-selects');
