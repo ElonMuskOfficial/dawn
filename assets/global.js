@@ -1038,7 +1038,7 @@ class VariantSelects extends HTMLElement {
 
       variantInputs.forEach((input) => {
         if(input.checked) {
-          console.log(input.parentNode);
+          console.log(input.parentElement);
         }
       })
 
