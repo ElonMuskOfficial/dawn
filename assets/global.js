@@ -966,14 +966,23 @@ class VariantSelects extends HTMLElement {
   onLoadVariant() {
     let variantData = JSON.parse(this.querySelector('[type="application/json"]').textContent);
     let currentVariant;
-    const parentElement = document.querySelector('variant-selects');
+    const parentElement = document.querySelector('.variant-selects'); // Assuming 'variant-selects' is a class
     const variantInputs = parentElement.querySelectorAll('input');
+
     variantInputs.forEach((input) => {
       if (input.checked) {
-        currentVariant = input;
+        currentVariant = {};
+        // Loop through all attributes of the input element
+        for (let i = 0; i < input.attributes.length; i++) {
+          // Retrieve attribute name and value and add it to the currentVariant object
+          const attributeName = input.attributes[i].name;
+          const attributeValue = input.attributes[i].value;
+          currentVariant[attributeName] = attributeValue;
+        }
       }
     });
-    console.log(currentVariant);
+
+    console.log(currentVariant); // You can use console.log to verify the currentVariant object
   }
 
   onVariantChange(event) {
