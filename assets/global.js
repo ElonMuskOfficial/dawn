@@ -993,8 +993,9 @@ class VariantSelects extends HTMLElement {
       const variantInputs = parentElement.querySelectorAll('input[type="radio"]');
       const currentVariant = this.getCurrentVariant(variantInputs);
       if (Object.keys(currentVariant).length !== 0) {
+        console.log(productVariants);
+        console.log(productMedia);
         console.log(currentVariant);
-        console.log(productMedia, productVariants);
       }
     } else {
       console.error('Parent element with class "variant-selects" not found.');
