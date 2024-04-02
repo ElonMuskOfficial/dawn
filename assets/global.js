@@ -1038,6 +1038,7 @@ class VariantSelects extends HTMLElement {
 
       // Group variants
       const variantValues = currentVariant.value;
+      console.log(variantValues)
       const mediaGallery = document.querySelector(`[id^="MediaGallery-${this.dataset.section}"]`);
       if (mediaGallery.hasAttribute('media-grouping-enabled')) {
         mediaGallery.querySelectorAll('[data-media-group]').forEach((el) => (el.style.display = 'none'));
