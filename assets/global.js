@@ -970,10 +970,10 @@ class VariantSelects extends HTMLElement {
     const variantInputs = parentElement.querySelectorAll('input');
     variantInputs.forEach((input) => {
       if (input.checked) {
-        currentVariant = input.value;
+        currentVariant = input;
       }
     });
-    console.log(variantData);
+    console.log(currentVariant);
   }
 
   onVariantChange(event) {
