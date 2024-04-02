@@ -963,7 +963,9 @@ class VariantSelects extends HTMLElement {
     this.addEventListener('change', this.onVariantChange);
     this.onLoadVariant();
   }
-  onLoadVariant() {}
+  onLoadVariant() {
+    const variantOptions = document.querySelectorAll('variant-selects');
+  }
 
   onVariantChange(event) {
     this.updateOptions();
