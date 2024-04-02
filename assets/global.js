@@ -969,6 +969,7 @@ class VariantSelects extends HTMLElement {
     if (parentElement) {
       const variantInputs = parentElement.querySelectorAll('input[type="radio"]');
       let currentVariant = {};
+
       variantInputs.forEach((input) => {
         if (input.checked) {
           Array.from(input.attributes).forEach((attribute) => {
@@ -977,7 +978,6 @@ class VariantSelects extends HTMLElement {
           });
         }
       });
-      // console.log(currentVariant);
     } else {
       console.error('Parent element with class "variant-selects" not found.');
     }
