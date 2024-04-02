@@ -1104,7 +1104,6 @@ class VariantSelects extends HTMLElement {
   }
 
   updateMedia(html) {
-    console.log(this.currentVariant);
     const mediaGallerySource = document.querySelector(`[id^="MediaGallery-${this.dataset.section}"] ul`);
     const mediaGalleryDestination = html.querySelector(`[id^="MediaGallery-${this.dataset.section}"] ul`);
 
@@ -1167,6 +1166,7 @@ class VariantSelects extends HTMLElement {
   }
 
   renderProductInfo() {
+    console.log("renderProductInfo")
     const requestedVariantId = this.currentVariant.id;
     const sectionId = this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section;
 
