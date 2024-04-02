@@ -966,7 +966,7 @@ class VariantSelects extends HTMLElement {
         mediaGallery.querySelectorAll(`[data-media-group]`).forEach((el) => {
           if (el.hasAttribute('data-media-group') && el.hasAttribute('data-media-position')) {
             if (el.getAttribute('data-media-group') === value) {
-              el.classList.remove('hide-media');
+              console.log(el);
             }
           }
         });
