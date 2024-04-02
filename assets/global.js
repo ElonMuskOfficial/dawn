@@ -35,8 +35,14 @@ function getMediaForVariantPosition(variants, media, position) {
       ? variants[nextVariantIndex + 1].featured_image.position
       : media[media.length - 1].position + 1;
 
+  const filteredMedia = media.filter((mediaItem) => mediaItem.position >= start && mediaItem.position < end);
+
+  const beforeFirstVariantImages = media.filter(
+    (mediaItem) => mediaItem.position < variants[0].featured_image.position
+  );
+
   // Filter the media items based on their position range
-  return media.filter((mediaItem) => mediaItem.position >= start && mediaItem.position < end);
+  return [...filteredMedia, ...beforeFirstVariantImages];
 }
 
 document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
