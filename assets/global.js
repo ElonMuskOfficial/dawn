@@ -972,7 +972,7 @@ class VariantSelects extends HTMLElement {
       variantInputs.forEach((input) => {
         if (input.checked) {
           Array.from(input.attributes).forEach((attribute) => {
-            console.log(Array.from(attribute));
+            console.log(attribute);
             const { name, value } = attribute;
             currentVariant[name] = value;
           });
