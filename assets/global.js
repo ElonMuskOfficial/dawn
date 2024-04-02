@@ -968,7 +968,7 @@ class VariantSelects extends HTMLElement {
     // console.log(variantData);
     const parentElement = document.querySelector('variant-selects');
     const variantInputs = parentElement.querySelectorAll('input');
-    console.log(variantInputs);
+    console.log(variantInputs.forEach((i) => i));
   }
 
   onVariantChange(event) {
