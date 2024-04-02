@@ -964,9 +964,10 @@ class VariantSelects extends HTMLElement {
     this.onLoadVariant();
   }
   onLoadVariant() {
-    let variantData = JSON.parse(this.querySelector('[type="application/json"]').textContent);
-    console.log(variantData);
-    // const variantOptions = document.querySelectorAll('variant-selects');
+    // let variantData = JSON.parse(this.querySelector('[type="application/json"]').textContent);
+    // console.log(variantData);
+    const variantOptions = document.querySelectorAll('variant-selects');
+    console.log(variantOptions);
   }
 
   onVariantChange(event) {
