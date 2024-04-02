@@ -6,19 +6,18 @@ function getFocusableElements(container) {
   );
 }
 
-// Refactored function to retrieve related media for a specific variant position
-function getRelatedMediaForVariant(variants, media, variantPosition) {
-  const variantMap = new Map(variants.map((v) => [v.featured_image.position, v]));
-  const variant = variantMap.get(variantPosition);
+function getMediaForVariantPosition(variants, media, position) {
+  const variant = variants.find((variant) => variant.featured_image.position === position);
   if (!variant) return null;
 
   const start = variant.featured_image.position;
-  const index = variantMap.get(start)[1];
-  const end = index
-    ? variantMap.get(index.featured_image.position)[1].featured_image.position
-    : media[media.length - 1].position + 1;
+  const nextVariantIndex = variants.findIndex((variant) => variant.featured_image.position === position);
+  const end =
+    nextVariantIndex < variants.length - 1
+      ? variants[nextVariantIndex + 1].featured_image.position
+      : media[media.length - 1].position + 1;
 
-  return media.filter((m) => m.position >= start && m.position < end);
+  return media.filter((mediaItem) => mediaItem.position >= start && mediaItem.position < end);
 }
 
 document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
