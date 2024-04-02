@@ -960,12 +960,9 @@ customElements.define('slideshow-component', SlideshowComponent);
 class VariantSelects extends HTMLElement {
   constructor() {
     super();
+    this.removeEventListener('change', this.onVariantChange);
     this.addEventListener('change', this.onVariantChange);
-    this.onLoadEvent();
-  }
-
-  onLoadEvent() {
-    console.log('Loaded.........');
+    this.onVariantChange();
   }
 
   onVariantChange(event) {
