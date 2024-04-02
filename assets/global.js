@@ -964,8 +964,7 @@ class VariantSelects extends HTMLElement {
     this.onLoadVariant();
   }
   onLoadVariant() {
-    // let variantData = JSON.parse(this.querySelector('[type="application/json"]').textContent);
-    // console.log(variantData);
+    let variantData = JSON.parse(this.querySelector('[type="application/json"]').textContent);
     let currentVariant;
     const parentElement = document.querySelector('variant-selects');
     const variantInputs = parentElement.querySelectorAll('input');
@@ -974,7 +973,7 @@ class VariantSelects extends HTMLElement {
         currentVariant = input.value;
       }
     });
-    console.log({ currentVariant });
+    console.log(variantData);
   }
 
   onVariantChange(event) {
