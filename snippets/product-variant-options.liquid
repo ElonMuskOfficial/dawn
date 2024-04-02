@@ -27,9 +27,6 @@
 
 {%- for value in option.values -%}
   {% assign variant = product.variants[forloop.index0] %}
-  <script>
-    console.log({{ variant.featured_image.position | json }})
-  </script>
   {%- liquid
     assign option_disabled = true
 
