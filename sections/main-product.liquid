@@ -64,8 +64,8 @@
       onload="this.media='all'"
     >
   {%- endif -%}
-  <script type="application/json">
-  {{ product.media | json }}
+  <script type="application/json" data-variantMedia>
+    {{ product.media | json }}
   </script>
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div class="page-width">
