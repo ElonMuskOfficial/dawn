@@ -1042,6 +1042,7 @@ class VariantSelects extends HTMLElement {
       if (mediaGallery.hasAttribute('media-grouping-enabled')) {
         mediaGallery.querySelectorAll('[data-media-group]').forEach((el) => (el.style.display = 'none'));
         variantValues.forEach((value) => {
+          console.log(value)
           mediaGallery.querySelectorAll(`[data-media-group="${value}"]`).forEach((el) => (el.style.display = 'block'));
         });
         mediaGallery.querySelectorAll('slider-component').forEach((slider) => {
