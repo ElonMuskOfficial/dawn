@@ -958,19 +958,18 @@ class VariantSelects extends HTMLElement {
     let variantInputs = Array.from(variantSelect.querySelectorAll('input'));
     let findSelectedVariant = variantInputs.find((value) => value.checked);
     let variantValues = findSelectedVariant.value.split(',');
-    console.log(variantValues);
-    // const mediaGallery = document.querySelector(`[id^="MediaGallery-${this.dataset.section}"]`);
-    // if (mediaGallery.hasAttribute('media-grouping-enabled')) {
-    //   mediaGallery.querySelectorAll('[data-media-group]').forEach((el) => el.classList.add('hide-media'));
-    //   variantValues.forEach((value) => {
-    //     mediaGallery
-    //       .querySelectorAll(`[data-media-group="${value}"]`)
-    //       .forEach((el) => el.classList.remove('hide-media'));
-    //   });
-    //   mediaGallery.querySelectorAll('slider-component').forEach((slider) => {
-    //     slider.initPages();
-    //   });
-    // }
+    const mediaGallery = document.querySelector(`[id^="MediaGallery-${this.dataset.section}"]`);
+    if (mediaGallery.hasAttribute('media-grouping-enabled')) {
+      mediaGallery.querySelectorAll('[data-media-group]').forEach((el) => el.classList.add('hide-media'));
+      variantValues.forEach((value) => {
+        mediaGallery
+          .querySelectorAll(`[data-media-group="${value}"]`)
+          .forEach((el) => el.classList.remove('hide-media'));
+      });
+      mediaGallery.querySelectorAll('slider-component').forEach((slider) => {
+        slider.initPages();
+      });
+    }
   }
 
   onVariantChange(event) {
