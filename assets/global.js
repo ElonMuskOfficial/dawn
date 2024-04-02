@@ -6,33 +6,19 @@ function getFocusableElements(container) {
   );
 }
 
-// Define a function to retrieve related media for a specific variant position
+// Refactored function to retrieve related media for a specific variant position
 function getRelatedMediaForVariant(variants, media, variantPosition) {
-  // Find the variant with the specified position
-  const variant = variants.find((v) => v.featured_image.position === variantPosition);
+  const variantMap = new Map(variants.map((v) => [v.featured_image.position, v]));
+  const variant = variantMap.get(variantPosition);
+  if (!variant) return null;
 
-  // If the variant with the specified position is found
-  if (variant) {
-    // Find the start and end positions of the variant's featured image
-    const start = variant.featured_image.position;
-    let end;
+  const start = variant.featured_image.position;
+  const index = variantMap.get(start)[1];
+  const end = index
+    ? variantMap.get(index.featured_image.position)[1].featured_image.position
+    : media[media.length - 1].position + 1;
 
-    // Determine the end position based on the next variant's position
-    const index = variants.findIndex((v) => v.featured_image.position === variantPosition);
-    if (index < variants.length - 1) {
-      end = variants[index + 1].featured_image.position;
-    } else {
-      end = media[media.length - 1].position + 1; // Set the end position as the last media position + 1 for the last variant
-    }
-
-    // Filter media items that fall between the start and end positions of the variant's featured image
-    const variantMedia = media.filter((m) => m.position >= start && m.position < end);
-
-    return variantMedia;
-  } else {
-    // Variant not found with the specified position
-    return null;
-  }
+  return media.filter((m) => m.position >= start && m.position < end);
 }
 
 document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
