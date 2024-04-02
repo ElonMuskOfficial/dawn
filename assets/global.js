@@ -1038,7 +1038,7 @@ class VariantSelects extends HTMLElement {
 
       variantInputs.forEach((input) => {
         if(input.checked) {
-          console.log(input.closest('product__media-item'));
+          console.log(input.parentNode);
         }
       })
 
