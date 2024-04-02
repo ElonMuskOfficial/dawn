@@ -1044,6 +1044,7 @@ class VariantSelects extends HTMLElement {
     // Group variants
     console.log(this.currentVariant);
     const variantValues = this.currentVariant.options;
+    console.log(variantValues);
     const mediaGallery = document.querySelector(`[id^="MediaGallery-${this.dataset.section}"]`);
     if (mediaGallery.hasAttribute('media-grouping-enabled')) {
       mediaGallery.querySelectorAll('[data-media-group]').forEach((el) => el.classList.add('hide-media'));
