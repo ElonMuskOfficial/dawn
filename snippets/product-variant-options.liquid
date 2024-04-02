@@ -102,6 +102,7 @@
       name="{{ option.name }}"
       value="{{ value | escape }}"
       form="{{ product_form_id }}"
+      data-position="{{ variant.featured_image.position }}"
       {% if option.selected_value == value %}
         checked
       {% endif %}
