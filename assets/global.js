@@ -960,9 +960,11 @@ class VariantSelects extends HTMLElement {
     let variantValues = findSelectedVariant.value.split(',');
     const mediaGallery = document.querySelector(`[id^="MediaGallery-${this.dataset.section}"]`);
     if (mediaGallery.hasAttribute('media-grouping-enabled')) {
-      mediaGallery.querySelectorAll('[data-media-group]').forEach((el) => el.classList.add('hide-media'));
+      // mediaGallery.querySelectorAll('[data-media-group]').forEach((el) => el.classList.add('hide-media'));
       variantValues.forEach((value) => {
-        mediaGallery.querySelectorAll(`[data-media-group="${value}"]`).forEach((el) => el.remove());
+        mediaGallery.querySelectorAll(`[data-media-group="${value}"]`).forEach((el) => {
+          console.log(el, 'ellll');
+        });
       });
       mediaGallery.querySelectorAll('slider-component').forEach((slider) => {
         slider.initPages();
