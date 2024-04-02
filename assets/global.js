@@ -984,10 +984,10 @@ class VariantSelects extends HTMLElement {
   }
 
   onLoadVariant() {
-    const parentElement = document.querySelector('variant-selects');
+    const parentElement = document.querySelector('variant-selects'); // Corrected the selector
     if (parentElement) {
       const variantInputs = parentElement.querySelectorAll('input[type="radio"]');
-      let currentVariant = getCurrentVariant(variantInputs);
+      const currentVariant = getCurrentVariant(variantInputs);
       if (Object.keys(currentVariant).length !== 0) {
         console.log(currentVariant);
       }
