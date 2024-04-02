@@ -954,7 +954,7 @@ class VariantSelects extends HTMLElement {
   }
 
   onLoadRemoveImage() {
-    console.log(this.dataset.section);
+    console.log(this.dataset.section, this.currentVariant);
   }
 
   onVariantChange(event) {
