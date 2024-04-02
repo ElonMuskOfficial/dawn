@@ -973,17 +973,21 @@ class VariantSelects extends HTMLElement {
     return attributes;
   }
 
+  getCurrentVariant(variantInputs) {
+    let currentVariant = {};
+    variantInputs.forEach((input) => {
+      if (input.checked) {
+        currentVariant = getInputAttributes(input);
+      }
+    });
+    return currentVariant;
+  }
+
   onLoadVariant() {
     const parentElement = document.querySelector('variant-selects');
     if (parentElement) {
       const variantInputs = parentElement.querySelectorAll('input[type="radio"]');
-      let currentVariant = {};
-
-      variantInputs.forEach((input) => {
-        if (input.checked) {
-          currentVariant = getInputAttributes(input);
-        }
-      });
+      let currentVariant = getCurrentVariant(variantInputs);
       if (Object.keys(currentVariant).length !== 0) {
         console.log(currentVariant);
       }
