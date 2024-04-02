@@ -1028,11 +1028,11 @@ class VariantSelects extends HTMLElement {
       const currentVariant = this.getCurrentVariant(variantInputs);
 
       if (Object.keys(currentVariant).length !== 0) {
-        // console.log(productVariants);
-        // console.log(productMedia);
-        // console.log(currentVariant);
-        let media = getMediaForVariantPosition(productVariants, productMedia, parseInt(currentVariant.position));
-        console.log(currentVariant.position, media);
+        console.log(productVariants);
+        console.log(productMedia);
+        console.log(currentVariant);
+        // let media = getMediaForVariantPosition(productVariants, productMedia, parseInt(currentVariant.position));
+        // console.log(currentVariant.position, media);
       }
     } else {
       console.error('Parent element with class "variant-selects" not found.');
