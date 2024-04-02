@@ -971,13 +971,14 @@ class VariantSelects extends HTMLElement {
       let currentVariant = {};
       variantInputs.forEach((input) => {
         if (input.checked) {
+          console.log(Array.from(input.attributes));
           Array.from(input.attributes).forEach((attribute) => {
             const { name, value } = attribute;
             currentVariant[name] = value;
           });
         }
       });
-      console.log(currentVariant);
+      // console.log(currentVariant);
     } else {
       console.error('Parent element with class "variant-selects" not found.');
     }
