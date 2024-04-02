@@ -317,7 +317,7 @@
               assign media_index = media_index | plus: 1
             -%}
             <li
-              data-media-group="{{data_group_arr[forloop.index]}}"
+              data-media-group="{{data_group_arr[forloop.index0]}}"
               id="Slide-Thumbnails-{{ section.id }}-{{ forloop.index }}{{ id_append }}"
               class="{% if product.selected_or_first_available_variant.options[option_index] != data_group_arr[forloop.index0] and section.settings.enable_group_media %}hide-media {% endif %} thumbnail-list__item slider__slide{% if section.settings.hide_variants and variant_images contains media.src %} thumbnail-list_item--variant{% endif %}"
               data-target="{{ section.id }}-{{ media.id }}"
