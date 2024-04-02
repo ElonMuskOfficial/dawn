@@ -966,7 +966,7 @@ class VariantSelects extends HTMLElement {
   onLoadVariant() {
     // let variantData = JSON.parse(this.querySelector('[type="application/json"]').textContent);
     // console.log(variantData);
-    const variantOptions = document.querySelectorAll('variant-selects');
+    const variantOptions = document.querySelector('variant-selects');
     console.log(variantOptions);
   }
 
