@@ -966,6 +966,7 @@ class VariantSelects extends HTMLElement {
   }
 
   onVariantChange(event) {
+    console.log(this.currentVariant);
     this.updateOptions();
     this.updateMasterId();
     this.updateSelectedSwatchValue(event);
@@ -973,7 +974,6 @@ class VariantSelects extends HTMLElement {
     this.updatePickupAvailability();
     this.removeErrorMessage();
     this.updateVariantStatuses();
-    console.log(this.currentVariant);
     if (!this.currentVariant) {
       this.toggleAddButton(true, '', true);
       this.setUnavailable();
