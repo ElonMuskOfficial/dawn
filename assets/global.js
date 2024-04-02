@@ -987,11 +987,11 @@ class VariantSelects extends HTMLElement {
     const parentElement = document.querySelector('variant-selects'); // Corrected the selector
     if (parentElement) {
       const productMedia = parentElement.querySelector('[id^="ProductJSON-"]');
+      console.log(productMedia);
       const variantInputs = parentElement.querySelectorAll('input[type="radio"]');
       const currentVariant = this.getCurrentVariant(variantInputs);
       if (Object.keys(currentVariant).length !== 0) {
         console.log(currentVariant);
-        console.log(productMedia);
       }
     } else {
       console.error('Parent element with class "variant-selects" not found.');
