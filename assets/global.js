@@ -955,7 +955,7 @@ class VariantSelects extends HTMLElement {
 
   onLoadRemoveImage() {
     let variantSelect = document.querySelector('variant-selects');
-    console.log(variantSelect);
+    console.log(variantSelect.querySelectorAll('input'));
     // const variantValues = ;
     // const mediaGallery = document.querySelector(`[id^="MediaGallery-${this.dataset.section}"]`);
     // if (mediaGallery.hasAttribute('media-grouping-enabled')) {
