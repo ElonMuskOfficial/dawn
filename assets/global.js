@@ -962,13 +962,12 @@ class VariantSelects extends HTMLElement {
     super();
     this.removeEventListener('change', this.onVariantChange);
     this.addEventListener('change', this.onVariantChange);
-    this.onVariantChange();
   }
 
   onVariantChange(event) {
     this.updateOptions();
     this.updateMasterId();
-    // this.updateSelectedSwatchValue(event);
+    this.updateSelectedSwatchValue(event);
     this.toggleAddButton(true, '', false);
     this.updatePickupAvailability();
     this.removeErrorMessage();
