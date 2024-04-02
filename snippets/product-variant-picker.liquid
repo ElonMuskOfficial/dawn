@@ -20,6 +20,9 @@
     {{ block.shopify_attributes }}
   >
     {%- for option in product.options_with_values -%}
+      <script>
+        console.log({{ product.options_with_values | json }},"product.options_with_values")
+      </script>
       {%- liquid
         assign swatch_count = option.values | map: 'swatch' | compact | size
         assign picker_type = block.settings.picker_type
