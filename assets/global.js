@@ -966,10 +966,14 @@ class VariantSelects extends HTMLElement {
   onLoadVariant() {
     // let variantData = JSON.parse(this.querySelector('[type="application/json"]').textContent);
     // console.log(variantData);
+    let currentVariant;
     const parentElement = document.querySelector('variant-selects');
     const variantInputs = parentElement.querySelectorAll('input');
     variantInputs.forEach((input) => {
       console.log(input);
+      if (input.checked) {
+        currentVariant = input.value;
+      }
     });
   }
 
