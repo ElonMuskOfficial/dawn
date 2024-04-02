@@ -957,8 +957,8 @@ class VariantSelects extends HTMLElement {
     let variantSelect = document.querySelector('variant-selects');
     let variantInputs = Array.from(variantSelect.querySelectorAll('input'));
     let findSelectedVariant = variantInputs.find((value) => value.checked);
-    console.log([findSelectedVariant.value]);
-
+    let variantValues = findSelectedVariant.value.split(',');
+    console.log(variantValues);
     // const mediaGallery = document.querySelector(`[id^="MediaGallery-${this.dataset.section}"]`);
     // if (mediaGallery.hasAttribute('media-grouping-enabled')) {
     //   mediaGallery.querySelectorAll('[data-media-group]').forEach((el) => el.classList.add('hide-media'));
