@@ -26,6 +26,7 @@
 -%}
 
 {%- for value in option.values -%}
+  {% assign variant = product.variants[forloop.index0] %}
   {%- liquid
     assign option_disabled = true
 
