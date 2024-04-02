@@ -1031,6 +1031,7 @@ class VariantSelects extends HTMLElement {
         console.log(productVariants);
         console.log(productMedia);
         console.log(currentVariant);
+        let media = getMediaForVariantPosition(productVariants, productMedia, parseInt(currentVariant.position));
       }
     } else {
       console.error('Parent element with class "variant-selects" not found.');
