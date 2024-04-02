@@ -1036,11 +1036,21 @@ class VariantSelects extends HTMLElement {
       const productMedia = JSON.parse(productMediaJSON.textContent);
       const currentVariant = this.getCurrentVariant(variantInputs);
 
-      variantInputs.forEach((input) => {
-        if(input.checked) {
-          console.log(input.parentElement);
-        }
-      })
+      // Group variants
+      const variantValues = currentVariant.value;
+      const mediaGallery = document.querySelector(`[id^="MediaGallery-${this.dataset.section}"]`);
+      if (mediaGallery.hasAttribute('media-grouping-enabled')) {
+        mediaGallery.querySelectorAll('[data-media-group]').forEach((el) => el.classList.add('hide-media'));
+        variantValues.forEach((value) => {
+          mediaGallery
+            .querySelectorAll(`[data-media-group="${value}"]`)
+            .forEach((el) => el.classList.remove('hide-media'));
+        });
+        mediaGallery.querySelectorAll('slider-component').forEach((slider) => {
+          slider.initPages();
+        });
+      }
+      // Group variants end
 
       // if (Object.keys(currentVariant).length !== 0) {
       //   console.log(productVariants);
