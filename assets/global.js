@@ -978,6 +978,9 @@ class VariantSelects extends HTMLElement {
           });
         }
       });
+      if (currentVariant) {
+        console.log(currentVariant);
+      }
     } else {
       console.error('Parent element with class "variant-selects" not found.');
     }
