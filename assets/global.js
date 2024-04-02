@@ -974,7 +974,6 @@ class VariantSelects extends HTMLElement {
   }
 
   onLoadVariant() {
-    let variantData = JSON.parse(this.querySelector('[type="application/json"]').textContent);
     const parentElement = document.querySelector('variant-selects');
     if (parentElement) {
       const variantInputs = parentElement.querySelectorAll('input[type="radio"]');
