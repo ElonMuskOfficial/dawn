@@ -955,7 +955,7 @@ class VariantSelects extends HTMLElement {
 
   onLoadRemoveImage() {
     let variantSelect = document.querySelector('variant-selects');
-    let variantValues = variantSelect.querySelectorAll('input');
+    let variantValues = Array.from(variantSelect.querySelectorAll('input'));
     let findSelectedVariant = variantValues.find((value) => value.checked);
     console.log(findSelectedVariant);
     // const variantValues = ;
