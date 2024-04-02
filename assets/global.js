@@ -966,32 +966,21 @@ class VariantSelects extends HTMLElement {
   onLoadVariant() {
     let variantData = JSON.parse(this.querySelector('[type="application/json"]').textContent);
     const parentElement = document.querySelector('variant-selects');
-
-    // Check if parentElement exists before proceeding
     if (parentElement) {
       const variantInputs = parentElement.querySelectorAll('input[type="radio"]');
-
-      // Initialize currentVariant object outside the loop
       let currentVariant = {};
-
-      // Use forEach method for cleaner iteration
       variantInputs.forEach((input) => {
         if (input.checked) {
-          // Use Array.from to convert attributes into an array for easier manipulation
           Array.from(input.attributes).forEach((attribute) => {
             const { name, value } = attribute;
             currentVariant[name] = value;
           });
         }
       });
-
-      // Output the currentVariant object for further processing
       console.log(currentVariant);
     } else {
       console.error('Parent element with class "variant-selects" not found.');
     }
-
-    console.log(currentVariant); // You can use console.log to verify the currentVariant object
   }
 
   onVariantChange(event) {
