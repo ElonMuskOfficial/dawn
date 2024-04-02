@@ -6,17 +6,36 @@ function getFocusableElements(container) {
   );
 }
 
+/**
+ * Retrieves the media items for a specific variant position.
+ *
+ * @param {Array} variants - The array of variants.
+ * @param {Array} media - The array of media items.
+ * @param {number} position - The position of the variant.
+ * @return {Array|null} - The array of media items for the specified variant position, or null if no variant is found.
+ */
 function getMediaForVariantPosition(variants, media, position) {
+  // Find the variant with the specified position
   const variant = variants.find((variant) => variant.featured_image.position === position);
-  if (!variant) return null;
 
+  // If no variant is found, return null
+  if (!variant) {
+    return null;
+  }
+
+  // Get the start position of the variant
   const start = variant.featured_image.position;
+
+  // Find the index of the next variant with a greater position
   const nextVariantIndex = variants.findIndex((variant) => variant.featured_image.position === position);
+
+  // Calculate the end position of the media items
   const end =
     nextVariantIndex < variants.length - 1
       ? variants[nextVariantIndex + 1].featured_image.position
       : media[media.length - 1].position + 1;
 
+  // Filter the media items based on their position range
   return media.filter((mediaItem) => mediaItem.position >= start && mediaItem.position < end);
 }
 
