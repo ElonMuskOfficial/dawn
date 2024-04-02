@@ -957,7 +957,7 @@ class VariantSelects extends HTMLElement {
     let variantSelect = document.querySelector('variant-selects');
     let variantValues = Array.from(variantSelect.querySelectorAll('input'));
     let findSelectedVariant = variantValues.find((value) => value.checked);
-    console.log(findSelectedVariant);
+    console.log(findSelectedVariant.value);
     // const variantValues = ;
     // const mediaGallery = document.querySelector(`[id^="MediaGallery-${this.dataset.section}"]`);
     // if (mediaGallery.hasAttribute('media-grouping-enabled')) {
