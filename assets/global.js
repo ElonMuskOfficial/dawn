@@ -977,7 +977,7 @@ class VariantSelects extends HTMLElement {
     let currentVariant = {};
     variantInputs.forEach((input) => {
       if (input.checked) {
-        currentVariant = getInputAttributes(input);
+        currentVariant = this.getInputAttributes(input);
       }
     });
     return currentVariant;
@@ -987,7 +987,7 @@ class VariantSelects extends HTMLElement {
     const parentElement = document.querySelector('variant-selects'); // Corrected the selector
     if (parentElement) {
       const variantInputs = parentElement.querySelectorAll('input[type="radio"]');
-      const currentVariant = getCurrentVariant(variantInputs);
+      const currentVariant = this.getCurrentVariant(variantInputs);
       if (Object.keys(currentVariant).length !== 0) {
         console.log(currentVariant);
       }
