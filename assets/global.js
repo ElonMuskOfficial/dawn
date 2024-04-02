@@ -978,7 +978,7 @@ class VariantSelects extends HTMLElement {
           });
         }
       });
-      if (Object.keys(currentVariant).length >= 0) {
+      if (Object.keys(currentVariant).length > 0) {
         console.log(currentVariant);
       }
     } else {
