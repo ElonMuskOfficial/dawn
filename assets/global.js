@@ -967,6 +967,8 @@ class VariantSelects extends HTMLElement {
           if (el.hasAttribute('data-media-group') && el.hasAttribute('data-media-position')) {
             if (el.getAttribute('data-media-group') === value) {
               console.log(el);
+            } else {
+              el.remove();
             }
           }
         });
