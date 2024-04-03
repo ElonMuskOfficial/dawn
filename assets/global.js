@@ -1041,7 +1041,7 @@ class VariantSelects extends HTMLElement {
     let currentVariant = variants.find((variant) => {
       return !variant.options
         .map((option, index) => {
-          return this.options[index] === option;
+          return options[index] === option;
         })
         .includes(false);
     });
