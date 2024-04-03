@@ -1059,12 +1059,12 @@ class VariantSelects extends HTMLElement {
 
     const parentElement = document.querySelector('variant-selects'); // Corrected the selector
     if (parentElement) {
-      const variantInputs = parentElement.querySelectorAll('input[data-position]');
-      const productVariantsJSON = parentElement.querySelector('[id^="ProductVariantsJSON-"]');
-      const productMediaJSON = parentElement.querySelector('[id^="ProductMediaJSON-"]');
+      // const variantInputs = parentElement.querySelectorAll('input[data-position]');
+      // const productVariantsJSON = parentElement.querySelector('[id^="ProductVariantsJSON-"]');
+      // const productMediaJSON = parentElement.querySelector('[id^="ProductMediaJSON-"]');
 
-      const productVariants = JSON.parse(productVariantsJSON.textContent);
-      const productMedia = JSON.parse(productMediaJSON.textContent);
+      // const productVariants = JSON.parse(productVariantsJSON.textContent);
+      // const productMedia = JSON.parse(productMediaJSON.textContent);
       // const currentVariant = this.getCurrentVariant(variantInputs);
       const mediaGallery = document.querySelector(`[id^="MediaGallery-${this.dataset.section}"]`);
 
