@@ -1039,14 +1039,14 @@ class VariantSelects extends HTMLElement {
 
       if (Object.keys(currentVariant).length !== 0 && currentVariant['data-position']) {
         console.log('PRODUCT_VARIANTS', productVariants);
-        console.log('PRODUCT_VARIANTS', productMedia);
+        console.log('PRODUCT_MEDIA', productMedia);
         console.log('CURRENT_VARIANT', currentVariant);
         let media = getMediaForVariantPosition(
           productVariants,
           productMedia,
           parseInt(currentVariant['data-position'])
         );
-        console.log('MEDIA', media);
+        console.log('SELECTED_MEDIA', media);
         mediaGallery.querySelectorAll('[data-media-position]').forEach((item) => {
           let position = item.getAttribute('data-media-position');
           item.style.display = 'none';
