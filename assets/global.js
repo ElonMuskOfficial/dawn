@@ -1059,10 +1059,10 @@ class VariantSelects extends HTMLElement {
         );
         mediaGallery.querySelectorAll('[data-media-position]').forEach((item) => {
           let position = item.getAttribute('data-media-position');
+          if (position == 'default') {
+            console.log(item);
+          }
           media.forEach((m) => {
-            if (position == 'default') {
-              console.log(item);
-            }
             if (position == m.position) {
               console.log(item);
             }
