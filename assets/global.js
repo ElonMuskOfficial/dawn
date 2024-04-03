@@ -1049,15 +1049,18 @@ class VariantSelects extends HTMLElement {
       // Group variants end
 
       if (Object.keys(currentVariant).length !== 0) {
-        console.log(productVariants);
-        console.log(productMedia);
-        console.log(currentVariant);
+        // console.log(productVariants);
+        // console.log(productMedia);
+        // console.log(currentVariant);
         let media = getMediaForVariantPosition(
           productVariants,
           productMedia,
           parseInt(currentVariant['data-position'])
         );
-        console.log(currentVariant['data-position'], media);
+        mediaGallery.querySelectorAll('[data-media-position]').forEach((item)=>{
+          console.log(item);
+        })
+        // console.log(currentVariant['data-position'], media);
       }
     } else {
       console.error('Parent element with class "variant-selects" not found.');
