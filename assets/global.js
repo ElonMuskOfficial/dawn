@@ -1004,6 +1004,7 @@ class VariantSelects extends HTMLElement {
     super();
     this.addEventListener('change', this.onVariantChange);
     this.onLoadVariant();
+    this.updateOptions()
   }
 
   getInputAttributes(input) {
@@ -1096,6 +1097,7 @@ class VariantSelects extends HTMLElement {
         return Array.from(element.querySelectorAll('input')).find((radio) => radio.checked)?.value;
       }
     });
+    console.log(this.options);
   }
 
   updateMasterId() {
