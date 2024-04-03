@@ -90,7 +90,7 @@
       {%- endif -%}
     {%- endfor -%}
     <script type="application/json" id="ProductVariantsJSON-{{ product.id }}">
-      {{ product.variants | json }}
+      {{ product.variants | uniq: 'option1' | json }}
     </script>
     <script type="application/json" id="ProductMediaJSON-{{ product.id }}">
       {{ product.media | json }}
