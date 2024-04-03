@@ -1025,6 +1025,34 @@ class VariantSelects extends HTMLElement {
     return currentVariant;
   }
 
+  getProductInfo() {
+    let variants = this.getVariantData();
+    let media = this.getMediaData();
+
+    let options = Array.from(this.querySelectorAll('select, fieldset'), (element) => {
+      if (element.tagName === 'SELECT') {
+        return element.value;
+      }
+      if (element.tagName === 'FIELDSET') {
+        return Array.from(element.querySelectorAll('input')).find((radio) => radio.checked)?.value;
+      }
+    });
+
+    let currentVariant = variants.find((variant) => {
+      return !variant.options
+        .map((option, index) => {
+          return this.options[index] === option;
+        })
+        .includes(false);
+    });
+
+    return {
+      media,
+      variants,
+      currentVariant,
+    };
+  }
+
   onLoadVariant(param) {
     if (param) console.log(param);
     this.updateOptions();
