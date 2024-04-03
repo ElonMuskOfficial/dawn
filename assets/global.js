@@ -1029,8 +1029,8 @@ class VariantSelects extends HTMLElement {
     if (param) console.log(param);
     this.updateOptions();
     let currentVariant = this.updateMasterId();
-    this.getMediaData();
-    console.log(currentVariant, this.mediaData);
+    let mediaData = this.getMediaData();
+    console.log(currentVariant, mediaData);
     const parentElement = document.querySelector('variant-selects'); // Corrected the selector
     if (parentElement) {
       const variantInputs = parentElement.querySelectorAll('input[data-position]');
