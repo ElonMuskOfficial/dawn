@@ -1103,7 +1103,6 @@ class VariantSelects extends HTMLElement {
   }
 
   updateMasterId() {
-    console.log(this.getMediaData())
     this.currentVariant = this.getVariantData().find((variant) => {
       return !variant.options
         .map((option, index) => {
