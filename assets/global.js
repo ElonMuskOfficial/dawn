@@ -1040,12 +1040,12 @@ class VariantSelects extends HTMLElement {
       const variantValues = [currentVariant.value];
       const mediaGallery = document.querySelector(`[id^="MediaGallery-${this.dataset.section}"]`);
       // mediaGallery.querySelectorAll('[data-media-position]').forEach((el) => (el.style.display = 'none'));
-      
+
       // mediaGallery.querySelectorAll(`[data-media-position="default"]`).forEach((el) => (el.style.display = 'block'));
       // mediaGallery.querySelectorAll('slider-component').forEach((slider) => {
       //   slider.initPages();
       // });
-     
+
       // Group variants end
 
       if (Object.keys(currentVariant).length !== 0) {
@@ -1057,10 +1057,14 @@ class VariantSelects extends HTMLElement {
           productMedia,
           parseInt(currentVariant['data-position'])
         );
-        mediaGallery.querySelectorAll('[data-media-position]').forEach((item)=>{
+        mediaGallery.querySelectorAll('[data-media-position]').forEach((item) => {
           let position = item.getAttribute('data-media-position');
-          console.log(position, media);
-        })
+          media.forEach((m) => {
+            if (position == m.position || position === 'default') {
+              console.log(item);
+            }
+          });
+        });
         // console.log(currentVariant['data-position'], media);
       }
     } else {
