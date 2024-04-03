@@ -1060,6 +1060,7 @@ class VariantSelects extends HTMLElement {
         console.log(media)
         mediaGallery.querySelectorAll('[data-media-position]').forEach((item) => {
           let position = item.getAttribute('data-media-position');
+          item.style.display = 'none';
           if (position == 'default') {
             item.style.display = 'block';
           }
@@ -1067,8 +1068,6 @@ class VariantSelects extends HTMLElement {
             if (m.position === parseInt(position)) {
               item.style.display = 'block';
               console.log(item, m.position);
-            } else {
-              item.style.display = 'none';
             }
           });
         });
