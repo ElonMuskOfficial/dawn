@@ -1063,10 +1063,9 @@ class VariantSelects extends HTMLElement {
             // item.style.display = 'block';
           }
           media.forEach((m) => {
-            console.log(m.position === parseInt(position))
             if (m.position === parseInt(position)) {
               // item.style.display = 'block';
-              console.log(item);
+              console.log(item, m.position);
             } else {
               // item.style.display = 'none';
             }
