@@ -1026,6 +1026,7 @@ class VariantSelects extends HTMLElement {
   }
 
   onLoadVariant(param) {
+    if (param) console.log(param);
     const parentElement = document.querySelector('variant-selects'); // Corrected the selector
     if (parentElement) {
       const variantInputs = parentElement.querySelectorAll('input[data-position]');
@@ -1300,7 +1301,7 @@ class VariantSelects extends HTMLElement {
         );
 
         this.updateMedia(html);
-        this.onLoadVariant("updateMedia");
+        this.onLoadVariant('updateMedia');
 
         const pricePerItemDestination = document.getElementById(`Price-Per-Item-${this.dataset.section}`);
         const pricePerItemSource = html.getElementById(
