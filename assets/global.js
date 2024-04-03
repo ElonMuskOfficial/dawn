@@ -1069,7 +1069,7 @@ class VariantSelects extends HTMLElement {
       // const currentVariant = this.getCurrentVariant(variantInputs);
       const mediaGallery = document.querySelector(`[id^="MediaGallery-${this.dataset.section}"]`);
 
-      if (Object.keys(currentVariant).length !== 0 && currentVariant['data-position']) {
+      if (Object.keys(currentVariant).length !== 0 && position) {
         let selectedMedia = getMediaForVariantPosition(variants, media, parseInt(currentVariant['data-position']));
         console.log('SELECTED_MEDIA', selectedMedia);
         mediaGallery.querySelectorAll('[data-media-position]').forEach((item) => {
