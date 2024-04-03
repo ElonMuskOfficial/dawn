@@ -1060,14 +1060,15 @@ class VariantSelects extends HTMLElement {
         mediaGallery.querySelectorAll('[data-media-position]').forEach((item) => {
           let position = item.getAttribute('data-media-position');
           if (position == 'default') {
-            item.style.display = 'block';
+            // item.style.display = 'block';
           }
           media.forEach((m) => {
             console.log(m.position === parseInt(position))
             if (m.position === parseInt(position)) {
-              item.style.display = 'block';
+              // item.style.display = 'block';
+              console.log(item);
             } else {
-              item.style.display = 'none';
+              // item.style.display = 'none';
             }
           });
         });
