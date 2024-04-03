@@ -1035,7 +1035,7 @@ class VariantSelects extends HTMLElement {
       const productVariants = JSON.parse(productVariantsJSON.textContent);
       const productMedia = JSON.parse(productMediaJSON.textContent);
       const currentVariant = this.getCurrentVariant(variantInputs);
-
+      console.log(currentVariant);
       const mediaGallery = document.querySelector(`[id^="MediaGallery-${this.dataset.section}"]`);
 
       if (Object.keys(currentVariant).length !== 0) {
