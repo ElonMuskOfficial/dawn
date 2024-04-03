@@ -1037,44 +1037,31 @@ class VariantSelects extends HTMLElement {
   onLoadVariant(param) {
     if (param) console.log(param);
     const { media, variants, currentVariant } = this.getProductInfo();
+    const mediaGallery = document.querySelector(`[id^="MediaGallery-${this.dataset.section}"]`);
 
-    const parentElement = document.querySelector('variant-selects'); // Corrected the selector
-    if (parentElement) {
-      // const variantInputs = parentElement.querySelectorAll('input[data-position]');
-      // const productVariantsJSON = parentElement.querySelector('[id^="ProductVariantsJSON-"]');
-      // const productMediaJSON = parentElement.querySelector('[id^="ProductMediaJSON-"]');
-
-      // const productVariants = JSON.parse(productVariantsJSON.textContent);
-      // const productMedia = JSON.parse(productMediaJSON.textContent);
-      // const currentVariant = this.getCurrentVariant(variantInputs);
-      const mediaGallery = document.querySelector(`[id^="MediaGallery-${this.dataset.section}"]`);
-
-      if (Object.keys(currentVariant).length !== 0 && currentVariant.featured_image.position) {
-        try {
-          let selectedMedia = getMediaForVariantPosition(
-            variants,
-            media,
-            parseInt(currentVariant.featured_image.position)
-          );
-          console.log('SELECTED_MEDIA', selectedMedia);
-          mediaGallery.querySelectorAll('[data-media-position]').forEach((item) => {
-            let position = item.getAttribute('data-media-position');
-            item.style.display = 'none';
-            if (position == 'default') {
+    if (Object.keys(currentVariant).length !== 0 && currentVariant.featured_image.position) {
+      try {
+        let selectedMedia = getMediaForVariantPosition(
+          variants,
+          media,
+          parseInt(currentVariant.featured_image.position)
+        );
+        console.log('SELECTED_MEDIA', selectedMedia);
+        mediaGallery.querySelectorAll('[data-media-position]').forEach((item) => {
+          let position = item.getAttribute('data-media-position');
+          item.style.display = 'none';
+          if (position == 'default') {
+            item.style.display = 'block';
+          }
+          selectedMedia.forEach((m) => {
+            if (m.position === parseInt(position)) {
               item.style.display = 'block';
             }
-            selectedMedia.forEach((m) => {
-              if (m.position === parseInt(position)) {
-                item.style.display = 'block';
-              }
-            });
           });
-        } catch (ex) {
-          console.log('ERROR:', ex);
-        }
+        });
+      } catch (ex) {
+        console.log('ERROR:', ex);
       }
-    } else {
-      console.error('Parent element with class "variant-selects" not found.');
     }
   }
 
