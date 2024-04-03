@@ -99,7 +99,9 @@
       name="{{ option.name }}"
       value="{{ value | escape }}"
       form="{{ product_form_id }}"
-      data-position="{{ variant.featured_media.position }}"
+      {% if option.name == 'Color' or option.name == 'color' %}
+      data-position="{{ variant.featured_media.position }}"  
+      {% endif %}
       {% if option.selected_value == value %}
         checked
       {% endif %}
