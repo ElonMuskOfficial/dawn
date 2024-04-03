@@ -1003,7 +1003,7 @@ class VariantSelects extends HTMLElement {
   constructor() {
     super();
     this.addEventListener('change', this.onVariantChange);
-    // this.onLoadVariant();
+    this.onLoadVariant();
   }
 
   getInputAttributes(input) {
@@ -1301,7 +1301,7 @@ class VariantSelects extends HTMLElement {
         );
 
         this.updateMedia(html);
-        // this.onLoadVariant('updateMedia');
+        this.onLoadVariant('updateMedia');
 
         const pricePerItemDestination = document.getElementById(`Price-Per-Item-${this.dataset.section}`);
         const pricePerItemSource = html.getElementById(
