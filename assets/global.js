@@ -1062,6 +1062,7 @@ class VariantSelects extends HTMLElement {
           media.forEach((m) => {
             if (position == m.position || position === 'default') {
               console.log(item);
+              return
             }
           });
         });
