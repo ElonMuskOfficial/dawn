@@ -1005,6 +1005,7 @@ class VariantSelects extends HTMLElement {
     this.addEventListener('change', this.onVariantChange);
     this.updateOptions();
     this.updateMasterId();
+    this.getMediaData()
     this.onLoadVariant();
   }
 
