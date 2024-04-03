@@ -1057,9 +1057,9 @@ class VariantSelects extends HTMLElement {
           productMedia,
           parseInt(currentVariant['data-position'])
         );
-        media.forEach((m) => {
         mediaGallery.querySelectorAll('[data-media-position]').forEach((item) => {
           let position = item.getAttribute('data-media-position');
+          media.forEach((m) => {
             if (position == m.position || position === 'default') {
               console.log(item);
             }
