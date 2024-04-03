@@ -24,9 +24,9 @@
 
   assign product_form_id = 'product-form-' | append: section.id
 -%}
-
+{% assign variants = product.variants | uniq: 'option1' %}
 {%- for value in option.values -%}
-  {% assign variant = product.variants[forloop.index0] %}
+  {% assign variant = variants[forloop.index0] %}
   {%- liquid
     assign option_disabled = true
 
