@@ -1028,7 +1028,7 @@ class VariantSelects extends HTMLElement {
   onLoadVariant() {
     const parentElement = document.querySelector('variant-selects'); // Corrected the selector
     if (parentElement) {
-      const variantInputs = parentElement.querySelectorAll('input[type="radio"]');
+      const variantInputs = parentElement.querySelectorAll('input[data-position]');
       const productVariantsJSON = parentElement.querySelector('[id^="ProductVariantsJSON-"]');
       const productMediaJSON = parentElement.querySelector('[id^="ProductMediaJSON-"]');
 
