@@ -1003,9 +1003,9 @@ class VariantSelects extends HTMLElement {
   constructor() {
     super();
     this.addEventListener('change', this.onVariantChange);
-    this.onLoadVariant();
     this.updateOptions();
     this.updateMasterId();
+    this.onLoadVariant();
   }
 
   getInputAttributes(input) {
@@ -1029,7 +1029,6 @@ class VariantSelects extends HTMLElement {
 
   onLoadVariant(param) {
     if (param) console.log(param);
-    console.log(this.currentVariant)
     const parentElement = document.querySelector('variant-selects'); // Corrected the selector
     if (parentElement) {
       const variantInputs = parentElement.querySelectorAll('input[data-position]');
