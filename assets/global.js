@@ -1057,7 +1057,7 @@ class VariantSelects extends HTMLElement {
           productMedia,
           parseInt(currentVariant['data-position'])
         );
-        console.log(media)
+        console.log(media);
         mediaGallery.querySelectorAll('[data-media-position]').forEach((item) => {
           let position = item.getAttribute('data-media-position');
           item.style.display = 'none';
@@ -1313,7 +1313,8 @@ class VariantSelects extends HTMLElement {
         );
 
         this.updateMedia(html);
-        this.onLoadVariant()
+        this.onLoadVariant();
+
         const pricePerItemDestination = document.getElementById(`Price-Per-Item-${this.dataset.section}`);
         const pricePerItemSource = html.getElementById(
           `Price-Per-Item-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
