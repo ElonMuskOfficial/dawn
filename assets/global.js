@@ -1070,18 +1070,15 @@ class VariantSelects extends HTMLElement {
       const mediaGallery = document.querySelector(`[id^="MediaGallery-${this.dataset.section}"]`);
 
       if (Object.keys(currentVariant).length !== 0 && currentVariant['data-position']) {
-        console.log('PRODUCT_VARIANTS', productVariants);
-        console.log('PRODUCT_MEDIA', productMedia);
-        console.log('CURRENT_VARIANT', currentVariant);
-        let media = getMediaForVariantPosition(variants, media, parseInt(currentVariant['data-position']));
-        console.log('SELECTED_MEDIA', media);
+        let selectedMedia = getMediaForVariantPosition(variants, media, parseInt(currentVariant['data-position']));
+        console.log('SELECTED_MEDIA', selectedMedia);
         mediaGallery.querySelectorAll('[data-media-position]').forEach((item) => {
           let position = item.getAttribute('data-media-position');
           item.style.display = 'none';
           if (position == 'default') {
             item.style.display = 'block';
           }
-          media.forEach((m) => {
+          selectedMedia.forEach((m) => {
             if (m.position === parseInt(position)) {
               item.style.display = 'block';
               // console.log(item, m.position);
