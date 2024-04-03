@@ -1004,7 +1004,8 @@ class VariantSelects extends HTMLElement {
     super();
     this.addEventListener('change', this.onVariantChange);
     this.onLoadVariant();
-    this.updateOptions()
+    this.updateOptions();
+    this.updateMasterId();
   }
 
   getInputAttributes(input) {
@@ -1108,6 +1109,7 @@ class VariantSelects extends HTMLElement {
         })
         .includes(false);
     });
+    console.log({ currentVariant: this.currentVariant });
   }
 
   updateSelectedSwatchValue({ target }) {
