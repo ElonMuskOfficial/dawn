@@ -1005,7 +1005,7 @@ class VariantSelects extends HTMLElement {
     this.addEventListener('change', this.onVariantChange);
     this.updateOptions();
     this.updateMasterId();
-    this.getMediaData()
+    this.getMediaData();
     this.onLoadVariant();
   }
 
@@ -1030,7 +1030,7 @@ class VariantSelects extends HTMLElement {
 
   onLoadVariant(param) {
     if (param) console.log(param);
-    console.log(this.currentVariant)
+    console.log(this.currentVariant, this.mediaData);
     const parentElement = document.querySelector('variant-selects'); // Corrected the selector
     if (parentElement) {
       const variantInputs = parentElement.querySelectorAll('input[data-position]');
