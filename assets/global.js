@@ -1046,7 +1046,7 @@ class VariantSelects extends HTMLElement {
           productMedia,
           parseInt(currentVariant['data-position'])
         );
-        console.log(media);
+        console.log("MEDIA", media);
         mediaGallery.querySelectorAll('[data-media-position]').forEach((item) => {
           let position = item.getAttribute('data-media-position');
           item.style.display = 'none';
@@ -1056,7 +1056,7 @@ class VariantSelects extends HTMLElement {
           media.forEach((m) => {
             if (m.position === parseInt(position)) {
               item.style.display = 'block';
-              console.log(item, m.position);
+              // console.log(item, m.position);
             }
           });
         });
