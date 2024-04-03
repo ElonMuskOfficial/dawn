@@ -1061,7 +1061,6 @@ class VariantSelects extends HTMLElement {
             }
           });
         });
-        // console.log(currentVariant['data-position'], media);
       }
     } else {
       console.error('Parent element with class "variant-selects" not found.');
