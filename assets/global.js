@@ -1109,7 +1109,6 @@ class VariantSelects extends HTMLElement {
         })
         .includes(false);
     });
-    console.log({ currentVariant: this.currentVariant });
   }
 
   updateSelectedSwatchValue({ target }) {
