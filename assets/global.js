@@ -1044,7 +1044,7 @@ class VariantSelects extends HTMLElement {
         let media = getMediaForVariantPosition(
           productVariants,
           productMedia,
-          parseInt("2")
+          parseInt("11")
         );
         console.log('SELECTED_MEDIA', media);
         mediaGallery.querySelectorAll('[data-media-position]').forEach((item) => {
