@@ -99,7 +99,7 @@
       name="{{ option.name }}"
       value="{{ value | escape }}"
       form="{{ product_form_id }}"
-      data-position="{{ variant.media.position }}"
+      data-position="{{ variant.featured_media.position }}"
       {% if option.selected_value == value %}
         checked
       {% endif %}
