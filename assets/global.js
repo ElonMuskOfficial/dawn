@@ -1041,7 +1041,7 @@ class VariantSelects extends HTMLElement {
   getProductInfo() {
     let variants = this.getVariantData();
     let media = this.getMediaData();
-
+    console.log({ variants });
     let options = Array.from(this.querySelectorAll('select, fieldset'), (element) => {
       if (element.tagName === 'SELECT') {
         return element.value;
