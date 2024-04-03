@@ -1079,7 +1079,6 @@ class VariantSelects extends HTMLElement {
   }
 
   onVariantChange(event) {
-    this.onLoadVariant();
     this.updateOptions();
     this.updateMasterId();
     this.updateSelectedSwatchValue(event);
@@ -1093,7 +1092,7 @@ class VariantSelects extends HTMLElement {
     } else {
       this.updateURL();
       this.updateVariantInput();
-      this.renderProductInfo();
+      this.renderProductInfo(this);
       this.updateShareUrl();
     }
   }
