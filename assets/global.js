@@ -1038,7 +1038,7 @@ class VariantSelects extends HTMLElement {
       console.log(currentVariant);
       const mediaGallery = document.querySelector(`[id^="MediaGallery-${this.dataset.section}"]`);
 
-      if (Object.keys(currentVariant).length !== 0) {
+      if (Object.keys(currentVariant).length !== 0 && currentVariant['data-position']) {
         console.log(productVariants);
         console.log(productMedia);
         console.log(currentVariant);
