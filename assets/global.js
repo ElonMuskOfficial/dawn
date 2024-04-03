@@ -1055,9 +1055,8 @@ class VariantSelects extends HTMLElement {
 
   onLoadVariant(param) {
     if (param) console.log(param);
-
     const { media, variants, currentVariant } = this.getProductInfo();
-
+    const position = currentVariant.featured_image.position || null;
     const parentElement = document.querySelector('variant-selects'); // Corrected the selector
     if (parentElement) {
       const variantInputs = parentElement.querySelectorAll('input[data-position]');
@@ -1073,11 +1072,7 @@ class VariantSelects extends HTMLElement {
         console.log('PRODUCT_VARIANTS', productVariants);
         console.log('PRODUCT_MEDIA', productMedia);
         console.log('CURRENT_VARIANT', currentVariant);
-        let media = getMediaForVariantPosition(
-          productVariants,
-          productMedia,
-          parseInt(currentVariant['data-position'])
-        );
+        let media = getMediaForVariantPosition(variants, media, parseInt(currentVariant['data-position']));
         console.log('SELECTED_MEDIA', media);
         mediaGallery.querySelectorAll('[data-media-position]').forEach((item) => {
           let position = item.getAttribute('data-media-position');
