@@ -1041,6 +1041,7 @@ class VariantSelects extends HTMLElement {
       const mediaGallery = document.querySelector(`[id^="MediaGallery-${this.dataset.section}"]`);
       // if (mediaGallery.hasAttribute('media-grouping-enabled')) {
       mediaGallery.querySelectorAll('[data-media-position]').forEach((el) => (el.style.display = 'none'));
+      
       mediaGallery.querySelectorAll(`[data-media-position="default"]`).forEach((el) => (el.style.display = 'block'));
       mediaGallery.querySelectorAll('slider-component').forEach((slider) => {
         slider.initPages();
@@ -1048,17 +1049,17 @@ class VariantSelects extends HTMLElement {
       // }
       // Group variants end
 
-      // if (Object.keys(currentVariant).length !== 0) {
-      //   console.log(productVariants);
-      //   console.log(productMedia);
-      //   console.log(currentVariant);
-      //   let media = getMediaForVariantPosition(
-      //     productVariants,
-      //     productMedia,
-      //     parseInt(currentVariant['data-position'])
-      //   );
-      //   console.log(currentVariant['data-position'], media);
-      // }
+      if (Object.keys(currentVariant).length !== 0) {
+        console.log(productVariants);
+        console.log(productMedia);
+        console.log(currentVariant);
+        let media = getMediaForVariantPosition(
+          productVariants,
+          productMedia,
+          parseInt(currentVariant['data-position'])
+        );
+        console.log(currentVariant['data-position'], media);
+      }
     } else {
       console.error('Parent element with class "variant-selects" not found.');
     }
