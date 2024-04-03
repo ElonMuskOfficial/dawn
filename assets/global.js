@@ -1081,7 +1081,7 @@ class VariantSelects extends HTMLElement {
     } else {
       this.updateURL();
       this.updateVariantInput();
-      this.renderProductInfo(this);
+      this.renderProductInfo();
       this.updateShareUrl();
     }
   }
@@ -1268,7 +1268,6 @@ class VariantSelects extends HTMLElement {
   }
 
   renderProductInfo() {
-    console.log('renderProductInfo');
     const requestedVariantId = this.currentVariant.id;
     const sectionId = this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section;
 
