@@ -1269,7 +1269,7 @@ class VariantSelects extends HTMLElement {
   renderProductInfo() {
     const requestedVariantId = this.currentVariant.id;
     const sectionId = this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section;
-
+    console.log(this.dataset.url)
     fetch(
       `${this.dataset.url}?variant=${requestedVariantId}&section_id=${
         this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section
