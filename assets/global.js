@@ -1403,6 +1403,11 @@ class VariantSelects extends HTMLElement {
     this.variantData = this.variantData || JSON.parse(this.querySelector('[type="application/json"]').textContent);
     return this.variantData;
   }
+
+  getMediaData() {
+    this.mediaData = this.mediaData || JSON.parse(this.querySelector('[id^="ProductMediaJSON-"]').textContent);
+    return this.mediaData;
+  }
 }
 
 customElements.define('variant-selects', VariantSelects);
