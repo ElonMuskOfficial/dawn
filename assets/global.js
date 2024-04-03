@@ -1006,24 +1006,9 @@ class VariantSelects extends HTMLElement {
     this.onLoadVariant();
   }
 
-  getInputAttributes(input) {
-    const attributes = {};
-    Array.from(input.attributes).forEach((attribute) => {
-      const { name, value } = attribute;
-      attributes[name] = value;
-    });
-    return attributes;
-  }
+ 
 
-  getCurrentVariant(variantInputs) {
-    let currentVariant = {};
-    variantInputs.forEach((input) => {
-      if (input.checked) {
-        currentVariant = this.getInputAttributes(input);
-      }
-    });
-    return currentVariant;
-  }
+ 
 
   getProductInfo() {
     let variants = this.getVariantData();
