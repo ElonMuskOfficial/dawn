@@ -1006,6 +1006,25 @@ class VariantSelects extends HTMLElement {
     this.onLoadVariant();
   }
 
+  getInputAttributes(input) {
+    const attributes = {};
+    Array.from(input.attributes).forEach((attribute) => {
+      const { name, value } = attribute;
+      attributes[name] = value;
+    });
+    return attributes;
+  }
+
+  getCurrentVariant(variantInputs) {
+    let currentVariant = {};
+    variantInputs.forEach((input) => {
+      if (input.checked) {
+        currentVariant = this.getInputAttributes(input);
+      }
+    });
+    return currentVariant;
+  }
+
   getProductInfo() {
     let variants = this.getVariantData();
     let media = this.getMediaData();
@@ -1038,30 +1057,43 @@ class VariantSelects extends HTMLElement {
     if (param) console.log(param);
     const { media, variants, currentVariant } = this.getProductInfo();
 
-    const mediaGallery = document.querySelector(`[id^="MediaGallery-${this.dataset.section}"]`);
-    if (Object.keys(currentVariant).length !== 0 && currentVariant.featured_image.position) {
-      try {
-        let selectedMedia = getMediaForVariantPosition(
-          variants,
-          media,
-          parseInt(currentVariant.featured_image.position)
-        );
-        console.log('SELECTED_MEDIA', selectedMedia);
-        mediaGallery.querySelectorAll('[data-media-position]').forEach((item) => {
-          let position = item.getAttribute('data-media-position');
-          item.style.display = 'none';
-          if (position == 'default') {
-            item.style.display = 'block';
-          }
-          selectedMedia.forEach((m) => {
-            if (m.position === parseInt(position)) {
+    const parentElement = document.querySelector('variant-selects'); // Corrected the selector
+    if (parentElement) {
+      // const variantInputs = parentElement.querySelectorAll('input[data-position]');
+      // const productVariantsJSON = parentElement.querySelector('[id^="ProductVariantsJSON-"]');
+      // const productMediaJSON = parentElement.querySelector('[id^="ProductMediaJSON-"]');
+
+      // const productVariants = JSON.parse(productVariantsJSON.textContent);
+      // const productMedia = JSON.parse(productMediaJSON.textContent);
+      // const currentVariant = this.getCurrentVariant(variantInputs);
+      const mediaGallery = document.querySelector(`[id^="MediaGallery-${this.dataset.section}"]`);
+
+      if (Object.keys(currentVariant).length !== 0 && currentVariant.featured_image.position) {
+        try {
+          let selectedMedia = getMediaForVariantPosition(
+            variants,
+            media,
+            parseInt(currentVariant.featured_image.position)
+          );
+          console.log('SELECTED_MEDIA', selectedMedia);
+          mediaGallery.querySelectorAll('[data-media-position]').forEach((item) => {
+            let position = item.getAttribute('data-media-position');
+            item.style.display = 'none';
+            if (position == 'default') {
               item.style.display = 'block';
             }
+            selectedMedia.forEach((m) => {
+              if (m.position === parseInt(position)) {
+                item.style.display = 'block';
+              }
+            });
           });
-        });
-      } catch (ex) {
-        console.log('ERROR:', ex);
+        } catch (ex) {
+          console.log('ERROR:', ex);
+        }
       }
+    } else {
+      console.error('Parent element with class "variant-selects" not found.');
     }
   }
 
