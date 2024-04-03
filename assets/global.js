@@ -1079,6 +1079,7 @@ class VariantSelects extends HTMLElement {
   }
 
   onVariantChange(event) {
+    // this.onLoadVariant();
     this.updateOptions();
     this.updateMasterId();
     this.updateSelectedSwatchValue(event);
@@ -1312,7 +1313,7 @@ class VariantSelects extends HTMLElement {
         );
 
         this.updateMedia(html);
-
+        this.onLoadVariant()
         const pricePerItemDestination = document.getElementById(`Price-Per-Item-${this.dataset.section}`);
         const pricePerItemSource = html.getElementById(
           `Price-Per-Item-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
