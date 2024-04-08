@@ -710,7 +710,7 @@
             buttonRow.innerHTML = '';
             for (var i = 0; i < options.length; i++) {
               let option = options[i];
-              if (!option.value) {
+              if (option.value) {
                 console.log(option, 'selectForm');
               }
             }
