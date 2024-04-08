@@ -32,7 +32,7 @@ function getMediaForVariantPosition(variants, media, position) {
   const nextVariantIndex = variants.findIndex((variant) => variant.featured_image.position > position);
   const endPosition =
     nextVariantIndex !== -1 ? variants[nextVariantIndex].featured_image.position : media[media.length - 1].position + 1;
-
+  // console.log({ position, nextVariantIndex, endPosition });
   const filteredMedia = media.reduce(
     (acc, mediaItem) => {
       if (mediaItem.position >= variantPosition && mediaItem.position < endPosition) {
@@ -1009,8 +1009,8 @@ class VariantSelects extends HTMLElement {
   onLoadVariant(param) {
     if (param) console.log(param);
     const { media, variants, currentVariant } = this.getProductInfo();
-
-    const mediaGallery = document.querySelector(`[id^="MediaGallery-${this.dataset.section}"]`);
+    console.log({ currentVariant });
+    // const mediaGallery = document.querySelector(`[id^="MediaGallery-${this.dataset.section}"]`);
 
     if (Object.keys(currentVariant).length !== 0 && currentVariant.featured_image.position) {
       try {
@@ -1020,18 +1020,18 @@ class VariantSelects extends HTMLElement {
           parseInt(currentVariant.featured_image.position)
         );
         console.log('SELECTED_MEDIA', selectedMedia);
-        mediaGallery.querySelectorAll('[data-media-position]').forEach((item) => {
-          let position = item.getAttribute('data-media-position');
-          item.style.display = 'none';
-          if (position == 'default') {
-            item.style.display = 'block';
-          }
-          selectedMedia.forEach((m) => {
-            if (m.position === parseInt(position)) {
-              item.style.display = 'block';
-            }
-          });
-        });
+        // mediaGallery.querySelectorAll('[data-media-position]').forEach((item) => {
+        //   let position = item.getAttribute('data-media-position');
+        //   item.style.display = 'none';
+        //   if (position == 'default') {
+        //     item.style.display = 'block';
+        //   }
+        //   selectedMedia.forEach((m) => {
+        //     if (m.position === parseInt(position)) {
+        //       item.style.display = 'block';
+        //     }
+        //   });
+        // });
       } catch (ex) {
         console.log('ERROR:', ex);
       }
@@ -1207,7 +1207,6 @@ class VariantSelects extends HTMLElement {
   updateMedia(html) {
     const mediaGallerySource = document.querySelector(`[id^="MediaGallery-${this.dataset.section}"] ul`);
     const mediaGalleryDestination = html.querySelector(`[id^="MediaGallery-${this.dataset.section}"] ul`);
-
     const refreshSourceData = () => {
       const mediaGallerySourceItems = Array.from(mediaGallerySource.querySelectorAll('li[data-media-id]'));
       const sourceSet = new Set(mediaGallerySourceItems.map((item) => item.dataset.mediaId));
@@ -1218,12 +1217,14 @@ class VariantSelects extends HTMLElement {
     if (mediaGallerySource && mediaGalleryDestination) {
       let [mediaGallerySourceItems, sourceSet, sourceMap] = refreshSourceData();
       const mediaGalleryDestinationItems = Array.from(mediaGalleryDestination.querySelectorAll('li[data-media-id]'));
+      console.log(mediaGalleryDestinationItems, 'mediaGalleryDestinationItems');
       const destinationSet = new Set(mediaGalleryDestinationItems.map(({ dataset }) => dataset.mediaId));
       let shouldRefresh = false;
 
       // add items from new data not present in DOM
       for (let i = mediaGalleryDestinationItems.length - 1; i >= 0; i--) {
         if (!sourceSet.has(mediaGalleryDestinationItems[i].dataset.mediaId)) {
+          console.log('add items from new data not present in DOM');
           mediaGallerySource.prepend(mediaGalleryDestinationItems[i]);
           shouldRefresh = true;
         }
@@ -1232,6 +1233,7 @@ class VariantSelects extends HTMLElement {
       // remove items from DOM not present in new data
       for (let i = 0; i < mediaGallerySourceItems.length; i++) {
         if (!destinationSet.has(mediaGallerySourceItems[i].dataset.mediaId)) {
+          console.log('remove items from DOM not present in new data');
           mediaGallerySourceItems[i].remove();
           shouldRefresh = true;
         }
@@ -1269,9 +1271,11 @@ class VariantSelects extends HTMLElement {
   renderProductInfo() {
     const requestedVariantId = this.currentVariant.id;
     const sectionId = this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section;
-    console.log(`${this.dataset.url}?variant=${requestedVariantId}&section_id=${
-      this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section
-    }`)
+    console.log(
+      `${this.dataset.url}?variant=${requestedVariantId}&section_id=${
+        this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section
+      }`
+    );
     fetch(
       `${this.dataset.url}?variant=${requestedVariantId}&section_id=${
         this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section
@@ -1299,9 +1303,9 @@ class VariantSelects extends HTMLElement {
         const volumePricingSource = html.getElementById(
           `Volume-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
         );
-
+        // console.log(html);
         this.updateMedia(html);
-        this.onLoadVariant('updateMedia');
+        // this.onLoadVariant('updateMedia');
 
         const pricePerItemDestination = document.getElementById(`Price-Per-Item-${this.dataset.section}`);
         const pricePerItemSource = html.getElementById(
