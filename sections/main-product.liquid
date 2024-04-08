@@ -705,6 +705,7 @@
           let selectContainers = selectForm.querySelector('#simple-bundles-io-options');
           if (selectContainers) {
             let select = selectContainers.querySelector('select');
+            let lable = selectContainers.querySelector('label');
             let options = select.options;
             let buttonRow = document.getElementById('button-row');
             buttonRow.innerHTML = '';
@@ -723,8 +724,8 @@
             if (buttonRow) {
               console.log(buttonRow);
               buttonRow.addEventListener('click', () => {
-                console.log(event.target.value, select.value);
-                select.value = "CADET GREY"
+                console.log(event.target.value, select.value, lable);
+                select.value = 'CADET GREY';
               });
             }
           }
