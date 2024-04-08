@@ -696,30 +696,38 @@
     -%}
 
     <script>
-      function handleSelect() {
-        let selectForm = document.querySelector('.product-form');
-        if (!selectForm) {
-          setTimeout(handleSelect, 100); // Check again after 100ms
-          return;
-        }
-
-        let selectContainers = selectForm.querySelector('#simple-bundles-io-options');
-        if (!selectContainers) {
-          setTimeout(handleSelect, 100); // Check again after 100ms
-          return;
-        }
-
-        let allSelect = selectContainers.querySelectorAll('select');
-        allSelect.forEach((select) => {
-          let buttonContainer = document.createElement('div');
-          buttonContainer.classList.add('button-container');
-          select.append(buttonContainer);
-          select.classList.add('hide-io-select');
-          console.log(select, 'select');
-        });
+      // Function to handle modifications to select elements
+      function handleSelect(select) {
+        let buttonContainer = document.createElement('div');
+        buttonContainer.classList.add('button-container');
+        select.append(buttonContainer);
+        select.classList.add('hide-io-select');
+        console.log(select, 'select');
       }
 
-      handleSelect()
+      // MutationObserver callback function
+      function mutationCallback(mutationsList, observer) {
+        for (let mutation of mutationsList) {
+          if (mutation.type === 'childList') {
+            mutation.addedNodes.forEach((node) => {
+              if (node.nodeType === Node.ELEMENT_NODE && node.classList.contains('product-form')) {
+                // If the product form is added, apply modifications
+                let selectContainers = node.querySelector('#simple-bundles-io-options');
+                if (selectContainers) {
+                  let allSelect = selectContainers.querySelectorAll('select');
+                  allSelect.forEach((select) => handleSelect(select));
+                }
+              }
+            });
+          }
+        }
+      }
+
+      // Create a MutationObserver instance
+      const observer = new MutationObserver(mutationCallback);
+
+      // Start observing the entire document and its subtree for DOM changes
+      observer.observe(document.documentElement, { childList: true, subtree: true });
     </script>
 
     <script type="application/ld+json">
