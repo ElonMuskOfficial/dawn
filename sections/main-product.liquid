@@ -704,8 +704,8 @@
         let handleSelect = () => {
           let selectContainers = selectForm.querySelector('#simple-bundles-io-options');
           if (selectContainers) {
-            let fSelect = selectContainers.querySelector('select');
-            let options = fSelect.options;
+            let select = selectContainers.querySelector('select');
+            let options = select.options;
             let buttonRow = document.getElementById('button-row');
             buttonRow.innerHTML = '';
             for (var i = 0; i < options.length; i++) {
@@ -715,8 +715,8 @@
                 button.textContent = option.textContent.trim();
                 button.value = option.value;
                 button.addEventListener('click', function () {
-                  fSelect.value = this.value;
-                  console.log({ fSelect });
+                  select.value = this.value;
+                  console.log({ select });
                   let buttons = buttonRow.querySelectorAll('button');
                   buttons.forEach(function (btn) {
                     btn.classList.remove('active');
