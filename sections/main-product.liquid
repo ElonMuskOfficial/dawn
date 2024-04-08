@@ -714,15 +714,6 @@
                 let button = document.createElement('button');
                 button.textContent = option.textContent.trim();
                 button.value = option.value;
-                button.addEventListener('click', function () {
-                  select.value = this.value;
-                  console.log({ select });
-                  let buttons = buttonRow.querySelectorAll('button');
-                  buttons.forEach(function (btn) {
-                    btn.classList.remove('active');
-                  });
-                  this.classList.add('active');
-                });
                 if (option.selected) {
                   button.classList.add('active');
                 }
