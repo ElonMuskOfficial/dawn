@@ -693,10 +693,12 @@
     -%}
 
     <script>
-      let selectContainers = document.querySelector('.product-form');
-      setTimeout(() => {
-        console.log('selectContainers', selectContainers.querySelector('#simple-bundles-io-options'));
-      }, 100);
+      document.addEventListener('DOMContentLoaded', function () {
+        let selectContainers = document.querySelector('.product-form');
+        setTimeout(() => {
+          console.log('selectContainers', selectContainers.querySelector('#simple-bundles-io-options'));
+        }, 100);
+      });
     </script>
 
     <script type="application/ld+json">
