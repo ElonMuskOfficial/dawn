@@ -716,6 +716,7 @@
                 button.value = option.value;
                 button.addEventListener('click', function () {
                   fSelect.value = this.value;
+                  console.log({ fSelect });
                   let buttons = buttonRow.querySelectorAll('button');
                   buttons.forEach(function (btn) {
                     btn.classList.remove('active');
