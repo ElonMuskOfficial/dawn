@@ -705,29 +705,20 @@
         console.log(select, 'select');
       }
 
-      // MutationObserver callback function
-      function mutationCallback(mutationsList, observer) {
-        for (let mutation of mutationsList) {
-          if (mutation.type === 'childList') {
-            mutation.addedNodes.forEach((node) => {
-              if (node.nodeType === Node.ELEMENT_NODE && node.classList.contains('product-form')) {
-                // If the product form is added, apply modifications
-                let selectContainers = node.querySelector('#simple-bundles-io-options');
-                if (selectContainers) {
-                  let allSelect = selectContainers.querySelectorAll('select');
-                  allSelect.forEach((select) => handleSelect(select));
-                }
-              }
-            });
+      // Function to periodically check for the existence of elements
+      function checkElements() {
+        let selectContainers = document.querySelector('#simple-bundles-io-options');
+        if (selectContainers) {
+          let allSelect = selectContainers.querySelectorAll('select');
+          if (allSelect.length > 0) {
+            clearInterval(intervalId); // Stop checking once elements are found
+            allSelect.forEach((select) => handleSelect(select));
           }
         }
       }
 
-      // Create a MutationObserver instance
-      const observer = new MutationObserver(mutationCallback);
-
-      // Start observing the entire document and its subtree for DOM changes
-      observer.observe(document.documentElement, { childList: true, subtree: true });
+      // Check for elements every 100 milliseconds
+      let intervalId = setInterval(checkElements, 100);
     </script>
 
     <script type="application/ld+json">
