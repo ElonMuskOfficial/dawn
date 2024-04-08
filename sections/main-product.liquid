@@ -692,6 +692,13 @@
       endif
     -%}
 
+    <script>
+       document.addEventListener("DOMContentLoaded", function () {
+        var selectContainers = document.querySelector("[data-simple-bundles-options]");
+        console.log(selectContainers)
+       })
+    </script>
+
     <script type="application/ld+json">
       {
         "@context": "http://schema.org/",
