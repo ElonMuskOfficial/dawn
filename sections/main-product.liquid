@@ -704,14 +704,7 @@
         let handleSelect = () => {
           let selectContainers = selectForm.querySelector('#simple-bundles-io-options');
           if (selectContainers) {
-            let allSelect = selectContainers.querySelectorAll('select');
-            allSelect.forEach((select) => {
-              let buttonContainer = document.createElement("div");
-              buttonContainer.classList.add("button-container");
-              select.append(buttonContainer)
-              select.classList.add('hide-io-select');
-              console.log(select,"select")
-            });
+            console.log(selectContainers,"selectContainers")
           }
         };
 
