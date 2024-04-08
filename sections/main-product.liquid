@@ -695,7 +695,7 @@
       endif
     -%}
 
-    <script>
+    {% comment %} <script>
       let timeoutId;
 
       document.addEventListener('DOMContentLoaded', function () {
@@ -739,7 +739,7 @@
           handleSelect();
         }, 50);
       });
-    </script>
+    </script> {% endcomment %}
 
     <script type="application/ld+json">
       {
