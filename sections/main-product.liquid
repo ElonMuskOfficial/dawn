@@ -30,6 +30,9 @@
         padding-bottom: {{ section.settings.padding_bottom }}px;
       }
     }
+    .hide-io-select{
+      display: none;
+    }
   {%- endstyle -%}
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
@@ -703,8 +706,7 @@
           if (selectContainers) {
             let allSelect = selectContainers.querySelectorAll('select');
             allSelect.forEach((select) => {
-              select.style.display = 'none'
-              select.classList.add('hidden')
+              select.classList.add('hide-io-select');
               console.log('selectContainers', select);
             });
           }
