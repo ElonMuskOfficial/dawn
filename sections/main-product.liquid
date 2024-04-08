@@ -698,47 +698,45 @@
     <script>
       let timeoutId;
 
-      document.addEventListener('DOMContentLoaded', function () {
-        let selectForm = document.querySelector('.product-form');
+      let selectForm = document.querySelector('.product-form');
 
-        let handleSelect = () => {
-          let selectContainers = selectForm.querySelector('#simple-bundles-io-options');
-          if (selectContainers) {
-            let select = selectContainers.querySelector('select');
-            let lable = selectContainers.querySelector('label');
-            lable.innerText = 'CADET GREY';
-            let options = select.options;
-            let buttonRow = document.getElementById('button-row');
-            buttonRow.innerHTML = '';
-            for (var i = 0; i < options.length; i++) {
-              let option = options[i];
-              if (option.value) {
-                let button = document.createElement('button');
-                button.textContent = option.textContent.trim();
-                button.value = option.value;
-                if (option.selected) {
-                  button.classList.add('active');
-                }
-                buttonRow.appendChild(button);
+      let handleSelect = () => {
+        let selectContainers = selectForm.querySelector('#simple-bundles-io-options');
+        if (selectContainers) {
+          let select = selectContainers.querySelector('select');
+          let lable = selectContainers.querySelector('label');
+          lable.innerText = 'CADET GREY';
+          let options = select.options;
+          let buttonRow = document.getElementById('button-row');
+          buttonRow.innerHTML = '';
+          for (var i = 0; i < options.length; i++) {
+            let option = options[i];
+            if (option.value) {
+              let button = document.createElement('button');
+              button.textContent = option.textContent.trim();
+              button.value = option.value;
+              if (option.selected) {
+                button.classList.add('active');
               }
-            }
-            if (buttonRow) {
-              console.log(buttonRow);
-              buttonRow.addEventListener('click', () => {
-                console.log(event.target.value, select.value);
-                lable.innerText = 'CADET GREY';
-                select.value = 'CADET GREY';
-              });
+              buttonRow.appendChild(button);
             }
           }
-        };
+          if (buttonRow) {
+            console.log(buttonRow);
+            buttonRow.addEventListener('click', () => {
+              console.log(event.target.value, select.value);
+              lable.innerText = 'CADET GREY';
+              select.value = 'CADET GREY';
+            });
+          }
+        }
+      };
 
-        if (timeoutId) clearTimeout(timeoutId);
+      if (timeoutId) clearTimeout(timeoutId);
 
-        timeoutId = setTimeout(() => {
-          handleSelect();
-        }, 500);
-      });
+      timeoutId = setTimeout(() => {
+        handleSelect();
+      }, 500);
     </script>
 
     <script type="application/ld+json">
