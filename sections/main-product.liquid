@@ -703,9 +703,8 @@
           if (selectContainers) {
             let allSelect = selectContainers.querySelectorAll('select');
             allSelect.forEach((select) => {
-              select.style.display = 'none';
+              console.log('selectContainers', select);
             });
-            console.log('selectContainers', selectContainers.querySelectorAll('select'));
           }
         };
 
