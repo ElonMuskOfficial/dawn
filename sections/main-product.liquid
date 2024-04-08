@@ -711,14 +711,21 @@
             for (var i = 0; i < options.length; i++) {
               let option = options[i];
               if (option.value) {
-                let button = document.createElement("button");
+                let button = document.createElement('button');
                 button.textContent = option.textContent.trim();
                 button.value = option.value;
-                console.log(button, 'selectForm');
-                button.addEventListener("click", function () {
-                  fSelect.value = this.value
-                  let buttons = buttonRow.querySelectorAll("button");
-                })
+                button.addEventListener('click', function () {
+                  fSelect.value = this.value;
+                  let buttons = buttonRow.querySelectorAll('button');
+                  buttons.forEach(function (btn) {
+                    btn.classList.remove('active');
+                  });
+                  this.classList.add('active');
+                });
+                if (option.selected) {
+                  console.log(option.selected, 'selectForm');
+                  button.classList.add('active');
+                }
               }
             }
           }
