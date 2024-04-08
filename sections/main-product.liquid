@@ -696,29 +696,31 @@
     -%}
 
     <script>
-      // Function to handle modifications to select elements
-      function handleSelect(select) {
-        let buttonContainer = document.createElement('div');
-        buttonContainer.classList.add('button-container');
-        select.append(buttonContainer);
-        select.classList.add('hide-io-select');
-        console.log(select, 'select');
-      }
+      let timeoutId;
 
-      // Function to periodically check for the existence of elements
-      function checkElements() {
-        let selectContainers = document.querySelector('#simple-bundles-io-options');
-        if (selectContainers) {
-          let allSelect = selectContainers.querySelectorAll('select');
-          if (allSelect.length > 0) {
-            clearInterval(intervalId); // Stop checking once elements are found
-            allSelect.forEach((select) => handleSelect(select));
+      document.addEventListener('DOMContentLoaded', function () {
+        let selectForm = document.querySelector('.product-form');
+
+        let handleSelect = () => {
+          let selectContainers = selectForm.querySelector('#simple-bundles-io-options');
+          if (selectContainers) {
+            let allSelect = selectContainers.querySelectorAll('select');
+            allSelect.forEach((select) => {
+              let buttonContainer = document.createElement("div");
+              buttonContainer.classList.add("button-container");
+              select.append(buttonContainer)
+              select.classList.add('hide-io-select');
+              console.log(select,"select")
+            });
           }
-        }
-      }
+        };
 
-      // Check for elements every 100 milliseconds
-      let intervalId = setInterval(checkElements, 100);
+        if (timeoutId) clearTimeout(timeoutId);
+
+        timeoutId = setTimeout(() => {
+          handleSelect();
+        }, 50);
+      });
     </script>
 
     <script type="application/ld+json">
