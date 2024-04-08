@@ -30,9 +30,6 @@
         padding-bottom: {{ section.settings.padding_bottom }}px;
       }
     }
-    .hide-io-select{
-      display: none;
-    }
   {%- endstyle -%}
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
@@ -694,49 +691,6 @@
         assign seo_media = product.featured_media
       endif
     -%}
-
-    <script>
-      let timeoutId;
-
-      let selectForm = document.querySelector('.product-form');
-
-      let handleSelect = () => {
-        let selectContainers = selectForm.querySelector('#simple-bundles-io-options');
-        if (selectContainers) {
-          let select = selectContainers.querySelector('select');
-          let lable = selectContainers.querySelector('label');
-          let options = select.options;
-          let buttonRow = document.getElementById('button-row');
-          buttonRow.innerHTML = '';
-          for (var i = 0; i < options.length; i++) {
-            let option = options[i];
-            if (option.value) {
-              let button = document.createElement('button');
-              button.textContent = option.textContent.trim();
-              button.value = option.value;
-              if (option.selected) {
-                button.classList.add('active');
-              }
-              buttonRow.appendChild(button);
-            }
-          }
-          if (buttonRow) {
-            console.log(buttonRow);
-            buttonRow.addEventListener('click', () => {
-              console.log(event.target.value, select.value);
-              lable.innerText = 'CADET GREY';
-              select.value = event.target.value;
-            });
-          }
-        }
-      };
-
-      if (timeoutId) clearTimeout(timeoutId);
-
-      timeoutId = setTimeout(() => {
-        handleSelect();
-      }, 1000);
-    </script>
 
     <script type="application/ld+json">
       {
