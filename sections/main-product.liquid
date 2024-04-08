@@ -706,6 +706,9 @@
           if (selectContainers) {
             let allSelect = selectContainers.querySelectorAll('select');
             allSelect.forEach((select) => {
+              let buttonContainer = document.createElement("div");
+              buttonContainer.classList.add("button-container");
+              select.appendChild(buttonContainer)
               select.classList.add('hide-io-select');
               console.log('selectContainers', select);
             });
