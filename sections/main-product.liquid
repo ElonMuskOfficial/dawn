@@ -696,31 +696,30 @@
     -%}
 
     <script>
-      let timeoutId;
-
-      document.addEventListener('DOMContentLoaded', function () {
+      function handleSelect() {
         let selectForm = document.querySelector('.product-form');
+        if (!selectForm) {
+          setTimeout(handleSelect, 100); // Check again after 100ms
+          return;
+        }
 
-        let handleSelect = () => {
-          let selectContainers = selectForm.querySelector('#simple-bundles-io-options');
-          if (selectContainers) {
-            let allSelect = selectContainers.querySelectorAll('select');
-            allSelect.forEach((select) => {
-              let buttonContainer = document.createElement("div");
-              buttonContainer.classList.add("button-container");
-              select.append(buttonContainer)
-              select.classList.add('hide-io-select');
-              console.log(select,"select")
-            });
-          }
-        };
+        let selectContainers = selectForm.querySelector('#simple-bundles-io-options');
+        if (!selectContainers) {
+          setTimeout(handleSelect, 100); // Check again after 100ms
+          return;
+        }
 
-        if (timeoutId) clearTimeout(timeoutId);
+        let allSelect = selectContainers.querySelectorAll('select');
+        allSelect.forEach((select) => {
+          let buttonContainer = document.createElement('div');
+          buttonContainer.classList.add('button-container');
+          select.append(buttonContainer);
+          select.classList.add('hide-io-select');
+          console.log(select, 'select');
+        });
+      }
 
-        timeoutId = setTimeout(() => {
-          handleSelect();
-        }, 50);
-      });
+      document.addEventListener('DOMContentLoaded', handleSelect);
     </script>
 
     <script type="application/ld+json">
