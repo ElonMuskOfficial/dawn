@@ -694,12 +694,9 @@
 
     <script>
       let timeoutId;
+
       document.addEventListener('DOMContentLoaded', function () {
         let selectForm = document.querySelector('.product-form');
-        if (timeoutId) clearTimeout(timeoutId);
-        timeoutId = setTimeout(() => {
-          handleSelect();
-        }, 50);
 
         let handleSelect = () => {
           let selectContainers = selectForm.querySelector('#simple-bundles-io-options');
@@ -707,6 +704,13 @@
             console.log('selectContainers', selectContainers);
           }
         };
+
+        if (timeoutId) clearTimeout(timeoutId);
+
+        // Set a new timeout
+        timeoutId = setTimeout(() => {
+          handleSelect();
+        }, 50);
       });
     </script>
 
