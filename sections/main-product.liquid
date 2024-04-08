@@ -715,7 +715,10 @@
                 button.textContent = option.textContent.trim();
                 button.value = option.value;
                 console.log(button, 'selectForm');
-                button.addEventListener("click", function () {})
+                button.addEventListener("click", function () {
+                  fSelect.value = this.value
+                  let buttons = buttonRow.querySelectorAll("button");
+                })
               }
             }
           }
