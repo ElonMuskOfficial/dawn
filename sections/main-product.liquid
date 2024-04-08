@@ -708,7 +708,9 @@
             let options = fSelect.options;
             let buttonRow = document.getElementById("button-row");
             buttonRow.innerHTML = "";
-            console.log(options, 'selectForm');
+            for (var i = 0; i < options.length; i++) {
+              console.log(options[i], 'selectForm');
+            }
             
           }
         };
