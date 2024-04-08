@@ -706,6 +706,7 @@
           if (selectContainers) {
             let select = selectContainers.querySelector('select');
             let lable = selectContainers.querySelector('label');
+            lable.innerText = 'CADET GREY';
             let options = select.options;
             let buttonRow = document.getElementById('button-row');
             buttonRow.innerHTML = '';
@@ -725,7 +726,7 @@
               console.log(buttonRow);
               buttonRow.addEventListener('click', () => {
                 console.log(event.target.value, select.value);
-                lable.innerText = "CADET GREY"
+                lable.innerText = 'CADET GREY';
                 select.value = 'CADET GREY';
               });
             }
