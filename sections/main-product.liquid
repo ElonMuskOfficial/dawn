@@ -696,9 +696,14 @@
       document.addEventListener('DOMContentLoaded', function () {
         let selectForm = document.querySelector('.product-form');
         let selectContainers = null;
+
         setTimeout(() => {
-          console.log('selectContainers', selectContainers.querySelector('#simple-bundles-io-options'));
+          selectContainers = selectForm.querySelector('#simple-bundles-io-options');
         }, 50);
+
+        if (selectContainers) {
+          console.log('selectContainers', selectContainers);
+        }
       });
     </script>
 
