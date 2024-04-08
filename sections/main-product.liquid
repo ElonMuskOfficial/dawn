@@ -706,12 +706,14 @@
           if (selectContainers) {
             let fSelect = selectContainers.querySelector('select');
             let options = fSelect.options;
-            let buttonRow = document.getElementById("button-row");
-            buttonRow.innerHTML = "";
+            let buttonRow = document.getElementById('button-row');
+            buttonRow.innerHTML = '';
             for (var i = 0; i < options.length; i++) {
-              console.log(options[i], 'selectForm');
+              let option = options[i];
+              if (!option.value) {
+                console.log(option, 'selectForm');
+              }
             }
-            
           }
         };
 
