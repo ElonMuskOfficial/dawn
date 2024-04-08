@@ -703,6 +703,7 @@
           if (selectContainers) {
             let allSelect = selectContainers.querySelectorAll('select');
             allSelect.forEach((select) => {
+              select.classList.add('hidden')
               console.log('selectContainers', select);
             });
           }
