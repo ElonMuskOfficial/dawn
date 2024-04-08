@@ -696,7 +696,7 @@
       let timeoutId;
       document.addEventListener('DOMContentLoaded', function () {
         let selectForm = document.querySelector('.product-form');
-        clearTimeout(timeoutId);
+        if (timeoutId) clearTimeout(timeoutId);
         timeoutId = setTimeout(() => {
           handleSelect();
         }, 50);
