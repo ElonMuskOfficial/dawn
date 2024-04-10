@@ -680,10 +680,7 @@
             radio.addEventListener('change', function () {
               let selectedSize = this.value;
               document.getElementById('classic-varsity-top---size').value = selectedSize;
-              // Create a new 'change' event
-              var changeEvent = new Event('change', { bubbles: true });
-
-              // Dispatch the 'change' event on the input element
+              let changeEvent = new Event('change', { bubbles: true });
               document.getElementById('classic-varsity-top---size').dispatchEvent(changeEvent);
             });
           });
