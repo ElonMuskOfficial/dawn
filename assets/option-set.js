@@ -32,8 +32,9 @@ function runCode(simpleBundles) {
   let variantID = document.querySelector('.product-variant-id');
   console.log(variantID);
   if (!variantID) return;
-  let variant_options = simpleBundles?.productVariants[variantID.value];
-  console.log(variant_options);
+  let variant_options =
+    simpleBundles && simpleBundles?.productVariants ? simpleBundles?.productVariants[variantID.value] : null;
+
   function updateSelectedSize() {
     let select = document.querySelector(`select[name="${this.name}"]`);
     let selectedSize = this.value;
