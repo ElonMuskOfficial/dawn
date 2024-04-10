@@ -676,9 +676,9 @@
       document.addEventListener('DOMContentLoaded', function () {
         function updateSelectedSize() {
           let selectedSize = this.value;
-          document.getElementById('classic-varsity-top---size').value = selectedSize;
-          let changeEvent = new Event('change', { bubbles: true });
-          document.getElementById('classic-varsity-top---size').dispatchEvent(changeEvent);
+          let select = document.getElementById('classic-varsity-top---size');
+          select.value = selectedSize;
+          select.dispatchEvent(new Event('change', { bubbles: true }));
         }
 
         let sizeRadiosContainer = document.querySelector('.size-radios-container');
