@@ -66,7 +66,9 @@ function runCode(simpleBundles) {
 }
 
 function createOptionSets(bundle_variant) {
-  bundle_variant.variant_options;
+  bundle_variant.variant_options.forEach((item) => {
+    console.log(item);
+  });
 }
 
 function createSwatches() {}
