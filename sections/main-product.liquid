@@ -715,7 +715,7 @@
 
         function checkSimpleBundles() {
           if (window.SimpleBundles !== undefined || checksRemaining === 0) {
-            callback(window.SimpleBundles);
+            callback(window.SimpleBundles, checksRemaining);
           } else {
             checksRemaining--;
             setTimeout(checkSimpleBundles, interval);
@@ -725,7 +725,7 @@
         checkSimpleBundles();
       }
 
-      observeSimpleBundles(function (SimpleBundles) {
+      observeSimpleBundles(function (SimpleBundles, checksRemaining) {
         if (SimpleBundles !== undefined) {
           console.log('SimpleBundles is:', SimpleBundles);
           runCode();
