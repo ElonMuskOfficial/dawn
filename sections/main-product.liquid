@@ -674,6 +674,7 @@
     {%- endfor -%}
     <script>
       window.addEventListener('popstate', function (event) {
+        console.log("popstate")
         document.querySelectorAll('form[action*="cart/Add" i]').forEach((form) => form.reset());
       });
     </script>
