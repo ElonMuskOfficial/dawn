@@ -28,12 +28,20 @@ window.addEventListener('pageshow', function (event) {
   document.querySelectorAll('form[action*="cart/Add" i]').forEach((form) => form.reset());
 });
 
+function isEmptyObject(obj) {
+  return Object.keys(obj).length === 0;
+}
+
 function runCode(simpleBundles) {
   let variantID = document.querySelector('.product-variant-id');
   console.log(variantID);
   if (!variantID) return;
+
   let variant_options =
-    simpleBundles && simpleBundles.productVariants ? simpleBundles.productVariants[variantID.value] ?? null : null;
+    simpleBundles && !isEmptyObject(simpleBundles.productVariants)
+      ? simpleBundles.productVariants[variantID.value]
+      : null;
+
   console.log({ variant_options });
 
   function updateSelectedSize() {
