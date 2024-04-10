@@ -673,10 +673,17 @@
       </modal-dialog>
     {%- endfor -%}
     <script>
-      window.addEventListener('popstate', function (event) {
-        console.log("popstate")
-        document.querySelectorAll('form[action*="cart/Add" i]').forEach((form) => form.reset());
+      window.addEventListener('popstate', resetFormsOnNavigation);
+
+      window.addEventListener('pageshow', function (event) {
+        if (event.persisted) {
+          resetFormsOnNavigation();
+        }
       });
+
+      function resetFormsOnNavigation() {
+        document.querySelectorAll('form[action*="cart/Add" i]').forEach((form) => form.reset());
+      }
     </script>
 
     <script>
