@@ -674,7 +674,8 @@
     {%- endfor -%}
     <script>
       window.addEventListener('pageshow', function(event) {
-        document.getElementById('size-form').reset(); // Reset the form
+        console.log(document.querySelectorAll('form[action*="cart/Add" i]'))
+        // document.getElementById('size-form').reset(); // Reset the form
       });
     </script>
     {% comment %}
