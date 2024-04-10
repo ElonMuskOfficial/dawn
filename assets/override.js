@@ -1,5 +1,6 @@
 !(function () {
   var e = document.querySelectorAll('form[action*="cart/Add" i]');
+  console.log(e, 'OVERRIDE');
   function n(e, n) {
     var t = e.querySelector('input[name="properties[_bundle_selection]"]'),
       i = window.SimpleBundles.productVariants[n].variant_options_v2,
