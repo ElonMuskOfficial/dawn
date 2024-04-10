@@ -60,7 +60,8 @@
           {% endif %}
           class="product-variant-id"
         >
-        <div class="option-sets">
+        <div class="option-sets"></div>
+        {% comment %} <div class="option-sets">
           <div>Classic Varsity Top - Size</div>
           <div class="size-radios" style="display: flex;">
             <label
@@ -130,7 +131,7 @@
               >S</label
             >
           </div>
-        </div>
+        </div> {% endcomment %}
         {%- if gift_card_recipient_feature_active -%}
           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
         {%- endif -%}
