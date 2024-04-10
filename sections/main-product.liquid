@@ -710,7 +710,9 @@
       </modal-dialog>
     {%- endfor -%}
     <script>
-      console.log(window.SimpleBundles)
+      setTimeout(() => {
+        console.log(window.SimpleBundles);
+      }, 100);
       window.addEventListener('pageshow', function (event) {
         document.querySelectorAll('form[action*="cart/Add" i]').forEach((form) => form.reset());
       });
