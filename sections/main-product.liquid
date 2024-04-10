@@ -673,24 +673,25 @@
       </modal-dialog>
     {%- endfor -%}
     <script>
-      !(function () {
-        function i(p) {
-          let sizeRadios = document.querySelectorAll('.size-radio');
-          sizeRadios.forEach(function (radio) {
-            radio.addEventListener('change', function () {
-              let selectedSize = this.value;
-              document.getElementById('classic-varsity-top---size').value = selectedSize;
-              let changeEvent = new Event('change', { bubbles: true });
-              document.getElementById('classic-varsity-top---size').dispatchEvent(changeEvent);
-            });
+      document.addEventListener('DOMContentLoaded', function () {
+        function updateSelectedSize() {
+          let selectedSize = this.value;
+          document.getElementById('classic-varsity-top---size').value = selectedSize;
+          let changeEvent = new Event('change', { bubbles: true });
+          document.getElementById('classic-varsity-top---size').dispatchEvent(changeEvent);
+        }
+
+        let sizeRadiosContainer = document.querySelector('.size-radios-container');
+        if (sizeRadiosContainer) {
+          sizeRadiosContainer.addEventListener('change', function (event) {
+            if (event.target.classList.contains('size-radio')) {
+              updateSelectedSize.call(event.target);
+            }
           });
         }
-        document.addEventListener('DOMContentLoaded', i),
-          window.addEventListener('pageshow', function (e) {
-            e.persisted && i();
-          });
-      })();
+      });
     </script>
+
     {%- if product.media.size > 0 -%}
       <script src="{{ 'product-modal.js' | asset_url }}" defer="defer"></script>
       <script src="{{ 'media-gallery.js' | asset_url }}" defer="defer"></script>
