@@ -675,8 +675,8 @@
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         function updateSelectedSize() {
-          console.log(this.name);
-          let select = document.getElementById('classic-varsity-top---size');
+          let select = document.querySelector(this.name);
+          console.log(select);
           let selectedSize = this.value;
           select.value = selectedSize;
           select.dispatchEvent(new Event('change', { bubbles: true }));
