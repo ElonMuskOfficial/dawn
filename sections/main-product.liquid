@@ -673,8 +673,9 @@
       </modal-dialog>
     {%- endfor -%}
     <script>
-      window.addEventListener('pageshow', function(event) {
-        console.log(document.querySelectorAll('form[action*="cart/Add" i]'))
+      window.addEventListener('pageshow', function (event) {
+        console.log(document.querySelectorAll('form[action*="cart/Add" i]'));
+        document.querySelectorAll('form[action*="cart/Add" i]').forEach((form) => form.reset());
         // document.getElementById('size-form').reset(); // Reset the form
       });
     </script>
