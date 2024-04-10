@@ -2,11 +2,11 @@ function observeSimpleBundles(callback, interval = 170) {
   let checksRemaining = 4;
 
   function checkSimpleBundles() {
-    console.log('Try ' + (5 - checksRemaining));
     if (window.SimpleBundles !== undefined || checksRemaining === 0) {
       callback(window.SimpleBundles);
     } else {
       checksRemaining--;
+      console.log('Try ' + checksRemaining);
       setTimeout(checkSimpleBundles, interval);
     }
   }
