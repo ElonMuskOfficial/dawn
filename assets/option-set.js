@@ -71,7 +71,7 @@ function generateOptionHTML(option) {
 
   let optionHTML = `
       <div>${option.optionName}</div>
-      <div class="option-radios" style="display: flex;">`;
+      <div class="option-radios">`;
 
   values.forEach((value, index) => {
     optionHTML += `
