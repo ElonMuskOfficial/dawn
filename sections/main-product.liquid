@@ -717,19 +717,6 @@
 
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              console.log('Targeted element is rendered');
-            } else {
-              console.log('Targeted element is not rendered');
-            }
-          });
-        });
-        const targetElement = document.querySelector('[data-simple-bundles-options]');
-        console.log(targetElement);
-        observer.observe(targetElement);
-
         function updateSelectedSize() {
           let select = document.querySelector(`select[name="${this.name}"]`);
           console.log(select);
