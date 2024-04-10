@@ -28,7 +28,7 @@ window.addEventListener('pageshow', function (event) {
   document.querySelectorAll('form[action*="cart/Add" i]').forEach((form) => form.reset());
 });
 
-function runCode(data) {
+function runCode(simpleBundles) {
   function updateSelectedSize() {
     let select = document.querySelector(`select[name="${this.name}"]`);
     let selectedSize = this.value;
