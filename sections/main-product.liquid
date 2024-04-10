@@ -710,9 +710,15 @@
       </modal-dialog>
     {%- endfor -%}
     <script>
-      setTimeout(() => {
-        console.log(window.SimpleBundles);
-      }, 1);
+      function observeSimpleBundles() {
+        if (window.SimpleBundles !== undefined) {
+          console.log(window.SimpleBundles);
+        } else {
+          setTimeout(observeSimpleBundles, 100);
+        }
+      }
+      observeSimpleBundles();
+
       window.addEventListener('pageshow', function (event) {
         document.querySelectorAll('form[action*="cart/Add" i]').forEach((form) => form.reset());
       });
