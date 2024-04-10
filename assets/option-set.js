@@ -67,7 +67,9 @@ function runCode(simpleBundles) {
 
 function createOptionSets(bundle_variant) {
   bundle_variant.variant_options.forEach((item) => {
-    console.log(item);
+    if (item.defaultOptionName === 'Size') {
+    } else if (item.defaultOptionName === 'Color') {
+    }
   });
 }
 
