@@ -675,7 +675,7 @@
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         function updateSelectedSize() {
-          let select = document.querySelector(this.name);
+          let select = document.querySelector(`select[name="${this.name}"]`);
           console.log(select);
           let selectedSize = this.value;
           select.value = selectedSize;
