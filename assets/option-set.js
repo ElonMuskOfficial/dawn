@@ -76,6 +76,10 @@ function createOptionSets(bundle_variant) {
   });
 }
 
-function createSwatches(item) {}
+function createSwatches(item) {
+  return `
+    <div>${item.optionName}</div>
+    `;
+}
 
 function createRadios(item) {}
