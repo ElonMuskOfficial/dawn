@@ -715,7 +715,7 @@
 
         function checkSimpleBundles() {
           if (window.SimpleBundles !== undefined || checksRemaining === 0) {
-            callback(window.SimpleBundles, 4 - checksRemaining);
+            callback(window.SimpleBundles);
           } else {
             checksRemaining--;
             setTimeout(checkSimpleBundles, interval);
@@ -725,9 +725,9 @@
         checkSimpleBundles();
       }
 
-      observeSimpleBundles(function (SimpleBundles, checksRemaining) {
+      observeSimpleBundles(function (SimpleBundles) {
         if (SimpleBundles !== undefined) {
-          console.log(checksRemaining + ' ' + 'SimpleBundles is:', SimpleBundles);
+          console.log('SimpleBundles is:', SimpleBundles);
           runCode();
         } else {
           console.log('SimpleBundles is not available after 4 attempts.');
