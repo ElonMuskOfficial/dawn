@@ -42,6 +42,7 @@ function runCode(simpleBundles) {
       : null;
   console.log(bundle);
   generateHTML(bundle.variant_options);
+
   function updateSelectedSize() {
     let select = document.querySelector(`select[name="${this.name}"]`);
     let selectedSize = this.value;
@@ -96,7 +97,6 @@ function generateOptionHTML(option) {
 function generateHTML(data) {
   const optionSetsDiv = document.querySelector('.option-sets');
   let html = '';
-  console.log(data);
   data.forEach((option) => {
     html += generateOptionHTML(option);
   });
