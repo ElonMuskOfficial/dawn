@@ -1,4 +1,4 @@
-function observeSimpleBundles(callback, interval = 170) {
+function observeSimpleBundles(callback, interval = 150) {
   let checksRemaining = 4;
 
   function checkSimpleBundles() {
