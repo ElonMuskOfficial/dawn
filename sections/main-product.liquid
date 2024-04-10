@@ -17,10 +17,6 @@
   {%- if product.quantity_price_breaks_configured? -%}
     {{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
   {%- endif -%}
-  <script>
-   let form = document.querySelectorAll('form[action*="cart/Add" i]')
-   console.log(form,"FORMMMMMMMMMM")
-  </script>
   
   {%- style -%}
     .section-{{ section.id }}-padding {
@@ -68,6 +64,11 @@
       onload="this.media='all'"
     >
   {%- endif -%}
+
+  <script>
+   let form = document.querySelectorAll('form[action*="cart/Add" i]')
+   console.log(form,"FORMMMMMMMMMM")
+  </script>
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div class="page-width">
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
