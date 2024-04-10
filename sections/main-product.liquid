@@ -679,9 +679,10 @@
           sizeRadios.forEach(function (radio) {
             radio.addEventListener('change', function () {
               let selectedSize = this.value;
-              document.getElementById('tee-size').value = selectedSize;
-              document.getElementById('hidden-tee-size').value = selectedSize;
-              updateBundleSelection();
+              console.log(selectedSize)
+              // document.getElementById('tee-size').value = selectedSize;
+              // document.getElementById('hidden-tee-size').value = selectedSize;
+              // updateBundleSelection();
             });
           });
         }
