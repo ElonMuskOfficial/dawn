@@ -60,9 +60,17 @@
           {% endif %}
           class="product-variant-id"
         >
-        <div style="button-group">
+        <input type="hidden" name="product-id" value="9185498824993">
+        <input type="hidden" name="section-id" value="template--22438134907169__main">
+        <input type="hidden" name="properties[Classic Varsity Top - Size]" value="Small">
+        <input type="hidden" name="properties[CB-COLEBROOK Men's Shirt - Color]" value="WHITE">
+        <input type="hidden" name="properties[CB-COLEBROOK Men's Shirt - Size]" value="M">
+        <input type="hidden" name="properties[ADIDAS | KID'S STAN SMITH - Size]" value="1">
+        <input type="hidden" name="properties[ADIDAS | KID'S STAN SMITH - Color]" value="white">
+        <input type="hidden" name="properties[_bundle_selection]" value="Small <> WHITE ++ M <> 1 ++ white">
+        {% comment %} <div style="button-group">
           
-        </div>
+        </div> {% endcomment %}
         {%- if gift_card_recipient_feature_active -%}
           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
         {%- endif -%}
