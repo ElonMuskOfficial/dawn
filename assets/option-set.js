@@ -61,7 +61,7 @@ function runCode(simpleBundles) {
       });
     }
   }
-  addEventListeners('.size-buttons', 'size-radio', updateSelectedSize);
+  addEventListeners('.size-radios', 'size-radio', updateSelectedSize);
   addEventListeners('.color-swatch', 'color-radio', updateSelectedSize);
 }
 
