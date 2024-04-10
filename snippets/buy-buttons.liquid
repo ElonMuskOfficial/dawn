@@ -60,11 +60,10 @@
           {% endif %}
           class="product-variant-id"
         >
-        <input
-          type="hidden"
-          name="item_components"
-          value="true"
-        >
+          <div style="display: flex;">
+          <button>Small</button>
+          <button>Medium</button>
+          </div>
         {%- if gift_card_recipient_feature_active -%}
           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
         {%- endif -%}
