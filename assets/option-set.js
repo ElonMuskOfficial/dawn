@@ -41,7 +41,7 @@ function runCode(simpleBundles) {
       ? simpleBundles.productVariants[variantID.value]
       : null;
   console.log(bundleVariant);
-  createOptionSets(bundleVariant);
+  generateHTML(bundleVariant);
   function updateSelectedSize() {
     let select = document.querySelector(`select[name="${this.name}"]`);
     let selectedSize = this.value;
@@ -65,22 +65,43 @@ function runCode(simpleBundles) {
   addEventListeners('.color-radios', 'color-radio', updateSelectedSize);
 }
 
+function generateOptionHTML(option) {
+  const values = option.optionValues.split(', ');
+  const inventories = option.optionInventories.split(', ');
+
+  let optionHTML = `
+      <div>${option.optionName}</div>
+      <div class="option-radios" style="display: flex;">`;
+
+  values.forEach((value, index) => {
+    optionHTML += `
+        <label>
+          <input type="radio" class="${option.defaultOptionName.toLowerCase()}-radio" name="properties[${
+      option.optionName
+    }]" value="${value}" ${index === 0 ? 'checked' : ''}>
+          ${value} (${inventories[index]})
+        </label>`;
+  });
+
+  optionHTML += `
+      </div>`;
+
+  return optionHTML;
+}
+
+function generateHTML(data) {
+  const optionSetsDiv = document.querySelector('.option-sets');
+  let html = '';
+
+  data.forEach((option) => {
+    html += generateOptionHTML(option);
+  });
+
+  optionSetsDiv.innerHTML = html;
+}
+
 function createOptionSets(bundle_variant) {
   bundle_variant.variant_options.forEach((item) => {
-    if (item.defaultOptionName === 'Size') {
-      createRadios(item);
-    }
-    if (item.defaultOptionName === 'Color') {
-      let html = createSwatches(item);
-      console.log(html);
-    }
+    generateHTML(data);
   });
 }
-
-function createSwatches(item) {
-  return `
-    <div>${item.optionName}</div>
-    `;
-}
-
-function createRadios(item) {}
