@@ -69,7 +69,6 @@ function runCode(simpleBundles) {
 
 function generateOptionHTML(option) {
   const values = option.optionValues.split(', ');
-  const inventories = option.optionInventories.split(', ');
 
   let optionHTML = `
       <div>${option.optionName}</div>
