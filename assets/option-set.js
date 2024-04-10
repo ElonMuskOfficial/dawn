@@ -63,3 +63,7 @@ function runCode(simpleBundles) {
   addEventListeners('.size-buttons', 'size-radio', updateSelectedSize);
   addEventListeners('.color-swatch', 'color-radio', updateSelectedSize);
 }
+
+function createSwatches() {}
+
+function createRadios() {}
