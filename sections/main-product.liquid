@@ -675,7 +675,7 @@
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         function updateSelectedSize() {
-          console.log(this.name)
+          console.log(this.name);
           let select = document.getElementById('classic-varsity-top---size');
           let selectedSize = this.value;
           select.value = selectedSize;
@@ -684,10 +684,12 @@
 
         let sizeRadiosContainer = document.querySelectorAll('.size-buttons');
         if (sizeRadiosContainer) {
-          sizeRadiosContainer.addEventListener('change', function (event) {
-            if (event.target.classList.contains('size-radio')) {
-              updateSelectedSize.call(event.target);
-            }
+          sizeRadiosContainer.forEach((sizeRadio) => {
+            sizeRadio.addEventListener('change', function (event) {
+              if (event.target.classList.contains('size-radio')) {
+                updateSelectedSize.call(event.target);
+              }
+            });
           });
         }
       });
