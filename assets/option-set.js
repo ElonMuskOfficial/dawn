@@ -89,8 +89,8 @@ class SimpleBundlesHandler {
     if (bundle) {
       const generator = new OptionSetGenerator(bundle.variant_options);
       this.optionSetElement.innerHTML = generator.generateOptionSetsHTML();
-      this.addEventListeners('.option-set.size', 'size-radio', this.updateSelectedSize);
-      this.addEventListeners('.option-set.color', 'color-radio', this.updateSelectedSize);
+      this.addEventListeners('.option-set.size-option-set', 'size-radio', this.updateSelectedSize);
+      this.addEventListeners('.option-set.color-option-set', 'color-radio', this.updateSelectedSize);
     }
   }
 
