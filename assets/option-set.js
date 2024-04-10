@@ -48,24 +48,18 @@ function runCode(simpleBundles) {
     select.dispatchEvent(new Event('change', { bubbles: true }));
   }
 
-  let sizeRadiosContainer = document.querySelectorAll('.size-buttons');
-  if (sizeRadiosContainer) {
-    sizeRadiosContainer.forEach((sizeRadio) => {
-      sizeRadio.addEventListener('change', function (event) {
-        if (event.target.classList.contains('size-radio')) {
-          updateSelectedSize.call(event.target);
-        }
+  function addEventListeners(selector, className, handler) {
+    const elements = document.querySelectorAll(selector);
+    if (elements.length > 0) {
+      elements.forEach((element) => {
+        element.addEventListener('change', function (event) {
+          if (event.target.classList.contains(className)) {
+            handler.call(event.target);
+          }
+        });
       });
-    });
+    }
   }
-  let colorRadios = document.querySelectorAll('.color-swatch');
-  if (colorRadios) {
-    colorRadios.forEach((colorRadio) => {
-      colorRadio.addEventListener('change', function (event) {
-        if (event.target.classList.contains('color-radio')) {
-          updateSelectedSize.call(event.target);
-        }
-      });
-    });
-  }
+  addEventListeners('.size-buttons', 'size-radio', updateSelectedSize);
+  addEventListeners('.color-swatch', 'color-radio', updateSelectedSize);
 }
