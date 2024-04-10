@@ -60,7 +60,15 @@
           {% endif %}
           class="product-variant-id"
         >
-
+        <input
+        type="hidden"
+        name="item_components"
+        value="{{ product.selected_or_first_available_variant.id }}"
+        {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
+          disabled
+        {% endif %}
+        class="product-variant-id"
+      >
         {%- if gift_card_recipient_feature_active -%}
           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
         {%- endif -%}
