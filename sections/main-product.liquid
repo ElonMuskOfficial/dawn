@@ -674,9 +674,7 @@
     {%- endfor -%}
     <script>
       window.addEventListener('pageshow', function (event) {
-        if (window.history.state && window.history.state.navigationType === 'back_forward') {
-          document.querySelectorAll('form[action*="cart/Add" i]').forEach((form) => form.reset());
-        }
+        document.querySelectorAll('form[action*="cart/Add" i]').forEach((form) => form.reset());
       });
     </script>
 
