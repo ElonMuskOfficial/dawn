@@ -710,14 +710,29 @@
       </modal-dialog>
     {%- endfor -%}
     <script>
-      function observeSimpleBundles() {
-        if (window.SimpleBundles !== undefined) {
-          console.log(window.SimpleBundles);
-        } else {
-          setTimeout(observeSimpleBundles, 100);
+      function observeSimpleBundles(callback, interval = 100) {
+        let checksRemaining = 4;
+
+        function checkSimpleBundles() {
+          if (window.SimpleBundles !== undefined || checksRemaining === 0) {
+            callback(window.SimpleBundles);
+          } else {
+            checksRemaining--;
+            setTimeout(checkSimpleBundles, interval);
+          }
         }
+
+        checkSimpleBundles();
       }
-      observeSimpleBundles();
+
+      // Usage example:
+      observeSimpleBundles(function (SimpleBundles) {
+        if (SimpleBundles !== undefined) {
+          console.log('SimpleBundles is:', SimpleBundles);
+        } else {
+          console.log('SimpleBundles is not available after 4 attempts.');
+        }
+      });
 
       window.addEventListener('pageshow', function (event) {
         document.querySelectorAll('form[action*="cart/Add" i]').forEach((form) => form.reset());
