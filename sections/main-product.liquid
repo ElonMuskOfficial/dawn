@@ -719,7 +719,6 @@
       document.addEventListener('DOMContentLoaded', function () {
         function updateSelectedSize() {
           let select = document.querySelector(`select[name="${this.name}"]`);
-          console.log(select);
           let selectedSize = this.value;
           select.value = selectedSize;
           select.dispatchEvent(new Event('change', { bubbles: true }));
