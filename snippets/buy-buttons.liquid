@@ -61,9 +61,9 @@
           class="product-variant-id"
         >
         <div class="size-buttons" style="display: flex;">
-          <label><input type="radio" class="size-radio" name="size" value="S" checked>Small</label>
-          <label><input type="radio" class="size-radio" name="size" value="M">Medium</label>
-          <label><input type="radio" class="size-radio" name="size" value="L">Large</label>
+          <label><input type="radio" class="size-radio" name="size" value="Small" checked>Small</label>
+          <label><input type="radio" class="size-radio" name="size" value="Medium">Medium</label>
+          <label><input type="radio" class="size-radio" name="size" value="Large">Large</label>
         </div>
         {%- if gift_card_recipient_feature_active -%}
           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
