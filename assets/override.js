@@ -78,4 +78,4 @@
     window.addEventListener('pageshow', function (e) {
       e.persisted && i();
     });
-})('hello');
+})();

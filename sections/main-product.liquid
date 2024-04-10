@@ -682,7 +682,7 @@
           window.addEventListener('pageshow', function (e) {
             e.persisted && i();
           });
-      })();
+      })("helllo");
     </script>
     {%- if product.media.size > 0 -%}
       <script src="{{ 'product-modal.js' | asset_url }}" defer="defer"></script>
