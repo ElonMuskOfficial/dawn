@@ -733,6 +733,16 @@
             });
           });
         }
+        let sizeRadiosContainer = document.querySelectorAll('.color-swatch');
+        if (sizeRadiosContainer) {
+          sizeRadiosContainer.forEach((sizeRadio) => {
+            sizeRadio.addEventListener('change', function (event) {
+              if (event.target.classList.contains('size-radio')) {
+                updateSelectedSize.call(event.target);
+              }
+            });
+          });
+        }
       });
     </script>
 
