@@ -1,105 +1,134 @@
-function observeSimpleBundles(callback, interval = 150) {
-  let checksRemaining = 4;
+class SimpleBundlesObserver {
+  constructor(callback, interval = 150) {
+    this.callback = callback;
+    this.interval = interval;
+    this.checksRemaining = 4;
+  }
 
-  function checkSimpleBundles() {
-    if (window.SimpleBundles !== undefined || checksRemaining === 0) {
-      callback(window.SimpleBundles);
+  checkSimpleBundles() {
+    if (window.SimpleBundles !== undefined || this.checksRemaining === 0) {
+      this.callback(window.SimpleBundles);
     } else {
-      checksRemaining--;
-      setTimeout(checkSimpleBundles, interval);
+      this.checksRemaining--;
+      setTimeout(() => this.checkSimpleBundles(), this.interval);
     }
   }
 
-  checkSimpleBundles();
-}
-document.addEventListener('DOMContentLoaded', function () {
-  observeSimpleBundles(function (SimpleBundles) {
-    if (SimpleBundles !== undefined) {
-      console.log('SimpleBundles is:', SimpleBundles);
-      runCode(SimpleBundles);
-    } else {
-      console.log('SimpleBundles is not available after 4 attempts.');
-    }
-  });
-});
-
-window.addEventListener('pageshow', function (event) {
-  document.querySelectorAll('form[action*="cart/Add" i]').forEach((form) => form.reset());
-});
-
-function isEmptyObject(obj) {
-  return Object.keys(obj).length === 0;
+  observe() {
+    this.checkSimpleBundles();
+  }
 }
 
-function runCode(simpleBundles) {
-  let optionSetElement = document.getElementById('option-sets');
-  let variantID = document.querySelector('.product-variant-id');
-  console.log(variantID);
-  if (!variantID) return;
+class FormResetter {
+  resetCartForms() {
+    document.querySelectorAll('form[action*="cart/Add" i]').forEach((form) => form.reset());
+  }
+}
 
-  let bundle =
-    simpleBundles && !isEmptyObject(simpleBundles.productVariants)
-      ? simpleBundles.productVariants[variantID.value]
-      : null;
-  console.log(bundle);
-  generateHTML(bundle.variant_options);
+class OptionSet {
+  constructor(option) {
+    this.option = option;
+  }
 
-  function updateSelectedSize() {
-    let select = document.querySelector(`select[name="${this.name}"]`);
-    let selectedSize = this.value;
+  generateOptionHTML() {
+    const values = this.option.optionValues.split(', ');
+    let optionHTML = `
+        <div class="option-set-label">${this.option.optionName}</div>
+        <div class="option-set ${this.option.defaultOptionName.toLowerCase()}-option-set">`;
+
+    values.forEach((value, index) => {
+      optionHTML += `
+          <label>
+            <input 
+              type="radio"
+              class="${this.option.defaultOptionName.toLowerCase()}-radio" 
+              name="properties[${this.option.optionName}]" 
+              value="${value}" 
+              ${index === 0 ? 'checked' : ''}
+            >
+            ${value}
+          </label>`;
+    });
+
+    optionHTML += `</div>`;
+
+    return optionHTML;
+  }
+}
+
+class OptionSetGenerator {
+  constructor(data) {
+    this.data = data;
+  }
+
+  generateOptionSetsHTML() {
+    let html = '';
+    this.data.forEach((option) => {
+      const optionSet = new OptionSet(option);
+      html += optionSet.generateOptionHTML();
+    });
+    return html;
+  }
+}
+
+class SimpleBundlesHandler {
+  constructor(simpleBundles) {
+    this.simpleBundles = simpleBundles;
+    this.optionSetElement = document.getElementById('option-sets');
+  }
+
+  runCode() {
+    const variantID = document.querySelector('.product-variant-id');
+    if (!variantID) return;
+
+    const bundle =
+      this.simpleBundles && !this.isEmptyObject(this.simpleBundles.productVariants)
+        ? this.simpleBundles.productVariants[variantID.value]
+        : null;
+
+    const generator = new OptionSetGenerator(bundle.variant_options);
+    this.optionSetElement.innerHTML = generator.generateOptionSetsHTML();
+    this.addEventListeners('.option-set.size', 'size-radio', this.updateSelectedSize);
+    this.addEventListeners('.option-set.color', 'color-radio', this.updateSelectedSize);
+  }
+
+  updateSelectedSize() {
+    const select = document.querySelector(`select[name="${this.name}"]`);
+    const selectedSize = this.value;
     select.value = selectedSize;
     select.dispatchEvent(new Event('change', { bubbles: true }));
   }
 
-  function addEventListeners(selector, className, handler) {
-    const elements = optionSetElement.querySelectorAll(selector);
-    if (elements.length > 0) {
-      elements.forEach((element) => {
-        element.addEventListener('change', function (event) {
-          if (event.target.classList.contains(className)) {
-            handler.call(event.target);
-          }
-        });
+  addEventListeners(selector, className, handler) {
+    const elements = this.optionSetElement.querySelectorAll(selector);
+    elements.forEach((element) => {
+      element.addEventListener('change', function (event) {
+        if (event.target.classList.contains(className)) {
+          handler.call(event.target);
+        }
       });
-    }
+    });
   }
-  addEventListeners('.option-set.size', 'size-radio', updateSelectedSize);
-  addEventListeners('.option-set.color', 'color-radio', updateSelectedSize);
+
+  isEmptyObject(obj) {
+    return Object.keys(obj).length === 0;
+  }
 }
 
-function generateOptionHTML(option) {
-  const values = option.optionValues.split(', ');
-
-  let optionHTML = `
-      <div class="option-set-label">${option.optionName}</div>
-      <div class="option-set ${option.defaultOptionName.toLowerCase()}-option-set">`;
-
-  values.forEach((value, index) => {
-    optionHTML += `
-        <label>
-            <input 
-                type="radio"
-                class="${option.defaultOptionName.toLowerCase()}-radio" 
-                name="properties[${option.optionName}]" 
-                value="${value}" 
-                ${index === 0 ? 'checked' : ''}
-            >
-          ${value}
-        </label>`;
+document.addEventListener('DOMContentLoaded', function () {
+  const observer = new SimpleBundlesObserver(function (SimpleBundles) {
+    if (SimpleBundles !== undefined) {
+      console.log('SimpleBundles is:', SimpleBundles);
+      const handler = new SimpleBundlesHandler(SimpleBundles);
+      handler.runCode();
+    } else {
+      console.log('SimpleBundles is not available after 4 attempts.');
+    }
   });
+  observer.observe();
+});
 
-  optionHTML += `
-      </div>`;
-
-  return optionHTML;
-}
-
-function generateHTML(data) {
-  const optionSetsDiv = document.getElementById('option-sets');
-  let html = '';
-  data.forEach((option) => {
-    html += generateOptionHTML(option);
-  });
-
-  optionSetsDiv.innerHTML = html;
-}
+window.addEventListener('pageshow', function () {
+  const formResetter = new FormResetter();
+  formResetter.resetCartForms();
+});
