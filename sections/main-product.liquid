@@ -733,11 +733,11 @@
             });
           });
         }
-        let sizeRadiosContainer = document.querySelectorAll('.color-swatch');
-        if (sizeRadiosContainer) {
-          sizeRadiosContainer.forEach((sizeRadio) => {
-            sizeRadio.addEventListener('change', function (event) {
-              if (event.target.classList.contains('size-radio')) {
+        let colorRadios = document.querySelectorAll('.color-swatch');
+        if (colorRadios) {
+          colorRadios.forEach((colorRadio) => {
+            colorRadio.addEventListener('change', function (event) {
+              if (event.target.classList.contains('color-radio')) {
                 updateSelectedSize.call(event.target);
               }
             });
