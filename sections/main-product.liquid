@@ -676,8 +676,8 @@
       window.addEventListener('pageshow', function (event) {
         // Reset the radio buttons to default (first option checked)
         console.log('PAGE_SHOW');
-        // const sizeRadios = document.querySelectorAll('.size-radio');
-        // sizeRadios[0].checked = true;
+        const sizeRadios = document.querySelectorAll('.size-radio');
+        sizeRadios[0].checked = true;
       });
     </script>
     {% comment %}
