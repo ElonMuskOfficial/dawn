@@ -673,13 +673,13 @@
       </modal-dialog>
     {%- endfor -%}
     <script>
-      !(function () {
+      !(function (e) {
         function i(p) {
-          console.log('Hello i', p);
+          console.log('Hello i');
         }
         document.addEventListener('DOMContentLoaded', i),
           window.addEventListener('pageshow', function (e) {
-            e.persisted && i("ok");
+            e.persisted && i();
           });
       })();
     </script>
