@@ -674,7 +674,13 @@
     {%- endfor -%}
     <script>
       !(function () {
-        console.log("Hello Heloo")
+        function i() {
+          console.log('Hello i');
+        }
+        document.addEventListener('DOMContentLoaded', i),
+          window.addEventListener('pageshow', function (e) {
+            e.persisted && i();
+          });
       })();
     </script>
     {%- if product.media.size > 0 -%}
