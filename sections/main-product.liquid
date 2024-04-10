@@ -674,6 +674,7 @@
     {%- endfor -%}
     <script>
       window.addEventListener('pageshow', function (event) {
+        console.log(event.persisted)
         if (event.persisted) {
           document.querySelectorAll('form[action*="cart/Add" i]').forEach((form) => form.reset());
         }
