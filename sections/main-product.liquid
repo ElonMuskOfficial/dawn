@@ -678,7 +678,7 @@
           let sizeRadios = document.querySelectorAll('.size-radio');
           sizeRadios.forEach(function (radio) {
             radio.addEventListener('change', function () {
-              var selectedSize = this.value;
+              let selectedSize = this.value;
               document.getElementById('tee-size').value = selectedSize;
               document.getElementById('hidden-tee-size').value = selectedSize;
               updateBundleSelection();
