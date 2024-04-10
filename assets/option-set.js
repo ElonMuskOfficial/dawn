@@ -71,7 +71,7 @@ function generateOptionHTML(option) {
 
   let optionHTML = `
       <div>${option.optionName}</div>
-      <div class="option-set">`;
+      <div class="option-set ${option.defaultOptionName.toLowerCase()}">`;
 
   values.forEach((value, index) => {
     optionHTML += `
