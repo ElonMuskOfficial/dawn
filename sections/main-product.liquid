@@ -672,7 +672,7 @@
         </div>
       </modal-dialog>
     {%- endfor -%}
-    <script>
+    {% comment %} <script>
       document.addEventListener('DOMContentLoaded', function () {
         function updateSelectedSize() {
           let select = document.querySelector(`select[name="${this.name}"]`);
@@ -693,7 +693,7 @@
           });
         }
       });
-    </script>
+    </script> {% endcomment %}
 
     {%- if product.media.size > 0 -%}
       <script src="{{ 'product-modal.js' | asset_url }}" defer="defer"></script>
