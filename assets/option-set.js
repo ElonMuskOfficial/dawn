@@ -6,7 +6,7 @@ function observeSimpleBundles(callback, interval = 170) {
       callback(window.SimpleBundles);
     } else {
       checksRemaining--;
-      console.log('Try ' + checksRemaining);
+      console.log(checksRemaining);
       setTimeout(checkSimpleBundles, interval);
     }
   }
