@@ -32,6 +32,7 @@ function isEmptyObject(obj) {
 }
 
 function runCode(simpleBundles) {
+  let optionSetElement = document.getElementById('option-sets');
   let variantID = document.querySelector('.product-variant-id');
   console.log(variantID);
   if (!variantID) return;
