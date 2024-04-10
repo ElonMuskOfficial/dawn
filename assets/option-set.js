@@ -65,8 +65,8 @@ function runCode(simpleBundles) {
   addEventListeners('.color-swatch', 'color-radio', updateSelectedSize);
 }
 
-function createOptionSets(variant_options) {
-  variant_options;
+function createOptionSets(bundle_variant) {
+  bundle_variant.variant_options;
 }
 
 function createSwatches() {}
