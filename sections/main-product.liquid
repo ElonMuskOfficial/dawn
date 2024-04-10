@@ -672,28 +672,38 @@
         </div>
       </modal-dialog>
     {%- endfor -%}
-    {% comment %} <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        function updateSelectedSize() {
-          let select = document.querySelector(`select[name="${this.name}"]`);
-          console.log(select);
-          let selectedSize = this.value;
-          select.value = selectedSize;
-          select.dispatchEvent(new Event('change', { bubbles: true }));
-        }
-
-        let sizeRadiosContainer = document.querySelectorAll('.size-buttons');
-        if (sizeRadiosContainer) {
-          sizeRadiosContainer.forEach((sizeRadio) => {
-            sizeRadio.addEventListener('change', function (event) {
-              if (event.target.classList.contains('size-radio')) {
-                updateSelectedSize.call(event.target);
-              }
-            });
-          });
-        }
+    <script>
+      window.addEventListener('pageshow', function (event) {
+        // Reset the radio buttons to default (first option checked)
+        console.log('PAGE_SHOW');
+        // const sizeRadios = document.querySelectorAll('.size-radio');
+        // sizeRadios[0].checked = true;
       });
-    </script> {% endcomment %}
+    </script>
+    {% comment %}
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          function updateSelectedSize() {
+            let select = document.querySelector(`select[name="${this.name}"]`);
+            console.log(select);
+            let selectedSize = this.value;
+            select.value = selectedSize;
+            select.dispatchEvent(new Event('change', { bubbles: true }));
+          }
+
+          let sizeRadiosContainer = document.querySelectorAll('.size-buttons');
+          if (sizeRadiosContainer) {
+            sizeRadiosContainer.forEach((sizeRadio) => {
+              sizeRadio.addEventListener('change', function (event) {
+                if (event.target.classList.contains('size-radio')) {
+                  updateSelectedSize.call(event.target);
+                }
+              });
+            });
+          }
+        });
+      </script>
+    {% endcomment %}
 
     {%- if product.media.size > 0 -%}
       <script src="{{ 'product-modal.js' | asset_url }}" defer="defer"></script>
