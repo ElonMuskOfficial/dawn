@@ -36,12 +36,12 @@ function runCode(simpleBundles) {
   console.log(variantID);
   if (!variantID) return;
 
-  let variant =
+  let bundleVariant =
     simpleBundles && !isEmptyObject(simpleBundles.productVariants)
       ? simpleBundles.productVariants[variantID.value]
       : null;
-  console.log(variant);
-  createOptionSets(variant);
+  console.log(bundleVariant);
+  createOptionSets(bundleVariant);
   function updateSelectedSize() {
     let select = document.querySelector(`select[name="${this.name}"]`);
     let selectedSize = this.value;
