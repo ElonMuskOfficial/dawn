@@ -102,6 +102,7 @@ class SimpleBundlesHandler {
   }
 
   addEventListeners(selector, className, handler) {
+    console.log(this.optionSetElement);
     const elements = this.optionSetElement.querySelectorAll(selector);
     console.log('HELLO>>>>>', elements);
     elements.forEach((element) => {
