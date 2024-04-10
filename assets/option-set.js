@@ -36,12 +36,12 @@ function runCode(simpleBundles) {
   console.log(variantID);
   if (!variantID) return;
 
-  let variant_options =
+  let variant =
     simpleBundles && !isEmptyObject(simpleBundles.productVariants)
       ? simpleBundles.productVariants[variantID.value]
       : null;
-  console.log(variant_options);
-  createOptionSets(variant_options);
+  console.log(variant);
+  createOptionSets(variant);
   function updateSelectedSize() {
     let select = document.querySelector(`select[name="${this.name}"]`);
     let selectedSize = this.value;
@@ -65,7 +65,9 @@ function runCode(simpleBundles) {
   addEventListeners('.color-swatch', 'color-radio', updateSelectedSize);
 }
 
-function createOptionSets(variant_options) {}
+function createOptionSets(variant_options) {
+  variant_options;
+}
 
 function createSwatches() {}
 
