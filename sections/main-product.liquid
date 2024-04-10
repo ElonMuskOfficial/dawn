@@ -676,7 +676,14 @@
       !(function () {
         function i(p) {
           let sizeRadios = document.querySelectorAll('.size-radio');
-          console.log(sizeRadios)
+          sizeRadios.forEach(function (radio) {
+            radio.addEventListener('change', function () {
+              var selectedSize = this.value;
+              document.getElementById('tee-size').value = selectedSize;
+              document.getElementById('hidden-tee-size').value = selectedSize;
+              updateBundleSelection();
+            });
+          });
         }
         document.addEventListener('DOMContentLoaded', i),
           window.addEventListener('pageshow', function (e) {
