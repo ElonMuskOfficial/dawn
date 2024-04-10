@@ -674,7 +674,10 @@
     {%- endfor -%}
     <script>
       window.addEventListener('pageshow', function (event) {
-        document.querySelectorAll('form[action*="cart/Add" i]').forEach((form) => form.reset());
+        if (event.persisted) {
+          // Check if the page is being loaded from the cache
+          document.querySelectorAll('form[action*="cart/Add" i]').forEach((form) => form.reset());
+        }
       });
     </script>
 
