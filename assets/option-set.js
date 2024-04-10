@@ -30,6 +30,7 @@ window.addEventListener('pageshow', function (event) {
 
 function runCode(simpleBundles) {
   let variantID = document.querySelector('.product-variant-id');
+  console.log(variantID);
   if (!variantID) return;
   let variant_options = simpleBundles.productVariants[variantID.value];
   console.log(variant_options);
