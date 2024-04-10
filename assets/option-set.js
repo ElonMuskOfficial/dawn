@@ -3,7 +3,6 @@ function observeSimpleBundles(callback, interval = 150) {
 
   function checkSimpleBundles() {
     if (window.SimpleBundles !== undefined || checksRemaining === 0) {
-      console.log(checksRemaining);
       callback(window.SimpleBundles);
     } else {
       checksRemaining--;
