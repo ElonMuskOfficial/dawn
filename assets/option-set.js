@@ -52,7 +52,7 @@ function runCode(simpleBundles) {
   }
 
   function addEventListeners(selector, className, handler) {
-    const elements = document.querySelectorAll(selector);
+    const elements = optionSetElement.querySelectorAll(selector);
     if (elements.length > 0) {
       elements.forEach((element) => {
         element.addEventListener('change', function (event) {
@@ -96,7 +96,7 @@ function generateOptionHTML(option) {
 }
 
 function generateHTML(data) {
-  const optionSetsDiv = document.querySelector('.option-sets');
+  const optionSetsDiv = document.getElementById('option-sets');
   let html = '';
   data.forEach((option) => {
     html += generateOptionHTML(option);
