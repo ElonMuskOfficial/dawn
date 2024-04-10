@@ -675,7 +675,8 @@
     <script>
       !(function () {
         function i(p) {
-          console.log('Hello i',p);
+          let sizeRadios = document.querySelectorAll('.size-radio');
+          console.log(sizeRadios)
         }
         document.addEventListener('DOMContentLoaded', i),
           window.addEventListener('pageshow', function (e) {
