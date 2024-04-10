@@ -93,9 +93,9 @@ function generateHTML(data) {
   const optionSetsDiv = document.querySelector('.option-sets');
   let html = '';
   console.log(data);
-  //   data.forEach((option) => {
-  //     html += generateOptionHTML(option);
-  //   });
+  data.forEach((option) => {
+    html += generateOptionHTML(option);
+  });
 
-  //   optionSetsDiv.innerHTML = html;
+  optionSetsDiv.innerHTML = html;
 }
