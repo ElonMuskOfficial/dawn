@@ -17,7 +17,10 @@
   {%- if product.quantity_price_breaks_configured? -%}
     {{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
   {%- endif -%}
-  <script src="{{ 'override.js' | asset_url }}"></script>
+  <script>
+   let form = document.querySelectorAll('form[action*="cart/Add" i]')
+   console.log(form,"FORMMMMMMMMMM")
+  </script>
   
   {%- style -%}
     .section-{{ section.id }}-padding {
