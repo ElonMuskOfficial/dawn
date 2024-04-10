@@ -103,7 +103,7 @@ class SimpleBundlesHandler {
 
   addEventListeners(selector, className, handler) {
     const elements = this.optionSetElement.querySelectorAll(selector);
-    console.log('HELLO>>>>>');
+    console.log('HELLO>>>>>', elements);
     elements.forEach((element) => {
       element.addEventListener('change', function (event) {
         if (event.target.classList.contains(className)) {
