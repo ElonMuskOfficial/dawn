@@ -71,7 +71,8 @@ function createOptionSets(bundle_variant) {
       createRadios(item);
     }
     if (item.defaultOptionName === 'Color') {
-      createSwatches(item);
+      let html = createSwatches(item);
+      console.log(html);
     }
   });
 }
