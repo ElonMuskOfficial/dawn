@@ -76,6 +76,6 @@ function createOptionSets(bundle_variant) {
   });
 }
 
-function createSwatches() {}
+function createSwatches(item) {}
 
-function createRadios() {}
+function createRadios(item) {}
