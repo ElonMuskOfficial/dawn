@@ -71,7 +71,10 @@
         {%- endif -%}
         <div data-simple-bundles-options="">
           <!-- BEGIN app snippet: simple-bundles-options -->
-          <div id="simple-bundles-io-options" data-simple-bundles-variant-id="48613911593249">
+          <div
+            id="simple-bundles-io-options"
+            data-simple-bundles-variant-id="{{product.selected_or_first_available_variant.id}}"
+          >
             <label for="classic-varsity-top---size">Classic Varsity Top - Size</label>
             <select id="classic-varsity-top---size" name="properties[Classic Varsity Top - Size]" required="">
               <option disabled="" value="">Please select an option</option>
