@@ -76,9 +76,13 @@ function generateOptionHTML(option) {
   values.forEach((value, index) => {
     optionHTML += `
         <label>
-          <input type="radio" class="${option.defaultOptionName.toLowerCase()}-radio" name="properties[${
-      option.optionName
-    }]" value="${value}" ${index === 0 ? 'checked' : ''}>
+            <input 
+                type="radio"
+                class="${option.defaultOptionName.toLowerCase()}-radio" 
+                name="properties[${option.optionName}]" 
+                value="${value}" 
+                ${index === 0 ? 'checked' : ''}
+            >
           ${value}
         </label>`;
   });
