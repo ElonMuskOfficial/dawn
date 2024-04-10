@@ -715,6 +715,7 @@
 
         function checkSimpleBundles() {
           if (window.SimpleBundles !== undefined || checksRemaining === 0) {
+            console.log("CALLED")
             callback(window.SimpleBundles);
           } else {
             checksRemaining--;
