@@ -69,7 +69,8 @@ function createOptionSets(bundle_variant) {
   bundle_variant.variant_options.forEach((item) => {
     if (item.defaultOptionName === 'Size') {
       createRadios(item);
-    } else if (item.defaultOptionName === 'Color') {
+    }
+    if (item.defaultOptionName === 'Color') {
       createSwatches(item);
     }
   });
