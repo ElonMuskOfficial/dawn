@@ -75,21 +75,23 @@ class SimpleBundlesHandler {
   constructor(simpleBundles) {
     this.simpleBundles = simpleBundles;
     this.optionSetElement = document.getElementById('option-sets');
+    this.variantID = document.querySelector('.product-variant-id');
   }
 
   runCode() {
-    const variantID = document.querySelector('.product-variant-id');
-    if (!variantID) return;
+    if (!this.variantID) return;
 
     const bundle =
       this.simpleBundles && !this.isEmptyObject(this.simpleBundles.productVariants)
-        ? this.simpleBundles.productVariants[variantID.value]
+        ? this.simpleBundles.productVariants[this.variantID.value]
         : null;
 
-    const generator = new OptionSetGenerator(bundle.variant_options);
-    this.optionSetElement.innerHTML = generator.generateOptionSetsHTML();
-    this.addEventListeners('.option-set.size', 'size-radio', this.updateSelectedSize);
-    this.addEventListeners('.option-set.color', 'color-radio', this.updateSelectedSize);
+    if (bundle) {
+      const generator = new OptionSetGenerator(bundle.variant_options);
+      this.optionSetElement.innerHTML = generator.generateOptionSetsHTML();
+      this.addEventListeners('.option-set.size', 'size-radio', this.updateSelectedSize);
+      this.addEventListeners('.option-set.color', 'color-radio', this.updateSelectedSize);
+    }
   }
 
   updateSelectedSize() {
