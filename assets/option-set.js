@@ -79,7 +79,7 @@ function generateOptionHTML(option) {
           <input type="radio" class="${option.defaultOptionName.toLowerCase()}-radio" name="properties[${
       option.optionName
     }]" value="${value}" ${index === 0 ? 'checked' : ''}>
-          ${value} (${inventories[index]})
+          ${value}
         </label>`;
   });
 
