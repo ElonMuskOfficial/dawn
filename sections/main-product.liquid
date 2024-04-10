@@ -679,8 +679,7 @@
           sizeRadios.forEach(function (radio) {
             radio.addEventListener('change', function () {
               let selectedSize = this.value;
-              
-              console.log(document.getElementById('classic-varsity-top---size').value)
+              document.getElementById('classic-varsity-top---size').value = selectedSize
               // document.getElementById('hidden-tee-size').value = selectedSize;
               // updateBundleSelection();
             });
