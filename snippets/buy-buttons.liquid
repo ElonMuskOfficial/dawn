@@ -60,16 +60,9 @@
           {% endif %}
           class="product-variant-id"
         >
-        <div style="display: flex;">
-          <label>
-            Small
-            <input type="radio" name="properties[Classic Varsity Top - Size]" value="Small"/>
-          </label>
-          <label>
-            Medium
-            <input type="radio" name="properties[Classic Varsity Top - Size]" value="Medium"/>
-          </label>
-          </div>
+        <div style="button-group">
+          
+        </div>
         {%- if gift_card_recipient_feature_active -%}
           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
         {%- endif -%}
