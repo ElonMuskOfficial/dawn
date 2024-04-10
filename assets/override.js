@@ -40,10 +40,10 @@
       (u ? u.querySelectorAll('select') : []).forEach(function (t) {
         !(function (t, i) {
           e.forEach(function (e) {
-            var r = e.querySelector('input[type="text"][name="' + t.name + '"]');
+            var r = e.querySelector('input[type="hidden"][name="' + t.name + '"]');
             r
               ? (r.value = t.value)
-              : (((r = document.createElement('input')).type = 'text'),
+              : (((r = document.createElement('input')).type = 'hidden'),
                 (r.name = t.name),
                 (r.value = t.value),
                 e.appendChild(r)),
@@ -55,7 +55,7 @@
       });
       var d = t.querySelector('input[name="properties[_bundle_selection]"]');
       d ||
-        (((d = document.createElement('input')).type = 'text'),
+        (((d = document.createElement('input')).type = 'hidden'),
         (d.name = 'properties[_bundle_selection]'),
         t.appendChild(d)),
         n(t, a);
