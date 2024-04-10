@@ -715,7 +715,7 @@
 
         function checkSimpleBundles() {
           if (window.SimpleBundles !== undefined || checksRemaining === 0) {
-            callback(window.SimpleBundles, 5 - checksRemaining);
+            callback(window.SimpleBundles, 4 - checksRemaining);
           } else {
             checksRemaining--;
             setTimeout(checkSimpleBundles, interval);
