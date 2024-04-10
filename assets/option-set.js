@@ -36,12 +36,12 @@ function runCode(simpleBundles) {
   console.log(variantID);
   if (!variantID) return;
 
-  let bundleVariant =
+  let bundle =
     simpleBundles && !isEmptyObject(simpleBundles.productVariants)
       ? simpleBundles.productVariants[variantID.value]
       : null;
-  console.log(bundleVariant);
-  generateHTML(bundleVariant.variant_options);
+  console.log(bundle);
+  generateHTML(bundle.variant_options);
   function updateSelectedSize() {
     let select = document.querySelector(`select[name="${this.name}"]`);
     let selectedSize = this.value;
@@ -98,10 +98,4 @@ function generateHTML(data) {
   });
 
   optionSetsDiv.innerHTML = html;
-}
-
-function createOptionSets(bundle_variant) {
-  bundle_variant.variant_options.forEach((item) => {
-    generateHTML(data);
-  });
 }
