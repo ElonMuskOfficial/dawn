@@ -715,7 +715,6 @@
 
         function checkSimpleBundles() {
           if (window.SimpleBundles !== undefined || checksRemaining === 0) {
-            console.log("CALLED")
             callback(window.SimpleBundles);
           } else {
             checksRemaining--;
@@ -726,10 +725,10 @@
         checkSimpleBundles();
       }
 
-      // Usage example:
       observeSimpleBundles(function (SimpleBundles) {
         if (SimpleBundles !== undefined) {
           console.log('SimpleBundles is:', SimpleBundles);
+          runCode();
         } else {
           console.log('SimpleBundles is not available after 4 attempts.');
         }
@@ -738,38 +737,38 @@
       window.addEventListener('pageshow', function (event) {
         document.querySelectorAll('form[action*="cart/Add" i]').forEach((form) => form.reset());
       });
-    </script>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        function updateSelectedSize() {
-          let select = document.querySelector(`select[name="${this.name}"]`);
-          let selectedSize = this.value;
-          select.value = selectedSize;
-          select.dispatchEvent(new Event('change', { bubbles: true }));
-        }
+      function runCode() {
+        document.addEventListener('DOMContentLoaded', function () {
+          function updateSelectedSize() {
+            let select = document.querySelector(`select[name="${this.name}"]`);
+            let selectedSize = this.value;
+            select.value = selectedSize;
+            select.dispatchEvent(new Event('change', { bubbles: true }));
+          }
 
-        let sizeRadiosContainer = document.querySelectorAll('.size-buttons');
-        if (sizeRadiosContainer) {
-          sizeRadiosContainer.forEach((sizeRadio) => {
-            sizeRadio.addEventListener('change', function (event) {
-              if (event.target.classList.contains('size-radio')) {
-                updateSelectedSize.call(event.target);
-              }
+          let sizeRadiosContainer = document.querySelectorAll('.size-buttons');
+          if (sizeRadiosContainer) {
+            sizeRadiosContainer.forEach((sizeRadio) => {
+              sizeRadio.addEventListener('change', function (event) {
+                if (event.target.classList.contains('size-radio')) {
+                  updateSelectedSize.call(event.target);
+                }
+              });
             });
-          });
-        }
-        let colorRadios = document.querySelectorAll('.color-swatch');
-        if (colorRadios) {
-          colorRadios.forEach((colorRadio) => {
-            colorRadio.addEventListener('change', function (event) {
-              if (event.target.classList.contains('color-radio')) {
-                updateSelectedSize.call(event.target);
-              }
+          }
+          let colorRadios = document.querySelectorAll('.color-swatch');
+          if (colorRadios) {
+            colorRadios.forEach((colorRadio) => {
+              colorRadio.addEventListener('change', function (event) {
+                if (event.target.classList.contains('color-radio')) {
+                  updateSelectedSize.call(event.target);
+                }
+              });
             });
-          });
-        }
-      });
+          }
+        });
+      }
     </script>
 
     {%- if product.media.size > 0 -%}
