@@ -682,7 +682,7 @@
           select.dispatchEvent(new Event('change', { bubbles: true }));
         }
 
-        let sizeRadiosContainer = document.querySelector('.size-buttons');
+        let sizeRadiosContainer = document.querySelectorAll('.size-buttons');
         if (sizeRadiosContainer) {
           sizeRadiosContainer.addEventListener('change', function (event) {
             if (event.target.classList.contains('size-radio')) {
