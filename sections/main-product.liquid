@@ -679,30 +679,29 @@
         }
       });
     </script>
-    {% comment %}
-      <script>
-        document.addEventListener('DOMContentLoaded', function () {
-          function updateSelectedSize() {
-            let select = document.querySelector(`select[name="${this.name}"]`);
-            console.log(select);
-            let selectedSize = this.value;
-            select.value = selectedSize;
-            select.dispatchEvent(new Event('change', { bubbles: true }));
-          }
 
-          let sizeRadiosContainer = document.querySelectorAll('.size-buttons');
-          if (sizeRadiosContainer) {
-            sizeRadiosContainer.forEach((sizeRadio) => {
-              sizeRadio.addEventListener('change', function (event) {
-                if (event.target.classList.contains('size-radio')) {
-                  updateSelectedSize.call(event.target);
-                }
-              });
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        function updateSelectedSize() {
+          let select = document.querySelector(`select[name="${this.name}"]`);
+          console.log(select);
+          let selectedSize = this.value;
+          select.value = selectedSize;
+          select.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+
+        let sizeRadiosContainer = document.querySelectorAll('.size-buttons');
+        if (sizeRadiosContainer) {
+          sizeRadiosContainer.forEach((sizeRadio) => {
+            sizeRadio.addEventListener('change', function (event) {
+              if (event.target.classList.contains('size-radio')) {
+                updateSelectedSize.call(event.target);
+              }
             });
-          }
-        });
-      </script>
-    {% endcomment %}
+          });
+        }
+      });
+    </script>
 
     {%- if product.media.size > 0 -%}
       <script src="{{ 'product-modal.js' | asset_url }}" defer="defer"></script>
