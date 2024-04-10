@@ -672,7 +672,11 @@
         </div>
       </modal-dialog>
     {%- endfor -%}
-
+    <script>
+      window.addEventListener('pageshow', function(event) {
+        document.getElementById('size-form').reset(); // Reset the form
+      });
+    </script>
     {% comment %}
       <script>
         document.addEventListener('DOMContentLoaded', function () {
