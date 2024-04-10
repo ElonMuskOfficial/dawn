@@ -710,11 +710,11 @@
       </modal-dialog>
     {%- endfor -%}
     <script>
-      function observeSimpleBundles(callback, interval = 150) {
+      function observeSimpleBundles(callback, interval = 170) {
         let checksRemaining = 4;
 
         function checkSimpleBundles() {
-          console.log(`Attempt ${5 - checksRemaining} to check SimpleBundles.`);
+          console.log(`Attempt ${4 - checksRemaining} to check SimpleBundles.`);
           if (window.SimpleBundles !== undefined || checksRemaining === 0) {
             callback(window.SimpleBundles);
           } else {
