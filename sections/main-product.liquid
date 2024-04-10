@@ -674,12 +674,12 @@
     {%- endfor -%}
     <script>
       !(function () {
-        function i() {
-          console.log('Hello i');
+        function i(p) {
+          console.log('Hello i', p);
         }
         document.addEventListener('DOMContentLoaded', i),
           window.addEventListener('pageshow', function (e) {
-            e.persisted && i();
+            e.persisted && i("ok");
           });
       })();
     </script>
