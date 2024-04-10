@@ -60,14 +60,20 @@
           {% endif %}
           class="product-variant-id"
         >
-       
-        {% comment %} <div style="button-group">
-          
-        </div> {% endcomment %}
+
+        {% comment %}
+          <div style="button-group">
+
+          </div>
+        {% endcomment %}
         {%- if gift_card_recipient_feature_active -%}
           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
         {%- endif -%}
-
+        <div data-simple-bundles-options="">
+          <!-- BEGIN app snippet: simple-bundles-options -->
+          <div id="simple-bundles-io-options" data-simple-bundles-variant-id="48623539388705"></div>
+          <!-- END app snippet -->
+        </div>
         <div class="product-form__buttons">
           {%- liquid
             assign check_against_inventory = true
@@ -99,15 +105,17 @@
           {%- if show_dynamic_checkout -%}
             {{ form | payment_button }}
           {%- endif -%}
-          </div>
-          {% comment %} <input type="hidden" name="product-id" value="9185498824993">
-          <input type="hidden" name="section-id" value="template--22438134907169__main"> {% endcomment %}
-          <input type="hidden" name="properties[Classic Varsity Top - Size]" value="Small">
-          <input type="hidden" name="properties[CB-COLEBROOK Men's Shirt - Color]" value="WHITE">
-          <input type="hidden" name="properties[CB-COLEBROOK Men's Shirt - Size]" value="M">
-          <input type="hidden" name="properties[ADIDAS | KID'S STAN SMITH - Size]" value="1">
-          <input type="hidden" name="properties[ADIDAS | KID'S STAN SMITH - Color]" value="white">
-          <input type="hidden" name="properties[_bundle_selection]" value="Small <> WHITE ++ M <> 1 ++ white">
+        </div>
+        {% comment %}
+          <input type="hidden" name="product-id" value="9185498824993">
+          <input type="hidden" name="section-id" value="template--22438134907169__main">
+        {% endcomment %}
+        <input type="hidden" name="properties[Classic Varsity Top - Size]" value="Small">
+        <input type="hidden" name="properties[CB-COLEBROOK Men's Shirt - Color]" value="WHITE">
+        <input type="hidden" name="properties[CB-COLEBROOK Men's Shirt - Size]" value="M">
+        <input type="hidden" name="properties[ADIDAS | KID'S STAN SMITH - Size]" value="1">
+        <input type="hidden" name="properties[ADIDAS | KID'S STAN SMITH - Color]" value="white">
+        <input type="hidden" name="properties[_bundle_selection]" value="Small <> WHITE ++ M <> 1 ++ white">
       {%- endform -%}
     </product-form>
   {%- else -%}
