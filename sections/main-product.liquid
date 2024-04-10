@@ -453,7 +453,14 @@
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
                 <div style="display: flex;">
-                  <input type="radio" name="properties[Classic Varsity Top - Size]"/>
+                <label>
+                  Classic Varsity Top - Size
+                  <input type="radio" name="properties[Classic Varsity Top - Size]" value="Small"/>
+                </label>
+                <label>
+                  Classic Varsity Top - Size
+                  <input type="radio" name="properties[Classic Varsity Top - Size]" value="Medium"/>
+                </label>
                 </div>
               {%- when 'buy_buttons' -%}
                 {%- render 'buy-buttons',
