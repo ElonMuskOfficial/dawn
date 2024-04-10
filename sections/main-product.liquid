@@ -710,6 +710,18 @@
       </modal-dialog>
     {%- endfor -%}
     <script>
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            console.log('Targeted element is rendered');
+          } else {
+            console.log('Targeted element is not rendered');
+          }
+        });
+      });
+      const targetElements = document.querySelector('[data-simple-bundles-options]');
+      observer.observe(targetElement);
+
       window.addEventListener('pageshow', function (event) {
         document.querySelectorAll('form[action*="cart/Add" i]').forEach((form) => form.reset());
       });
