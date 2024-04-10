@@ -714,8 +714,8 @@
         let checksRemaining = 4;
 
         function checkSimpleBundles() {
+          console.log(`Attempt ${5 - checksRemaining} to check SimpleBundles.`);
           if (window.SimpleBundles !== undefined || checksRemaining === 0) {
-            console.log(`Attempt ${4 - checksRemaining} to check SimpleBundles.`);
             callback(window.SimpleBundles);
           } else {
             checksRemaining--;
