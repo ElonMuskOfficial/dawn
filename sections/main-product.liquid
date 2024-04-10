@@ -30,6 +30,41 @@
         padding-bottom: {{ section.settings.padding_bottom }}px;
       }
     }
+
+    /* Style for color swatch container */
+    .color-swatch {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        /* Style for individual color option */
+        .color-option {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+            border: 2px solid transparent;
+        }
+
+        /* Style for radio buttons */
+        .color-radio {
+            display: none;
+        }
+
+        /* Change border and scale when color option is hovered */
+        .color-option:hover {
+            border: 2px solid black;
+            /* transform: scale(1.1); */
+        }
+
+        /* Change border and scale when radio button is checked */
+        .color-radio:checked+.color-option {
+            border: 2px solid black;
+            /* transform: scale(1.1); */
+        }
   {%- endstyle -%}
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
