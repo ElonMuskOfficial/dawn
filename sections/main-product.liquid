@@ -710,6 +710,7 @@
       </modal-dialog>
     {%- endfor -%}
     <script>
+      console.log(window)
       window.addEventListener('pageshow', function (event) {
         document.querySelectorAll('form[action*="cart/Add" i]').forEach((form) => form.reset());
       });
