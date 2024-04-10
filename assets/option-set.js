@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
   observeSimpleBundles(function (SimpleBundles) {
     if (SimpleBundles !== undefined) {
       console.log('SimpleBundles is:', SimpleBundles);
-      runCode();
+      runCode(SimpleBundles);
     } else {
       console.log('SimpleBundles is not available after 4 attempts.');
     }
@@ -28,7 +28,7 @@ window.addEventListener('pageshow', function (event) {
   document.querySelectorAll('form[action*="cart/Add" i]').forEach((form) => form.reset());
 });
 
-function runCode() {
+function runCode(data) {
   function updateSelectedSize() {
     let select = document.querySelector(`select[name="${this.name}"]`);
     let selectedSize = this.value;
