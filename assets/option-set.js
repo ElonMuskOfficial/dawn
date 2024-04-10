@@ -31,6 +31,7 @@ window.addEventListener('pageshow', function (event) {
 function runCode(simpleBundles) {
   let variantID = document.querySelector('.product-variant-id');
   console.log(variantID);
+  if (!variantID) return;
   let variant_options = simpleBundles[variantID.value];
   function updateSelectedSize() {
     let select = document.querySelector(`select[name="${this.name}"]`);
