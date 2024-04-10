@@ -673,17 +673,11 @@
       </modal-dialog>
     {%- endfor -%}
     <script>
-      window.addEventListener('popstate', resetFormsOnNavigation);
-
       window.addEventListener('pageshow', function (event) {
-        if (event.persisted) {
-          resetFormsOnNavigation();
+        if (window.history.state && window.history.state.navigationType === 'back_forward') {
+          document.querySelectorAll('form[action*="cart/Add" i]').forEach((form) => form.reset());
         }
       });
-
-      function resetFormsOnNavigation() {
-        document.querySelectorAll('form[action*="cart/Add" i]').forEach((form) => form.reset());
-      }
     </script>
 
     <script>
