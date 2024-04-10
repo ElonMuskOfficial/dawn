@@ -33,6 +33,7 @@ function runCode(simpleBundles) {
   console.log(variantID);
   if (!variantID) return;
   let variant_options = simpleBundles[variantID.value];
+  console.log(variant_options);
   function updateSelectedSize() {
     let select = document.querySelector(`select[name="${this.name}"]`);
     let selectedSize = this.value;
