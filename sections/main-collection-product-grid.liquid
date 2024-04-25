@@ -36,7 +36,7 @@
   }
 {%- endstyle -%}
 {% assign hidden_tag = 'frek' %}
-{% assign filtered_products = collection.products | where: 'tags', '!=', hidden_tag %}
+{% assign filtered_products = collection.products | where: 'type', "Hidden" %}
 <script>
   console.log({{ filtered_products | json }},'filtered_products')
 </script>
