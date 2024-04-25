@@ -36,7 +36,7 @@
   }
 {%- endstyle -%}
 {% assign hidden_tag = 'frek' %}
-{% assign filtered_products = collection.products | map: "tags", "frek" %}
+{% assign filtered_products = collection.products | map: "tags", "contains", "frek" %}
 <script>
   console.log({{ filtered_products | json }},'filtered_products')
 </script>
