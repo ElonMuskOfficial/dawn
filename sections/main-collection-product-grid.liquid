@@ -36,7 +36,7 @@
   }
 {%- endstyle -%}
 {% assign hidden_tag = 'frek' %}
-{% assign filtered_products = collection.products | where: 'metafields.custom.display_shade_finder','true' %}
+{% assign filtered_products = collection.products | map: "tags" %}
 <script>
   console.log({{ filtered_products | json }},'filtered_products')
 </script>
