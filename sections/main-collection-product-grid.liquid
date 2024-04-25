@@ -36,7 +36,7 @@
   }
 {%- endstyle -%}
 {% assign hidden_tag = 'frek' %}
-{% assign filtered_products = collection.tags %}
+{% assign filtered_products = collection.all_tags %}
 <script>
   console.log({{ filtered_products | json }},'filtered_products')
 </script>
