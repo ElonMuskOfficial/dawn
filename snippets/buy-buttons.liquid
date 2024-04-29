@@ -60,78 +60,7 @@
           {% endif %}
           class="product-variant-id"
         >
-        <div id="option-sets" class="option-sets"></div>
-        {% comment %} <div class="option-sets">
-          <div>Classic Varsity Top - Size</div>
-          <div class="size-radios" style="display: flex;">
-            <label
-              ><input
-                type="radio"
-                class="size-radio"
-                name="properties[Classic Varsity Top - Size]"
-                value="Small"
-                checked
 
-              >Small</label
-            >
-            <label
-              ><input type="radio" class="size-radio" name="properties[Classic Varsity Top - Size]" value="Medium"
-              >Medium</label
-            >
-            <label
-              ><input type="radio" class="size-radio" name="properties[Classic Varsity Top - Size]" value="Large"
-              >Large</label
-            >
-          </div>
-          <div>CB-COLEBROOK Men's Shirt - Color</div>
-          <div class="color-radios">
-            <label
-              ><input
-                type="radio"
-                class="color-radio"
-                name="properties[CB-COLEBROOK Men's Shirt - Color]"
-                value="WHITE"
-                checked
-              >
-              <div class="color-option" style="background-color: rgb(223, 211, 211);"></div>
-            </label>
-            <label
-              ><input
-                type="radio"
-                class="color-radio"
-                name="properties[CB-COLEBROOK Men's Shirt - Color]"
-                value="BERRY MAROON"
-              >
-              <div class="color-option" style="background-color: #800000;"></div>
-            </label>
-            <label
-              ><input
-                type="radio"
-                class="color-radio"
-                name="properties[CB-COLEBROOK Men's Shirt - Color]"
-                value="CADET GREY"
-              >
-              <div class="color-option" style="background-color: #8a8888;"></div>
-            </label>
-          </div>
-          <div>CB-COLEBROOK Men's Shirt - Size</div>
-          <div class="size-radios" style="display: flex;">
-            <label
-              ><input
-                type="radio"
-                class="size-radio"
-                name="properties[CB-COLEBROOK Men's Shirt - Size]"
-                value="M"
-                checked
-
-              >M</label
-            >
-            <label
-              ><input type="radio" class="size-radio" name="properties[CB-COLEBROOK Men's Shirt - Size]" value="S"
-              >S</label
-            >
-          </div>
-        </div> {% endcomment %}
         {%- if gift_card_recipient_feature_active -%}
           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
         {%- endif -%}
