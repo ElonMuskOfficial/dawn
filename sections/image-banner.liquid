@@ -70,6 +70,9 @@
           assign sizes = full_width
         endif
       -%}
+    <script>
+                    console.log({{ section.settings.image.aspect_ratio | json }},"aspect_ratio")
+                  </script>
       {{
         section.settings.image
         | image_url: width: 3840
