@@ -13,7 +13,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text": "Give customers details about the banner <strong>image(s)<\/strong> or content on the template. dgdgfgdfgfdgs dfsgdfgfd sdgcgdd d dgsdgsdgc",
             "text_style": "body"
           }
         },
@@ -35,7 +35,7 @@
         "button"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/IMG-20191103-WA0002.jpg",
+        "image": "shopify:\/\/shop_images\/B1.webp",
         "image_2": "shopify:\/\/shop_images\/TEENIKE.webp",
         "image_overlay_opacity": 40,
         "image_height": "large",
@@ -46,7 +46,7 @@
         "image_behavior": "none",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
-        "show_text_below": false
+        "show_text_below": true
       }
     },
     "rich_text": {
