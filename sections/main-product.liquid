@@ -67,7 +67,7 @@
 
   {%  for prod in product.metafields.custom.bundle_pdp.value.select_bundle_product.value %}
     <script>
-      console.log({{ prod.product | json }},"product")
+      console.log({{ prod.product.value | json }},"product")
     </script>
   {%  endfor %}
   
