@@ -65,9 +65,11 @@
     >
   {%- endif -%}
 
+  {%  for prod in product.metafields.custom.bundle_pdp.value.select_bundle_product.value %}
     <script>
-      console.log({{ product.metafields.custom.bundle_pdp.value.select_bundle_product.value | json }},"product")
+      console.log({{ prod | json }},"product")
     </script>
+  {%  endfor %}
   
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div class="page-width">
