@@ -205,7 +205,7 @@ if (!customElements.get('product-info')) {
 
           updateSourceFromDestination('price');
           updateSourceFromDestination('Sku', ({ classList }) => classList.contains('hidden'));
-          updateSourceFromDestination('Inventory', ({p}) => {console.log("OK",p)});
+          updateSourceFromDestination('Inventory', ({innerText}) => {console.log("OK",innerText)});
           updateSourceFromDestination('Volume');
           updateSourceFromDestination('Price-Per-Item', ({ classList }) => classList.contains('hidden'));
 
