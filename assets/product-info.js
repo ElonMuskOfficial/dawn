@@ -250,7 +250,7 @@ if (!customElements.get('product-info')) {
       setUnavailable() {
         this.productForm?.toggleSubmitButton(true, window.variantStrings.unavailable);
 
-        const selectors = ['price', 'Inventory', 'Sku', 'Price-Per-Item', 'Volume-Note', 'Volume', 'Quantity-Rules']
+        const selectors = ['price', 'Sku', 'Price-Per-Item', 'Volume-Note', 'Volume', 'Quantity-Rules']
           .map((id) => `#${id}-${this.dataset.section}`)
           .join(', ');
         document.querySelectorAll(selectors).forEach(({ classList }) => classList.add('hidden'));
