@@ -44,11 +44,11 @@
   {%- endif -%}
 
 
-  {% for val in product.metafields.custom.pdp_nudebody.value %}
+  {% for val in product.metafields.custom.pdp_block_steps.value %}
   <!-- <script>
     console.log({{ val | json }})
   </script> -->
-    {{ val.body_text_input | metafield_tag }}
+    {{ val.body_text_input }}
   {%  endfor %}
 
   {% if section.settings.image_zoom == 'hover' %}
