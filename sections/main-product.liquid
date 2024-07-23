@@ -48,7 +48,7 @@
   <!-- <script>
     console.log({{ val | json }})
   </script> -->
-    {{ val.body_text_input }}
+    {{ val.body_text_input | metafield_tag }}
   {%  endfor %}
 
   {% if section.settings.image_zoom == 'hover' %}
