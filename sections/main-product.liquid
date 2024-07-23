@@ -43,9 +43,12 @@
     <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
   {%- endif -%}
 
+
+  {% for val in product.metafields.custom.pdp_nudebody.value %}
   <script>
-    console.log({{ product.metafields.custom.pdp_nudebody.value | json }})
+    console.log({{ val | json }})
   </script>
+  {%  endfor %}
 
   {% if section.settings.image_zoom == 'hover' %}
     <script id="EnableZoomOnHover-main" src="{{ 'magnify.js' | asset_url }}" defer="defer"></script>
