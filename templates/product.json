@@ -149,7 +149,7 @@
         "image-with-text-0": {
           "type": "heading",
           "settings": {
-            "heading": "Image with text",
+            "heading": "Image with text 1",
             "heading_size": "h1"
           }
         },
@@ -166,6 +166,7 @@
         "image-with-text-1"
       ],
       "settings": {
+        "image": "shopify:\/\/shop_images\/4Nudestix-Glamzilla-HotFireCampaign-Final04_102892b5-2c92-47f6-9fc6-8c34cd62a99f.jpg",
         "height": "small",
         "desktop_image_width": "medium",
         "layout": "text_first",
