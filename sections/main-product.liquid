@@ -42,9 +42,13 @@
     <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
   {%- endif -%}
-    {% assign title_size = product.metafields.custom.new_block.value.reason_title %}
+
+  {% assign title_size = 0 %}
+  {% for i in product.metafields.custom.new_block.value.reason_title %}
+    {% assign title_size = title_size | plus: 1 %}
+  {% endfor %}
   <script>
-    console.log({{ title_size.count | json }})
+    console.log({{ title_size | json }})
   </script>
 
   {% if section.settings.image_zoom == 'hover' %}
