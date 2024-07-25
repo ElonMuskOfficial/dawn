@@ -42,7 +42,7 @@
     <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
   {%- endif -%}
-    {% assign title_size = product.metafields.custom.new_block.value.reason_title %}
+    {% assign title_size = product.metafields.custom.new_block %}
   <script>
     console.log({{ title_size | json }})
   </script>
