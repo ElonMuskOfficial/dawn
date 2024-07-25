@@ -43,15 +43,9 @@
     <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
   {%- endif -%}
 
-  {% for val in product.metafields.custom.new_block.value %}
-          <script>
-        console.log({{ val | json }})
-      </script>
-   
-    <!-- <div>
-      {{ val.body_text_input }}
-    </div> -->
-  {% endfor %}
+  <script>
+    console.log({{ product.metafields.custom.new_block.value | json }})
+  </script>
 
   {% if section.settings.image_zoom == 'hover' %}
     <script id="EnableZoomOnHover-main" src="{{ 'magnify.js' | asset_url }}" defer="defer"></script>
