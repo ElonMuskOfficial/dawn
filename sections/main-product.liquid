@@ -44,10 +44,10 @@
   {%- endif -%}
 
  
-  {% for i in product.metafields.custom.new_block.value.reason_title %}
     <script>
-      console.log({{ i }})
+      console.log({{ product.metafields.custom.new_block.value.reason_title }})
     </script>
+  {% for i in product.metafields.custom.new_block.value.reason_title %}
   {% endfor %}
 
   {% if section.settings.image_zoom == 'hover' %}
