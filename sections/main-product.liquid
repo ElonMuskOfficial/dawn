@@ -44,7 +44,7 @@
   {%- endif -%}
 
  
-  {% for i in product.metafields.custom.new_block.value.reason_title %}
+  {% for i in product.metafields.custom.new_block.value.reason_title.value %}
     <script>
       console.log({{ product.metafields.custom.new_block.value.reason_title }})
     </script>
