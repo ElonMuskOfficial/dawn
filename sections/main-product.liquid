@@ -48,7 +48,7 @@
     {% assign title_size = title_size | plus: 1 %}
   {% endfor %} -->
   <script>
-    console.log({{ title_size }})
+    console.log({{ title_size.reason_title }})
   </script>
 
   {% if section.settings.image_zoom == 'hover' %}
