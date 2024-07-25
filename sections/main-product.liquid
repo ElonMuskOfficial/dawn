@@ -43,11 +43,11 @@
     <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
   {%- endif -%}
 
- 
-  {% for i in (1..product.metafields.custom.new_block.value.reason_title.value.size ) %}
-    {% assign get = i | minus: 1 %}
+  {% assign reasons = product.metafields.custom.new_block.value.reason_title.value %}
+  {% assign reasons_size = reasons.size | minus: 1 %}
+  {% for i in (0..reasons_size) %}
     <script>
-      console.log({{ get }},{{ product.metafields.custom.new_block.value.reason_title.value[i] | json }})
+      console.log({{ i }}, {{ reasons[i] | json }})
     </script>
   {% endfor %}
 
