@@ -43,13 +43,12 @@
     <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
   {%- endif -%}
 
-  {% assign title_size = product.metafields.custom.new_block.value.reason_title %}
-  <!-- {% for i in product.metafields.custom.new_block.value.reason_title %}
-    {% assign title_size = title_size | plus: 1 %}
-  {% endfor %} -->
-  <script>
-    console.log({{ title_size | json }})
-  </script>
+ 
+  {% for i in product.metafields.custom.new_block.value.reason_title %}
+    <script>
+      console.log({{ i | json }})
+    </script>
+  {% endfor %}
 
   {% if section.settings.image_zoom == 'hover' %}
     <script id="EnableZoomOnHover-main" src="{{ 'magnify.js' | asset_url }}" defer="defer"></script>
