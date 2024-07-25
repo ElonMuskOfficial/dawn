@@ -44,7 +44,7 @@
   {%- endif -%}
 
  
-  {% for i in (0..product.metafields.custom.new_block.value.reason_title.value.size ) %}
+  {% for i in (1..product.metafields.custom.new_block.value.reason_title.value.size ) %}
     {% assign i = i | minus: 1 %}
     <script>
       console.log({{ i }},{{ product.metafields.custom.new_block.value.reason_title.value[i] | json }})
