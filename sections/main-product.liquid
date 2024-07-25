@@ -43,7 +43,7 @@
     <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
   {%- endif -%}
 
-  {% assign title_size = product.metafields.custom.new_block.value.reason_title | json %}
+  {% assign title_size = product.metafields.custom.new_block.value.reason_title %}
   <!-- {% for i in product.metafields.custom.new_block.value.reason_title %}
     {% assign title_size = title_size | plus: 1 %}
   {% endfor %} -->
